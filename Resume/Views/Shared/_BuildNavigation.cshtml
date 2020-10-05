@@ -1,0 +1,43 @@
+﻿@model dynamic
+
+
+<div id="nav-bar-container" class="container">
+    <div class="row no-gutters">
+        <div class="col col-xl-12">
+            <nav>
+                <ul class="nav-level-1">
+                    <li><i id="btnNavExpand" class="material-icons md-18 md-black">menu</i><span>navigate</span><br /><br /></li>
+                    @{
+                        int param = 1;
+                    }
+                    @foreach (var module in Model.Modules)
+                    {
+                    <li data-link="/@module.ControllerName/@module.ActionName/@param">
+                        <i class="material-icons md-18 md-mint">@module.MaterialIcon</i><span>@module.ModuleDescription</span>
+                        @foreach (var submodule in Model.Submodules)
+                        {
+                            if (submodule.ModuleId == module.ModuleId)
+                            {
+                                if (submodule.ModuleId == 4 || submodule.ModuleId == 5)
+                                {
+                                    <div class="display-block">
+                                        <span data-link="/@module.ControllerName/@module.ActionName/@submodule.CompanyId"
+                                              data-projectid="@submodule.ProjectId">@submodule.SubmoduleDescription</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="display-block">
+                                        <span data-link="/@module.ControllerName/@module.ActionName/@submodule.SubmoduleId"
+                                              data-submoduleId="@submodule.SubmoduleId">@submodule.SubmoduleDescription</span>
+                                    </div>
+                                }
+                            }
+                        }
+                    </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

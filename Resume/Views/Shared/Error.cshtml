@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <hgroup>
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+    </hgroup>
+    {
+        <div style="color: red;">
+            @ViewBag.Code<br />
+            @ViewBag.ErrorSource<br />
+            <br /><hr /><br />
+            @ViewBag.ErrorData<br />
+            @ViewBag.ErrorMsg<br />
+            <br /><hr /><br />
+            @ViewBag.ErrorCausingMethod<br />
+
+            <br /><hr /><br />
+            @ViewBag.ErrorStacktrace<br />
+            <br /><hr /><br />
+            @ViewBag.ErrorBaseException<br />
+
+        </div>
+    }
+</body>
+</html>

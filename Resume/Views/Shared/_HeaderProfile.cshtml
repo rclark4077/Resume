@@ -1,0 +1,202 @@
+﻿@model dynamic
+@{
+    string @desc = "";
+}
+@section jsVars{
+    <script>
+        const controller = "Home";
+    </script>
+}
+<div class="home-render-action">
+    <table class="tableRow">
+        <thead>
+            <tr>
+                <th>
+                    <h1>
+                        <span id="welcomeString">C:\></span>
+                        <span></span><br />
+                    </h1>
+                    <div></div><br />
+                </th>
+                <th>
+                    <div>"...Looking forward to my next challenging opportunity in the areas of web, software & database engineering"</div><br />
+                </th>
+                <th>
+                    <div class="container">
+                        @foreach (dynamic item in Model.SocialNetworkProfiles)
+                        {
+                        desc = @item.SocialNetworkDescription;
+                        <div class="row no-gutters">
+                            <div class="col-xl-2 contact">
+                                @{
+                                    switch (@desc.Trim().ToLower())
+                                    {
+                                        case "phone number":
+                                            <i class="material-icons md-18 md-darkmint">perm_phone_msg</i>
+                                            break;
+                                        case "email":
+                                            <i class="material-icons md-18 md-darkmint">alternate_email</i>
+                                            break;
+                                        case "linkedin":
+                                            <div id="linkedinIcon">in</div>
+                                            break;
+                                        case "web site":
+                                            <i class="material-icons md-18 md-darkmint">language</i>
+                                            break;
+                                        default:
+                                            <i class="material-icons md-18 md-darkmint">email</i>
+                                            break;
+                                    }
+                                }
+                            </div>
+                            <div class="col-xl-10">
+                                @{
+                                    switch (@desc.Trim().ToLower())
+                                    {
+                                        case "phone number":
+                                            <a href="tel:1-@item.SocialNetworkAddress">@item.SocialNetworkAddress</a>
+                                            break;
+                                        case "email":
+                                            <a href="mailto:@item.SocialNetworkAddress">
+                                                @item.SocialNetworkAddress
+                                            </a>
+                                            break;
+                                        case "linkedin":
+                                        case "web site":
+                                            <a href="@item.SocialNetworkAddress">
+                                                @item.SocialNetworkAddress
+                                            </a>
+                                            break;
+                                        default:
+                                            @item.SocialNetworkAddress
+                                            break;
+                                    }
+                                }
+                            </div>
+                        </div>
+                        }
+                    </div><br />
+                </th>
+            </tr>
+        </thead>
+    </table>
+    <table class="tableRow table-striped table-dark">
+        <tbody>
+            <tr>
+                <td>
+                    <div>
+                        @foreach (dynamic item in Model.ProfileAttributes)
+                        {
+                            <span class="profileAttributes" style="vertical-align: middle; padding-right: 20px;">@item.ProfileAttributeDescription</span>
+                            <span class="bullet" style="padding-right: 20px;">&vert;</span>
+                        }
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="tableRow table table-striped table-dark table-hover">
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width: 50%;">
+                                    <!-- column 1-->
+                                    <div><span class="paragraph-title">About this site</span><br /><br /></div>
+                                    <div>
+                                        <p>Thank you for visiting my resume` web application.  This site was built for your benefit to experience a bit of my code design and engineering capabilities. The programming techniques used to build this site are described in the right panel: <span data-noevent="true" class="paragraph-title" style="padding: 2px;">Architecture</span></p>
+                                    </div>
+                                    <div>
+                                        <p>This site was built from the ground up with very little 3rd party framework involvement. This was intentional to illustrate my full-stack programming capabilities without the need for frameworks like angular or jquery.</p>
+                                        <p>The only framework that was used is <span class="textHighlight">Bootstrap 4</span>.  This came with one other JS add-on for Bootstrap called <span class="textHighlight">Popcorn</span>.  This operates when the side-menu is compressed and thus the descriptions for the navigation are hidden.  All animations, sliders, zooms, form-actions, page updates...etc were built using pure javascript in concert with CSS3 and MVC Request/Response handlers</p>
+                                        <p>Also, <span class="textHighlight">please note</span> that this MVC application is only built for Microsoft Edge, Firefox, Firefox Developer & Google Chrome</p>
+                                        <p>You can download this entire site's code for further code analysis. This includes all aspects of the database operations to create, insert, and manipulate database & tables using the download navigation links</p>
+                                    </div>
+                                </td>
+                                <td style="width: 50%; background-color: #6c7479;">
+                                    <!-- column 2 -->
+                                    <div><span class="paragraph-title">Architecture</span></div>
+                                    <div>
+                                        <p>
+                                            <ul>
+                                                <li>design pattern: <span class="textHighlight">Model-View-Controller</span> (MVC)</li>
+                                                <li>
+                                                    frontend:
+                                                    <ul>
+                                                        <li>frameworks: <span class="textHighlight">bootstrap 4</span></li>
+                                                        <li>other API: Popcorn (tooltip)</li>
+                                                        <li>front-end langauges: html 5, css 3, (pure) javascript</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    backend:
+                                                    <ul>
+                                                        <li>asp.net (framework 4.5)</li>
+                                                        <li>languages: c# and razor</li>
+                                                    </ul>
+                                                <li>
+                                                    data layer:
+                                                    <ul>
+                                                        <li>entity framework 6: <span class="textHighlight">ado.net entity data model</span></li>
+                                                        <li>database: MSSQL 2014 TSQL (local development)</li>
+                                                        <li><span class="textHighlight">database hosted (live): Azure SQL cloud hosting</span></li>
+                                                    </ul>
+                                                </li>
+                                                <li>unit testing: Microsoft TestFramework</li>
+                                                <li>site hosting:  <span class="textHighlight">Microsoft Azure Cloud Service</span></li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p><span style="color: #00ffb4; font-size: 20px;">***</span> The data layer controlled by the "edmx" entity data model also controls this site's navigational menu system, made up of "Modules" and "Submodules"</p>
+                                        <p>You'll find the Module and Submodule tables in the database</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        @foreach (dynamic item in Model.ContactNotes)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div><span class="paragraph-title">@item.NoteType.NoteTypeDescription</span></div>
+                                        <div>
+                                            <p>
+                                                @item.Note
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div><span class="paragraph-title">See Also...</span></div>
+                                    <div>
+                                        <p>Please check out the qualifications and projects sections of this website that briefly describe my technical and personal capabilities and experience</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

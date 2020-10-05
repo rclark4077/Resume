@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Resume.Models.Submodule>
+
+
+@section jsVars{
+    <script>
+        const controller = "Downloads";
+    </script>
+}
+@{
+    string SubmoduleId = ViewContext.RouteData.Values["id"].ToString();
+}
+<div class="downloadList">
+    <table id="tableRow" class="table table-striped table-dark table-bordered table-hover table-responsive-sm" style="width: 100%;">
+        <thead>
+            <tr>
+                <th style="padding: 20px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 65vw;">
+                                    <div class="table-column-header">
+                                        <span>Download Description</span>
+                                    </div>
+                                </th>
+                                <th style="width: 35vw;">
+                                    <div class="table-column-header">
+                                        <span>Download Link</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 20px;">
+                    <table>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td style="width: 2vw;">
+                                    @if (@SubmoduleId == item.SubmoduleId.ToString())
+                                    {
+                                        <i class="material-icons md-20" style="float: left; margin-right: 5px; color: #00ffb4;">play_arrow</i>
+                                    }
+                                </td>
+                                <td style="width: 65vw;">@item.SubmoduleDescription</td>
+                                <td style="width: 35vw;">@item.DownloadURL</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

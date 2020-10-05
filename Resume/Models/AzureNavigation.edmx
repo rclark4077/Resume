@@ -1,0 +1,1400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AzureDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CareerAccomplishments">
+          <Key>
+            <PropertyRef Name="AccomplishmentId" />
+          </Key>
+          <Property Name="AccomplishmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccomplishmentDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="CareerHistoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CareerHistory">
+          <Key>
+            <PropertyRef Name="CareerHistoryId" />
+          </Key>
+          <Property Name="CareerHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="varchar" MaxLength="50" />
+          <Property Name="EndDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CareerPositions">
+          <Key>
+            <PropertyRef Name="CareerPositionId" />
+          </Key>
+          <Property Name="CareerPositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CareerHistoryId" Type="int" Nullable="false" />
+          <Property Name="WorkTitle" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="RoleHeader" Type="varchar" MaxLength="400" />
+          <Property Name="WorkDescription" Type="varchar" MaxLength="900" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Address1" Type="char" MaxLength="75" />
+          <Property Name="Address2" Type="char" MaxLength="75" />
+          <Property Name="Address3" Type="char" MaxLength="75" />
+          <Property Name="StateInitials" Type="char" MaxLength="2" />
+          <Property Name="City" Type="char" MaxLength="100" />
+          <Property Name="ZipCode" Type="int" />
+          <Property Name="ZipCodeSuffix" Type="int" />
+          <Property Name="PhoneNumber" Type="char" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="ContactNotes">
+          <Key>
+            <PropertyRef Name="ContactNoteId" />
+          </Key>
+          <Property Name="ContactNoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="NoteTypeId" Type="int" Nullable="false" />
+          <Property Name="Note" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EducationalInstitution">
+          <Key>
+            <PropertyRef Name="InstitutionId" />
+          </Key>
+          <Property Name="InstitutionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstitutionDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="InstitutionStatus" Type="bit" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ModuleId" />
+          </Key>
+          <Property Name="ModuleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModuleDescription" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="ControllerName" Type="varchar" MaxLength="50" />
+          <Property Name="ActionName" Type="varchar" MaxLength="50" />
+          <Property Name="SecurityLevel" Type="int" Nullable="false" />
+          <Property Name="MaterialIcon" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoteTypes">
+          <Key>
+            <PropertyRef Name="NoteTypeId" />
+          </Key>
+          <Property Name="NoteTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoteTypeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfileAttributes">
+          <Key>
+            <PropertyRef Name="ProfileAttributeId" />
+          </Key>
+          <Property Name="ProfileAttributeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileAttributeDescription" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Address1" Type="char" MaxLength="75" />
+          <Property Name="Address2" Type="char" MaxLength="75" />
+          <Property Name="Address3" Type="char" MaxLength="75" />
+          <Property Name="City" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="StateInitials" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ZipCode" Type="int" Nullable="false" />
+          <Property Name="ZipCodeSuffix" Type="int" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="25" />
+          <Property Name="IsSelf" Type="bit" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectTypeId" Type="int" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="ProjectTitle" Type="varchar" MaxLength="100" />
+          <Property Name="ProjectDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ProjectTypes">
+          <Key>
+            <PropertyRef Name="ProjectTypeId" />
+          </Key>
+          <Property Name="ProjectTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectTypeDescription" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SocialNetworkProfiles">
+          <Key>
+            <PropertyRef Name="SocialNetworkProfileId" />
+          </Key>
+          <Property Name="SocialNetworkProfileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="SocialNetworkId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SocialNetworks">
+          <Key>
+            <PropertyRef Name="SocialNetworkId" />
+          </Key>
+          <Property Name="SocialNetworkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SocialNetworkTypeId" Type="int" Nullable="false" />
+          <Property Name="SocialNetworkAddress" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SocialNetworkTypes">
+          <Key>
+            <PropertyRef Name="SocialNetworkTypeId" />
+          </Key>
+          <Property Name="SocialNetworkTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SocialNetworkDescription" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="StateInitials" />
+          </Key>
+          <Property Name="StateInitials" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="StateName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="StateStatus" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="EducationalPathId" />
+          </Key>
+          <Property Name="EducationalPathId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="InstitutionId" Type="int" Nullable="false" />
+          <Property Name="GraduationDate" Type="varchar" MaxLength="25" />
+          <Property Name="Curriculum" Type="char" MaxLength="100" />
+          <Property Name="Major" Type="char" MaxLength="100" />
+          <Property Name="Degree" Type="char" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Submodule">
+          <Key>
+            <PropertyRef Name="SubmoduleId" />
+          </Key>
+          <Property Name="SubmoduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubmoduleDescription" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModuleId" Type="int" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="ControllerName" Type="varchar" MaxLength="50" />
+          <Property Name="ActionName" Type="varchar" MaxLength="50" />
+          <Property Name="SecurityLevel" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="DownloadURL" Type="varchar" MaxLength="254" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechnicalSkills">
+          <Key>
+            <PropertyRef Name="TechnicalSkillId" />
+          </Key>
+          <Property Name="TechnicalSkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TechnicalSkillDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="TechnicalSkillTypeId" Type="int" Nullable="false" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="TechnicalSkillTypes">
+          <Key>
+            <PropertyRef Name="TechnicalSkillTypeId" />
+          </Key>
+          <Property Name="TechnicalSkillTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TechnicalSkillTypeDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CareerAccomplishments_CareerHistoryId">
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="1" />
+          <End Role="CareerAccomplishments" Type="Self.CareerAccomplishments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CareerHistory">
+              <PropertyRef Name="CareerHistoryId" />
+            </Principal>
+            <Dependent Role="CareerAccomplishments">
+              <PropertyRef Name="CareerHistoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerHistory_CompanyId">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="CareerHistory">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerHistory_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="CareerHistory">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerPositions_CareerHistoryId">
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="1" />
+          <End Role="CareerPositions" Type="Self.CareerPositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CareerHistory">
+              <PropertyRef Name="CareerHistoryId" />
+            </Principal>
+            <Dependent Role="CareerPositions">
+              <PropertyRef Name="CareerHistoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_StateInitials">
+          <End Role="States" Type="Self.States" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateInitials" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="StateInitials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactNotes_NoteTypeId">
+          <End Role="NoteTypes" Type="Self.NoteTypes" Multiplicity="1" />
+          <End Role="ContactNotes" Type="Self.ContactNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeId" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="NoteTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactNotes_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="ContactNotes" Type="Self.ContactNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileAttributes_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="ProfileAttributes" Type="Self.ProfileAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="ProfileAttributes">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profiles_StateInitials">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateInitials" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="StateInitials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_CompanyId">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProjectTypeId">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="ProjectTypeId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="ProjectTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialNetworkProfiles_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="SocialNetworkProfiles" Type="Self.SocialNetworkProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="SocialNetworkProfiles">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialNetworkProfiles_SocialNetworkId">
+          <End Role="SocialNetworks" Type="Self.SocialNetworks" Multiplicity="1" />
+          <End Role="SocialNetworkProfiles" Type="Self.SocialNetworkProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialNetworks">
+              <PropertyRef Name="SocialNetworkId" />
+            </Principal>
+            <Dependent Role="SocialNetworkProfiles">
+              <PropertyRef Name="SocialNetworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialNetworks_SocialNetworkTypeId">
+          <End Role="SocialNetworkTypes" Type="Self.SocialNetworkTypes" Multiplicity="1" />
+          <End Role="SocialNetworks" Type="Self.SocialNetworks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialNetworkTypes">
+              <PropertyRef Name="SocialNetworkTypeId" />
+            </Principal>
+            <Dependent Role="SocialNetworks">
+              <PropertyRef Name="SocialNetworkTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_InstitutionId">
+          <End Role="EducationalInstitution" Type="Self.EducationalInstitution" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationalInstitution">
+              <PropertyRef Name="InstitutionId" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="InstitutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Submodule_ModuleId">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="Submodule" Type="Self.Submodule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ModuleId" />
+            </Principal>
+            <Dependent Role="Submodule">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalSkills_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="0..1" />
+          <End Role="TechnicalSkills" Type="Self.TechnicalSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="TechnicalSkills">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalSkills_TechnicalSkillTypeId">
+          <End Role="TechnicalSkillTypes" Type="Self.TechnicalSkillTypes" Multiplicity="1" />
+          <End Role="TechnicalSkills" Type="Self.TechnicalSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalSkillTypes">
+              <PropertyRef Name="TechnicalSkillTypeId" />
+            </Principal>
+            <Dependent Role="TechnicalSkills">
+              <PropertyRef Name="TechnicalSkillTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AzureDBModelStoreContainer">
+          <EntitySet Name="CareerAccomplishments" EntityType="Self.CareerAccomplishments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CareerHistory" EntityType="Self.CareerHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CareerPositions" EntityType="Self.CareerPositions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactNotes" EntityType="Self.ContactNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationalInstitution" EntityType="Self.EducationalInstitution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoteTypes" EntityType="Self.NoteTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileAttributes" EntityType="Self.ProfileAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectTypes" EntityType="Self.ProjectTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialNetworkProfiles" EntityType="Self.SocialNetworkProfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialNetworks" EntityType="Self.SocialNetworks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialNetworkTypes" EntityType="Self.SocialNetworkTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Submodule" EntityType="Self.Submodule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicalSkills" EntityType="Self.TechnicalSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicalSkillTypes" EntityType="Self.TechnicalSkillTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CareerAccomplishments_CareerHistoryId" Association="Self.FK_CareerAccomplishments_CareerHistoryId">
+            <End Role="CareerHistory" EntitySet="CareerHistory" />
+            <End Role="CareerAccomplishments" EntitySet="CareerAccomplishments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerHistory_CompanyId" Association="Self.FK_CareerHistory_CompanyId">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="CareerHistory" EntitySet="CareerHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerHistory_ProfileId" Association="Self.FK_CareerHistory_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="CareerHistory" EntitySet="CareerHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerPositions_CareerHistoryId" Association="Self.FK_CareerPositions_CareerHistoryId">
+            <End Role="CareerHistory" EntitySet="CareerHistory" />
+            <End Role="CareerPositions" EntitySet="CareerPositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_StateInitials" Association="Self.FK_Company_StateInitials">
+            <End Role="States" EntitySet="States" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactNotes_NoteTypeId" Association="Self.FK_ContactNotes_NoteTypeId">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactNotes_ProfileId" Association="Self.FK_ContactNotes_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileAttributes_ProfileId" Association="Self.FK_ProfileAttributes_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="ProfileAttributes" EntitySet="ProfileAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profiles_StateInitials" Association="Self.FK_Profiles_StateInitials">
+            <End Role="States" EntitySet="States" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_CompanyId" Association="Self.FK_Projects_CompanyId">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProfileId" Association="Self.FK_Projects_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProjectTypeId" Association="Self.FK_Projects_ProjectTypeId">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialNetworkProfiles_ProfileId" Association="Self.FK_SocialNetworkProfiles_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="SocialNetworkProfiles" EntitySet="SocialNetworkProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialNetworkProfiles_SocialNetworkId" Association="Self.FK_SocialNetworkProfiles_SocialNetworkId">
+            <End Role="SocialNetworks" EntitySet="SocialNetworks" />
+            <End Role="SocialNetworkProfiles" EntitySet="SocialNetworkProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialNetworks_SocialNetworkTypeId" Association="Self.FK_SocialNetworks_SocialNetworkTypeId">
+            <End Role="SocialNetworkTypes" EntitySet="SocialNetworkTypes" />
+            <End Role="SocialNetworks" EntitySet="SocialNetworks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_InstitutionId" Association="Self.FK_Students_InstitutionId">
+            <End Role="EducationalInstitution" EntitySet="EducationalInstitution" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_ProfileId" Association="Self.FK_Students_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Submodule_ModuleId" Association="Self.FK_Submodule_ModuleId">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Submodule" EntitySet="Submodule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalSkills_ProfileId" Association="Self.FK_TechnicalSkills_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalSkills_TechnicalSkillTypeId" Association="Self.FK_TechnicalSkills_TechnicalSkillTypeId">
+            <End Role="TechnicalSkillTypes" EntitySet="TechnicalSkillTypes" />
+            <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AzureDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CareerAccomplishment">
+          <Key>
+            <PropertyRef Name="AccomplishmentId" />
+          </Key>
+          <Property Name="AccomplishmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccomplishmentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CareerHistoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CareerHistory" Relationship="Self.FK_CareerAccomplishments_CareerHistoryId" FromRole="CareerAccomplishments" ToRole="CareerHistory" />
+        </EntityType>
+        <EntityType Name="CareerHistory">
+          <Key>
+            <PropertyRef Name="CareerHistoryId" />
+          </Key>
+          <Property Name="CareerHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CareerAccomplishments" Relationship="Self.FK_CareerAccomplishments_CareerHistoryId" FromRole="CareerHistory" ToRole="CareerAccomplishments" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_CareerHistory_CompanyId" FromRole="CareerHistory" ToRole="Company" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_CareerHistory_ProfileId" FromRole="CareerHistory" ToRole="Profiles" />
+          <NavigationProperty Name="CareerPositions" Relationship="Self.FK_CareerPositions_CareerHistoryId" FromRole="CareerHistory" ToRole="CareerPositions" />
+        </EntityType>
+        <EntityType Name="CareerPosition">
+          <Key>
+            <PropertyRef Name="CareerPositionId" />
+          </Key>
+          <Property Name="CareerPositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CareerHistoryId" Type="Int32" Nullable="false" />
+          <Property Name="WorkTitle" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="RoleHeader" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="WorkDescription" Type="String" MaxLength="900" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CareerHistory" Relationship="Self.FK_CareerPositions_CareerHistoryId" FromRole="CareerPositions" ToRole="CareerHistory" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="75" FixedLength="true" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="75" FixedLength="true" Unicode="false" />
+          <Property Name="Address3" Type="String" MaxLength="75" FixedLength="true" Unicode="false" />
+          <Property Name="StateInitials" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="ZipCode" Type="Int32" />
+          <Property Name="ZipCodeSuffix" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CareerHistories" Relationship="Self.FK_CareerHistory_CompanyId" FromRole="Company" ToRole="CareerHistory" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Company_StateInitials" FromRole="Company" ToRole="States" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_CompanyId" FromRole="Company" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="ContactNote">
+          <Key>
+            <PropertyRef Name="ContactNoteId" />
+          </Key>
+          <Property Name="ContactNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="NoteTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="NoteType" Relationship="Self.FK_ContactNotes_NoteTypeId" FromRole="ContactNotes" ToRole="NoteTypes" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_ContactNotes_ProfileId" FromRole="ContactNotes" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="EducationalInstitution">
+          <Key>
+            <PropertyRef Name="InstitutionId" />
+          </Key>
+          <Property Name="InstitutionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InstitutionStatus" Type="Boolean" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_InstitutionId" FromRole="EducationalInstitution" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ModuleId" />
+          </Key>
+          <Property Name="ModuleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityLevel" Type="Int32" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="MaterialIcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Submodules" Relationship="Self.FK_Submodule_ModuleId" FromRole="Module" ToRole="Submodule" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoteType">
+          <Key>
+            <PropertyRef Name="NoteTypeId" />
+          </Key>
+          <Property Name="NoteTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ContactNotes" Relationship="Self.FK_ContactNotes_NoteTypeId" FromRole="NoteTypes" ToRole="ContactNotes" />
+        </EntityType>
+        <EntityType Name="ProfileAttribute">
+          <Key>
+            <PropertyRef Name="ProfileAttributeId" />
+          </Key>
+          <Property Name="ProfileAttributeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileAttributeDescription" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_ProfileAttributes_ProfileId" FromRole="ProfileAttributes" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="75" FixedLength="true" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="75" FixedLength="true" Unicode="false" />
+          <Property Name="Address3" Type="String" MaxLength="75" FixedLength="true" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StateInitials" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ZipCode" Type="Int32" Nullable="false" />
+          <Property Name="ZipCodeSuffix" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IsSelf" Type="Boolean" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <NavigationProperty Name="CareerHistories" Relationship="Self.FK_CareerHistory_ProfileId" FromRole="Profiles" ToRole="CareerHistory" />
+          <NavigationProperty Name="ContactNotes" Relationship="Self.FK_ContactNotes_ProfileId" FromRole="Profiles" ToRole="ContactNotes" />
+          <NavigationProperty Name="ProfileAttributes" Relationship="Self.FK_ProfileAttributes_ProfileId" FromRole="Profiles" ToRole="ProfileAttributes" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Profiles_StateInitials" FromRole="Profiles" ToRole="States" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_ProfileId" FromRole="Profiles" ToRole="Projects" />
+          <NavigationProperty Name="SocialNetworkProfiles" Relationship="Self.FK_SocialNetworkProfiles_ProfileId" FromRole="Profiles" ToRole="SocialNetworkProfiles" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_ProfileId" FromRole="Profiles" ToRole="Students" />
+          <NavigationProperty Name="TechnicalSkills" Relationship="Self.FK_TechnicalSkills_ProfileId" FromRole="Profiles" ToRole="TechnicalSkills" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Projects_CompanyId" FromRole="Projects" ToRole="Company" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_Projects_ProfileId" FromRole="Projects" ToRole="Profiles" />
+          <NavigationProperty Name="ProjectType" Relationship="Self.FK_Projects_ProjectTypeId" FromRole="Projects" ToRole="ProjectTypes" />
+        </EntityType>
+        <EntityType Name="ProjectType">
+          <Key>
+            <PropertyRef Name="ProjectTypeId" />
+          </Key>
+          <Property Name="ProjectTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectTypeDescription" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_ProjectTypeId" FromRole="ProjectTypes" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="SocialNetworkProfile">
+          <Key>
+            <PropertyRef Name="SocialNetworkProfileId" />
+          </Key>
+          <Property Name="SocialNetworkProfileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="SocialNetworkId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_SocialNetworkProfiles_ProfileId" FromRole="SocialNetworkProfiles" ToRole="Profiles" />
+          <NavigationProperty Name="SocialNetwork" Relationship="Self.FK_SocialNetworkProfiles_SocialNetworkId" FromRole="SocialNetworkProfiles" ToRole="SocialNetworks" />
+        </EntityType>
+        <EntityType Name="SocialNetwork">
+          <Key>
+            <PropertyRef Name="SocialNetworkId" />
+          </Key>
+          <Property Name="SocialNetworkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SocialNetworkTypeId" Type="Int32" Nullable="false" />
+          <Property Name="SocialNetworkAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SocialNetworkProfiles" Relationship="Self.FK_SocialNetworkProfiles_SocialNetworkId" FromRole="SocialNetworks" ToRole="SocialNetworkProfiles" />
+          <NavigationProperty Name="SocialNetworkType" Relationship="Self.FK_SocialNetworks_SocialNetworkTypeId" FromRole="SocialNetworks" ToRole="SocialNetworkTypes" />
+        </EntityType>
+        <EntityType Name="SocialNetworkType">
+          <Key>
+            <PropertyRef Name="SocialNetworkTypeId" />
+          </Key>
+          <Property Name="SocialNetworkTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SocialNetworkDescription" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SocialNetworks" Relationship="Self.FK_SocialNetworks_SocialNetworkTypeId" FromRole="SocialNetworkTypes" ToRole="SocialNetworks" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateInitials" />
+          </Key>
+          <Property Name="StateInitials" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StateStatus" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Company_StateInitials" FromRole="States" ToRole="Company" />
+          <NavigationProperty Name="Profiles" Relationship="Self.FK_Profiles_StateInitials" FromRole="States" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="EducationalPathId" />
+          </Key>
+          <Property Name="EducationalPathId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="InstitutionId" Type="Int32" Nullable="false" />
+          <Property Name="GraduationDate" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Curriculum" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Degree" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="EducationalInstitution" Relationship="Self.FK_Students_InstitutionId" FromRole="Students" ToRole="EducationalInstitution" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_Students_ProfileId" FromRole="Students" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="Submodule">
+          <Key>
+            <PropertyRef Name="SubmoduleId" />
+          </Key>
+          <Property Name="SubmoduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubmoduleDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ModuleId" Type="Int32" Nullable="false" />
+          <Property Name="ControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityLevel" Type="Int32" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="ProjectId" Type="Int32" />
+          <NavigationProperty Name="Module" Relationship="Self.FK_Submodule_ModuleId" FromRole="Submodule" ToRole="Module" />
+          <Property Name="DownloadURL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechnicalSkill">
+          <Key>
+            <PropertyRef Name="TechnicalSkillId" />
+          </Key>
+          <Property Name="TechnicalSkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TechnicalSkillDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TechnicalSkillTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileId" Type="Int32" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_TechnicalSkills_ProfileId" FromRole="TechnicalSkills" ToRole="Profiles" />
+          <NavigationProperty Name="TechnicalSkillType" Relationship="Self.FK_TechnicalSkills_TechnicalSkillTypeId" FromRole="TechnicalSkills" ToRole="TechnicalSkillTypes" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TechnicalSkillType">
+          <Key>
+            <PropertyRef Name="TechnicalSkillTypeId" />
+          </Key>
+          <Property Name="TechnicalSkillTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TechnicalSkillTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TechnicalSkills" Relationship="Self.FK_TechnicalSkills_TechnicalSkillTypeId" FromRole="TechnicalSkillTypes" ToRole="TechnicalSkills" />
+        </EntityType>
+        <Association Name="FK_CareerAccomplishments_CareerHistoryId">
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="1" />
+          <End Role="CareerAccomplishments" Type="Self.CareerAccomplishment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CareerHistory">
+              <PropertyRef Name="CareerHistoryId" />
+            </Principal>
+            <Dependent Role="CareerAccomplishments">
+              <PropertyRef Name="CareerHistoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerHistory_CompanyId">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="CareerHistory">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerHistory_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="CareerHistory">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerPositions_CareerHistoryId">
+          <End Role="CareerHistory" Type="Self.CareerHistory" Multiplicity="1" />
+          <End Role="CareerPositions" Type="Self.CareerPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CareerHistory">
+              <PropertyRef Name="CareerHistoryId" />
+            </Principal>
+            <Dependent Role="CareerPositions">
+              <PropertyRef Name="CareerHistoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_StateInitials">
+          <End Role="States" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateInitials" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="StateInitials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_CompanyId">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactNotes_NoteTypeId">
+          <End Role="NoteTypes" Type="Self.NoteType" Multiplicity="1" />
+          <End Role="ContactNotes" Type="Self.ContactNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeId" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="NoteTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactNotes_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="ContactNotes" Type="Self.ContactNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_InstitutionId">
+          <End Role="EducationalInstitution" Type="Self.EducationalInstitution" Multiplicity="1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationalInstitution">
+              <PropertyRef Name="InstitutionId" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="InstitutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Submodule_ModuleId">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="Submodule" Type="Self.Submodule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ModuleId" />
+            </Principal>
+            <Dependent Role="Submodule">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileAttributes_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="ProfileAttributes" Type="Self.ProfileAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="ProfileAttributes">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profiles_StateInitials">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateInitials" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="StateInitials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialNetworkProfiles_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="SocialNetworkProfiles" Type="Self.SocialNetworkProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="SocialNetworkProfiles">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalSkills_ProfileId">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="0..1" />
+          <End Role="TechnicalSkills" Type="Self.TechnicalSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="TechnicalSkills">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProjectTypeId">
+          <End Role="ProjectTypes" Type="Self.ProjectType" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="ProjectTypeId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="ProjectTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialNetworkProfiles_SocialNetworkId">
+          <End Role="SocialNetworks" Type="Self.SocialNetwork" Multiplicity="1" />
+          <End Role="SocialNetworkProfiles" Type="Self.SocialNetworkProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialNetworks">
+              <PropertyRef Name="SocialNetworkId" />
+            </Principal>
+            <Dependent Role="SocialNetworkProfiles">
+              <PropertyRef Name="SocialNetworkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialNetworks_SocialNetworkTypeId">
+          <End Role="SocialNetworkTypes" Type="Self.SocialNetworkType" Multiplicity="1" />
+          <End Role="SocialNetworks" Type="Self.SocialNetwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialNetworkTypes">
+              <PropertyRef Name="SocialNetworkTypeId" />
+            </Principal>
+            <Dependent Role="SocialNetworks">
+              <PropertyRef Name="SocialNetworkTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalSkills_TechnicalSkillTypeId">
+          <End Role="TechnicalSkillTypes" Type="Self.TechnicalSkillType" Multiplicity="1" />
+          <End Role="TechnicalSkills" Type="Self.TechnicalSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalSkillTypes">
+              <PropertyRef Name="TechnicalSkillTypeId" />
+            </Principal>
+            <Dependent Role="TechnicalSkills">
+              <PropertyRef Name="TechnicalSkillTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AzureNavigationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CareerAccomplishments" EntityType="Self.CareerAccomplishment" />
+          <EntitySet Name="CareerHistories" EntityType="Self.CareerHistory" />
+          <EntitySet Name="CareerPositions" EntityType="Self.CareerPosition" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="ContactNotes" EntityType="Self.ContactNote" />
+          <EntitySet Name="EducationalInstitutions" EntityType="Self.EducationalInstitution" />
+          <EntitySet Name="Modules" EntityType="Self.Module" />
+          <EntitySet Name="NoteTypes" EntityType="Self.NoteType" />
+          <EntitySet Name="ProfileAttributes" EntityType="Self.ProfileAttribute" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="ProjectTypes" EntityType="Self.ProjectType" />
+          <EntitySet Name="SocialNetworkProfiles" EntityType="Self.SocialNetworkProfile" />
+          <EntitySet Name="SocialNetworks" EntityType="Self.SocialNetwork" />
+          <EntitySet Name="SocialNetworkTypes" EntityType="Self.SocialNetworkType" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Submodules" EntityType="Self.Submodule" />
+          <EntitySet Name="TechnicalSkills" EntityType="Self.TechnicalSkill" />
+          <EntitySet Name="TechnicalSkillTypes" EntityType="Self.TechnicalSkillType" />
+          <AssociationSet Name="FK_CareerAccomplishments_CareerHistoryId" Association="Self.FK_CareerAccomplishments_CareerHistoryId">
+            <End Role="CareerHistory" EntitySet="CareerHistories" />
+            <End Role="CareerAccomplishments" EntitySet="CareerAccomplishments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerHistory_CompanyId" Association="Self.FK_CareerHistory_CompanyId">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="CareerHistory" EntitySet="CareerHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerHistory_ProfileId" Association="Self.FK_CareerHistory_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="CareerHistory" EntitySet="CareerHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerPositions_CareerHistoryId" Association="Self.FK_CareerPositions_CareerHistoryId">
+            <End Role="CareerHistory" EntitySet="CareerHistories" />
+            <End Role="CareerPositions" EntitySet="CareerPositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_StateInitials" Association="Self.FK_Company_StateInitials">
+            <End Role="States" EntitySet="States" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_CompanyId" Association="Self.FK_Projects_CompanyId">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactNotes_NoteTypeId" Association="Self.FK_ContactNotes_NoteTypeId">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactNotes_ProfileId" Association="Self.FK_ContactNotes_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_InstitutionId" Association="Self.FK_Students_InstitutionId">
+            <End Role="EducationalInstitution" EntitySet="EducationalInstitutions" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Submodule_ModuleId" Association="Self.FK_Submodule_ModuleId">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Submodule" EntitySet="Submodules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileAttributes_ProfileId" Association="Self.FK_ProfileAttributes_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="ProfileAttributes" EntitySet="ProfileAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profiles_StateInitials" Association="Self.FK_Profiles_StateInitials">
+            <End Role="States" EntitySet="States" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProfileId" Association="Self.FK_Projects_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialNetworkProfiles_ProfileId" Association="Self.FK_SocialNetworkProfiles_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="SocialNetworkProfiles" EntitySet="SocialNetworkProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_ProfileId" Association="Self.FK_Students_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalSkills_ProfileId" Association="Self.FK_TechnicalSkills_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProjectTypeId" Association="Self.FK_Projects_ProjectTypeId">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialNetworkProfiles_SocialNetworkId" Association="Self.FK_SocialNetworkProfiles_SocialNetworkId">
+            <End Role="SocialNetworks" EntitySet="SocialNetworks" />
+            <End Role="SocialNetworkProfiles" EntitySet="SocialNetworkProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialNetworks_SocialNetworkTypeId" Association="Self.FK_SocialNetworks_SocialNetworkTypeId">
+            <End Role="SocialNetworkTypes" EntitySet="SocialNetworkTypes" />
+            <End Role="SocialNetworks" EntitySet="SocialNetworks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalSkills_TechnicalSkillTypeId" Association="Self.FK_TechnicalSkills_TechnicalSkillTypeId">
+            <End Role="TechnicalSkillTypes" EntitySet="TechnicalSkillTypes" />
+            <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AzureDBModelStoreContainer" CdmEntityContainer="AzureNavigationEntities">
+          <EntitySetMapping Name="CareerAccomplishments">
+            <EntityTypeMapping TypeName="AzureDBModel.CareerAccomplishment">
+              <MappingFragment StoreEntitySet="CareerAccomplishments">
+                <ScalarProperty Name="AccomplishmentId" ColumnName="AccomplishmentId" />
+                <ScalarProperty Name="AccomplishmentDescription" ColumnName="AccomplishmentDescription" />
+                <ScalarProperty Name="CareerHistoryId" ColumnName="CareerHistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CareerHistories">
+            <EntityTypeMapping TypeName="AzureDBModel.CareerHistory">
+              <MappingFragment StoreEntitySet="CareerHistory">
+                <ScalarProperty Name="CareerHistoryId" ColumnName="CareerHistoryId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CareerPositions">
+            <EntityTypeMapping TypeName="AzureDBModel.CareerPosition">
+              <MappingFragment StoreEntitySet="CareerPositions">
+                <ScalarProperty Name="CareerPositionId" ColumnName="CareerPositionId" />
+                <ScalarProperty Name="CareerHistoryId" ColumnName="CareerHistoryId" />
+                <ScalarProperty Name="WorkTitle" ColumnName="WorkTitle" />
+                <ScalarProperty Name="RoleHeader" ColumnName="RoleHeader" />
+                <ScalarProperty Name="WorkDescription" ColumnName="WorkDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="AzureDBModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="StateInitials" ColumnName="StateInitials" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="ZipCodeSuffix" ColumnName="ZipCodeSuffix" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactNotes">
+            <EntityTypeMapping TypeName="AzureDBModel.ContactNote">
+              <MappingFragment StoreEntitySet="ContactNotes">
+                <ScalarProperty Name="ContactNoteId" ColumnName="ContactNoteId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="NoteTypeId" ColumnName="NoteTypeId" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationalInstitutions">
+            <EntityTypeMapping TypeName="AzureDBModel.EducationalInstitution">
+              <MappingFragment StoreEntitySet="EducationalInstitution">
+                <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+                <ScalarProperty Name="InstitutionDescription" ColumnName="InstitutionDescription" />
+                <ScalarProperty Name="InstitutionStatus" ColumnName="InstitutionStatus" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="AzureDBModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ModuleDescription" ColumnName="ModuleDescription" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="SecurityLevel" ColumnName="SecurityLevel" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="MaterialIcon" ColumnName="MaterialIcon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoteTypes">
+            <EntityTypeMapping TypeName="AzureDBModel.NoteType">
+              <MappingFragment StoreEntitySet="NoteTypes">
+                <ScalarProperty Name="NoteTypeId" ColumnName="NoteTypeId" />
+                <ScalarProperty Name="NoteTypeDescription" ColumnName="NoteTypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileAttributes">
+            <EntityTypeMapping TypeName="AzureDBModel.ProfileAttribute">
+              <MappingFragment StoreEntitySet="ProfileAttributes">
+                <ScalarProperty Name="ProfileAttributeId" ColumnName="ProfileAttributeId" />
+                <ScalarProperty Name="ProfileAttributeDescription" ColumnName="ProfileAttributeDescription" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="AzureDBModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateInitials" ColumnName="StateInitials" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="ZipCodeSuffix" ColumnName="ZipCodeSuffix" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="IsSelf" ColumnName="IsSelf" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="AzureDBModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+                <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectTypes">
+            <EntityTypeMapping TypeName="AzureDBModel.ProjectType">
+              <MappingFragment StoreEntitySet="ProjectTypes">
+                <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+                <ScalarProperty Name="ProjectTypeDescription" ColumnName="ProjectTypeDescription" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialNetworkProfiles">
+            <EntityTypeMapping TypeName="AzureDBModel.SocialNetworkProfile">
+              <MappingFragment StoreEntitySet="SocialNetworkProfiles">
+                <ScalarProperty Name="SocialNetworkProfileId" ColumnName="SocialNetworkProfileId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="SocialNetworkId" ColumnName="SocialNetworkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialNetworks">
+            <EntityTypeMapping TypeName="AzureDBModel.SocialNetwork">
+              <MappingFragment StoreEntitySet="SocialNetworks">
+                <ScalarProperty Name="SocialNetworkId" ColumnName="SocialNetworkId" />
+                <ScalarProperty Name="SocialNetworkTypeId" ColumnName="SocialNetworkTypeId" />
+                <ScalarProperty Name="SocialNetworkAddress" ColumnName="SocialNetworkAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialNetworkTypes">
+            <EntityTypeMapping TypeName="AzureDBModel.SocialNetworkType">
+              <MappingFragment StoreEntitySet="SocialNetworkTypes">
+                <ScalarProperty Name="SocialNetworkTypeId" ColumnName="SocialNetworkTypeId" />
+                <ScalarProperty Name="SocialNetworkDescription" ColumnName="SocialNetworkDescription" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="AzureDBModel.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="StateInitials" ColumnName="StateInitials" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateStatus" ColumnName="StateStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="AzureDBModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="EducationalPathId" ColumnName="EducationalPathId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+                <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+                <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Submodules">
+            <EntityTypeMapping TypeName="AzureDBModel.Submodule">
+              <MappingFragment StoreEntitySet="Submodule">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DownloadURL" ColumnName="DownloadURL" />
+                <ScalarProperty Name="SubmoduleId" ColumnName="SubmoduleId" />
+                <ScalarProperty Name="SubmoduleDescription" ColumnName="SubmoduleDescription" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="SecurityLevel" ColumnName="SecurityLevel" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalSkills">
+            <EntityTypeMapping TypeName="AzureDBModel.TechnicalSkill">
+              <MappingFragment StoreEntitySet="TechnicalSkills">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TechnicalSkillId" ColumnName="TechnicalSkillId" />
+                <ScalarProperty Name="TechnicalSkillDescription" ColumnName="TechnicalSkillDescription" />
+                <ScalarProperty Name="TechnicalSkillTypeId" ColumnName="TechnicalSkillTypeId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalSkillTypes">
+            <EntityTypeMapping TypeName="AzureDBModel.TechnicalSkillType">
+              <MappingFragment StoreEntitySet="TechnicalSkillTypes">
+                <ScalarProperty Name="TechnicalSkillTypeId" ColumnName="TechnicalSkillTypeId" />
+                <ScalarProperty Name="TechnicalSkillTypeDescription" ColumnName="TechnicalSkillTypeDescription" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

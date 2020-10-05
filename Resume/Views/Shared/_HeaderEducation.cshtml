@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Resume.ViewModels.PriorEducationViewModel>
+
+    <div class="educationList" style="width: 100%;">
+        <table id="tableRow" class="table table-striped table-dark table-bordered table-hover table-responsive-sm" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="padding: 20px;">
+                        <table>
+                            <tr>
+                                <td style="width: 25vw;">
+                                    <div class="table-column-header">
+                                        <span>Institution</span>
+                                    </div>
+                                </td>
+                                <td style="width: 25vw;">
+                                    <div class="table-column-header">
+                                        <span>@Html.DisplayNameFor(m => m.Major)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 15vw;">
+                                    <div class="table-column-header">
+                                        <span>@Html.DisplayNameFor(m => m.Curriculum)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 20vw;">
+                                    <div class="table-column-header">
+                                        <span>@Html.DisplayNameFor(m => m.Degree)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 15vw;">
+                                    <div class="table-column-header">
+                                        <span>@Html.DisplayNameFor(m => m.GraduationDate)</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 20px;">
+                        <table>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="width: 25vw;">@item.InstitutionDescription</td>
+                                    <td style="width: 25vw;">@item.Major</td>
+                                    <td style="width: 15vw;">@item.Curriculum</td>
+                                    <td style="width: 20vw;">@item.Degree</td>
+                                    <td style="width: 15vw;">@item.GraduationDate</td>
+                                </tr>
+                            }
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+

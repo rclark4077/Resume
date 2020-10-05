@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9338ee1955e543389daec1070342fbf3" Name="Diagram1">
+        <EntityTypeShape EntityType="AzureDBModel.CareerAccomplishment" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.CareerHistory" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.CareerPosition" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.Company" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.ContactNote" Width="1.5" PointX="8.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.EducationalInstitution" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.Module" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.NoteType" Width="1.5" PointX="6" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.ProfileAttribute" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.Profile" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.Project" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.ProjectType" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.SocialNetworkProfile" Width="1.5" PointX="8.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.SocialNetwork" Width="1.5" PointX="6" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.SocialNetworkType" Width="1.5" PointX="3.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.State" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.Student" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.Submodule" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.TechnicalSkill" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureDBModel.TechnicalSkillType" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <AssociationConnector Association="AzureDBModel.FK_CareerAccomplishments_CareerHistoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_CareerHistory_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_CareerHistory_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_CareerPositions_CareerHistoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Company_StateInitials" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Projects_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_ContactNotes_NoteTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_ContactNotes_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Students_InstitutionId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Submodule_ModuleId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_ProfileAttributes_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Profiles_StateInitials" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Projects_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_SocialNetworkProfiles_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Students_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_TechnicalSkills_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_Projects_ProjectTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_SocialNetworkProfiles_SocialNetworkId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_SocialNetworks_SocialNetworkTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AzureDBModel.FK_TechnicalSkills_TechnicalSkillTypeId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

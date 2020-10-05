@@ -1,0 +1,103 @@
+﻿@{
+    object baseControllerObj, baseActionObj, baseParameter;
+    var controllerName = string.Empty;
+    var variableControllerName = string.Empty;
+    var renderActionName = "BuildNavigation";
+    var actionName = string.Empty;
+    var parameter = string.Empty;
+
+    if (ViewContext.RouteData.Values.TryGetValue("controller", out baseControllerObj))
+    {
+        controllerName = baseControllerObj.ToString();
+        variableControllerName = baseControllerObj.ToString();
+    }
+    if (ViewContext.RouteData.Values.TryGetValue("action", out baseActionObj))
+    {
+        actionName = baseActionObj.ToString();
+    }
+    if (ViewContext.RouteData.Values.TryGetValue("parameter", out baseParameter))
+    {
+        parameter = baseParameter.ToString();
+    }
+    switch (@controllerName.Trim().ToLower())
+    {
+        case "home":
+            renderActionName = "GetHeaderProfile";
+            break;
+        case "qualifications":
+            renderActionName = "GetQualificationTypes";
+            break;
+        case "education":
+            renderActionName = "GetEducation";
+            break;
+        case "careerhistory":
+            renderActionName = "GetCompany";
+            break;
+        case "downloads":
+            renderActionName = "GetDownloads";
+            break;
+        case "projects":
+            renderActionName = "GetCompany";
+            break;
+    }
+}
+<!doctype html>
+<html>
+<head>
+    <title>Grid Layout - complex</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    @Styles.Render("~/bundles/mastercss")
+    @RenderSection("jsVars", required: false)
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("GetControllerAction", "Projects", FormMethod.Post))
+        {
+            <div>@Html.Hidden("Controller")</div>
+            <div>@Html.Hidden("Action")</div>
+            <div>@Html.Hidden("Param")</div>
+            <div>@Html.Hidden("ProjectId")</div>
+        }
+    </div>
+
+    <div id="panelsContainer" class="panelsContainer">
+        <section id="section-1" class="section nav-panel-expanded">
+            @{
+                Html.RenderAction("BuildNavigation", "Menu", new { NavStatus = ViewBag.NavStatus });
+            }
+        </section>
+        <section id="section-2" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xl-12">
+                        <div><i id="flexIcon" class="material-icons md-20" title="Hide">toggle_on</i></div>
+                        <div id="contentPanel">
+                            <div class="body">
+                                @{
+                                    Html.RenderAction(renderActionName, controllerName);
+                                }
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="tooltip" role="tooltip" style="display: none;"></div>
+    <div id="accomplishmentContainer">
+        <section id="accomplishments">
+        </section>
+        <i id="accomplishmentMinMax" class="material-icons md-14 md-black" title="Show/Hide">clear</i>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,305 @@
+﻿/* site theme
+    {
+        #4e4e6b [medium dark purple];
+        #16162a [dark purple]
+        #14141f [cark purple/gray]
+        #b2bcc7 [medium purple/gray]
+        #ff4400 [orange red]
+        #18acac [matte plastic blue 3]
+        #109494 [matte plastic blue-2]
+        #097474 [matte plastic blue-1]
+        #003328 [dark seafoam]
+        #007395 [steel blue]
+        #00485e [steel blue - normal]
+        #092d37 [steel blue - medium]
+        #021c24 [steel blue - dark]
+        #000709 [steel blue - darker]
+        #43494E [steel gray/blue - medium]
+        #343A40 [steel gray/blue - dark]
+        #5bc0de [twitter's information color scheme]
+        #3ce6ff [skyblue]
+        #5cb85c [twitter's success color scheme ]
+        #ffffeb [cream]
+        #f0ffff [light azure blue]
+        #abcfcf [medium azure blue]
+        #6fa6a6 [dark azure blue]
+        #c0cccc [medium azure blue]
+        #909999 [medium azure blue]
+        #cbffec [mint]
+        #00ffb4 [mint green]
+        #0f7e9b [corn blue]
+        #cb95b3 [light burgundy]
+        #a36185 [medium burgundy]
+        #8a436a [burgundy]
+        #baffe7 [lighter mint]
+        #8bffd6 [light mint]
+        #5cd1a8 [medium mint]
+        #10a671 [dark mint]
+        #414160 [mauve]
+        #201b38 [medium mauve]
+        #130f23 [dark mauve]
+        #0f0d19 [darker mauve]
+        #101010 [dark charcoal]
+        
+        #CBEEF0 [light teal]
+        #AAC8CA [teal]
+        #8BA6A8 [off teal]
+        #515D5E [dark teal]
+        #08090A [darkest teal]
+    }
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100%;
+    color: #14141f;
+    background-color: #c0cccc;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+}
+body, #panelsContainer, section, .section-1
+nav, ul.nav-level-1 {
+    min-height: 100%;
+}
+body, div, header, span, nav, ul, li, i, a
+section, aside, header, footer,
+.container, .row, .col {
+    margin: 0px;
+    padding: 0px;
+}
+.panelsContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    min-height: 100%;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 275px 1fr;
+    grid-template-rows: 1fr;
+}
+.section:hover,
+.section {
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+}
+/* ------------------------------------------------------------------------------------- [#section-1 - Menu Panel] */
+#section-1 {
+    background-color: #101010; /* dark charcoal */
+    transition: width .15s;
+    transition-timing-function: linear;
+}
+#section-1 #nav-bar-container{
+    width: 100%;
+    color: #cbffec;
+}
+#section-1 ul.nav-level-1 li i.material-icons {
+    position: relative;
+    top: 4px;
+}
+#section-1 ul.nav-level-1 li:first-child {
+    color: #101010;
+    background-color: #00ffb4;
+}
+#section-1 ul.nav-level-1 li:first-child:hover {
+    background-color: red;
+    transition: background-color .25s linear;
+}
+#section-1 ul.nav-level-1 li div {
+    padding: 10px 10px 10px 48px;
+    color: #000;
+    background-color: #cbffec;
+}
+#section-1 ul.nav-level-1 li div:hover {
+    color: #fff;
+    background-color: #333;
+}
+
+/* ------------------------------------------------------------------------------------- [#section-2 - Content Panel] */
+#section-2 {
+    height: 100vh;
+    transition: all 0.15s ease;
+    transition-property: width, left;
+    overflow-y: scroll;
+}
+#section-2 .container {
+    min-width: 99%;
+    min-height: 100%;
+    margin: auto;
+}
+#section-2 .container .row > div.col {
+    margin-top: 10px;
+}
+#flexIcon {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #f0ffff;
+    padding: 10px 15px 0px 0px;
+}
+#contentPanel {
+    background-color: #f0ffff;
+}
+a {
+    color: #fff;
+    background-color: #343a40;
+    padding: 3px;
+    border-radius: 3px;
+}
+a:hover {
+    color: #000;
+    background-color: red;
+    transition: all .15s linear;
+}
+#contentPanel .body {
+    padding: 10px 10px 5px 10px;
+}
+#contentPanel .body table:first-of-type thead th:last-of-type {
+    padding-top: 10px;
+}
+/* ------------------------------------------------------------------------------------- [anchors]  */
+#section-2 .container a {
+    color: #fff;
+    text-decoration: none;
+}
+/* ------------------------------------------------------------------------------------- [hover && active classes]  */
+.nav-panel-expanded {
+    width: 275px;
+}
+#section-1 ul.nav-level-1 li div span:hover {
+    text-decoration: underline;
+    color: #fff;
+    background-color: #43494E;
+}
+/* ------------------------------------------------------------------------------------- [action classes]  */
+.text-highlight {
+    color: black;
+    background-color: cornsilk;
+    font-weight: bold;
+    padding: 3px;
+}
+.display-block {
+    display: none;
+}
+.active {
+    color: #333;
+    background-color: #00ffb4;
+}
+.collapsible {
+    max-height: 0px;
+    transition: all .75s linear;
+}
+.table-collapse {
+    visibility: collapse;
+    color: #333333;
+}
+.columnHeader {
+    font-size: 18px;
+    font-weight: bold;
+}
+.textHighlight {
+    color: #101010;
+    background-color: #f0ffff;
+    padding: 0px 4px 2px 4px;
+    border-radius: 3px;
+}
+.paragraph-title {
+    font-weight: bold;
+    color: black;
+    background-color: #00ffb4;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0, 0.10);
+}
+.paragraph-title:hover {
+    background-color: red;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,.10);
+    transition: all .5s ease-in-out;
+}
+.paragraph-title-click {
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    background-color: red;
+}
+.zoom-text {
+    cursor: pointer;
+    font-size: 24px;
+    color: lightcyan;
+    transition: all .1s linear;
+}
+.table-column-header {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    background-color: #cbffec;
+    border-radius: 3px;
+    padding: 10px;
+}
+.table-column-header-dark {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    background-color: #00ffb4;
+    border-radius: 3px;
+    padding: 10px;
+}
+/* ------------------------------------------------------------------------------------- [tooltip/aka popcorn] */
+#tooltip {
+    position: relative;
+    left: -2000px;
+    color: white;
+    background-color: #333333;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+/* ------------------------------------------------------------------------------------- [Rules for sizing the icon] */
+.material-icons.md-12 {
+    font-size: 12px;
+    padding: 15px;
+}
+.material-icons.md-14 {
+    font-size: 14px;
+    padding: 15px;
+}
+.material-icons.md-16 {
+    font-size: 16px;
+    padding: 15px;
+}
+.material-icons.md-18 {
+    font-size: 18px;
+    padding: 15px;
+}
+.material-icons.md-24 {
+    font-size: 24px;
+    padding: 15px;
+}
+.material-icons.md-36 {
+    font-size: 36px;
+    padding: 15px;
+}
+.material-icons.md-48 {
+    font-size: 48px;
+    padding: 15px;
+}
+/* ------------------------------------------------------------------------------------- [Rules for using icons in a colorful background] */
+.material-icons.md-mint {
+    color: rgba(203, 255, 236, 1.0);
+}
+.material-icons.md-darkmint {
+    color: rgba(0, 255, 180, 1.0);
+}
+.material-icons.md-black {
+    color: rgba(0, 0, 0, 1.0);
+}
+.material-icons.md-brightgreen {
+    color: rgba(127, 255, 0, 1.0);
+}
+.material-icons.md-brightgreen-inactive {
+    color: rgba(127, 255, 0, 0.3);
+}

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Resume.Models.Project>
+@section jsVars{
+    <script>
+        const controller = "Projects";
+    </script>
+}
+<div class="projects-list">
+    <table class="table table-striped table-dark table-hover table-responsive-sm">
+        <thead>
+            <tr>
+                <th>
+                    <table>
+                        <thead class="embedded-thead">
+                            <tr>
+                                <th style="width: 5vw;">
+                                    @if (@ViewBag.LastSelectedProjectId == "0")
+                                    {
+                                        <i class="material-icons md-20 md-darkmint">play_arrow</i>
+                                    }
+                                </th>
+                                <th style="width: 20vw;">
+                                    <div class="table-column-header">
+                                        <span>Project Title</span>
+                                    </div>
+                                </th>
+                                <th style="width: 75vw;">
+                                    <div class="table-column-header">
+                                        <span>Description</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @if (item.ProjectId.ToString() == @ViewBag.LastSelectedProjectId)
+                                    {
+                                        <td data-projectid="@item.ProjectId" style="width: 5vw;">
+                                            <i class="material-icons md-20 md-darkmint" style="float: left; margin-right: 5px;">play_arrow</i>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td data-projectid="@item.ProjectId" style="width: 5vw;"></td>
+                                    }
+                                    <td style="width: 20vw;">@Html.DisplayFor(modelItem => item.ProjectTitle)</td>
+                                    <td style="width: 75vw;">
+                                        <div>
+                                            <span class="paragraph-title" style="padding: 5px;">zoom</span>
+                                            @Html.DisplayFor(modelItem => item.ProjectDescription)
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Resume.ViewModels.CompaniesAndAccomplishmentsViewModel>
+@{
+    ViewBag.SelectedCompanyId = Request.QueryString["LastSelectedParam"];
+
+    if (@ViewBag.Id != null)
+    {
+        ViewBag.SelectedCompanyId = ViewBag.Id;
+    }
+}
+<div class="company-list">
+    <table id="tableRow" class="table table-striped table-dark table-bordered table-hover table-responsive-sm">
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width: 25vw; text-align:center;">
+                                    <div>
+                                        <span>@Html.DisplayNameFor(m => m.CompanyName)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 25vw; text-align:center;">
+                                    <div>
+                                        <span>@Html.DisplayNameFor(m => m.Address1)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 20vw; text-align:center;">
+                                    <div>
+                                        <span>@Html.DisplayNameFor(m => m.City)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 5vw; text-align:center;">
+                                    <div>
+                                        <span>State</span>
+                                    </div>
+                                </td>
+                                <td style="width: 15vw; text-align:center;">
+                                    <div>
+                                        <span>@Html.DisplayNameFor(m => m.PhoneNumber)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 5vw; text-align:center;">
+                                    <div>
+                                        <span>@Html.DisplayNameFor(m => m.StartDate)</span>
+                                    </div>
+                                </td>
+                                <td style="width: 5vw; text-align:center;">
+                                    <div>
+                                        <span>@Html.DisplayNameFor(m => m.EndDate)</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                int cid = item.CompanyId;
+                            <tr>
+                                @if (cid == ViewBag.Id)
+                                {
+                                    <td style="width: 25vw;">
+                                        <i class="material-icons md-20" style="float: left; margin-right: 5px; color: #00ffb4;">play_arrow</i>
+                                        <span id="compayAccomplishments"
+                                              data-link="/CareerHistory/Index/@cid.ToString()"
+                                              data-accomplishmentId="@item.AccomplishmentId"
+                                              data-accomplishmentdescription="@item.AccomplishmentDescription">
+                                            @item.CompanyName
+                                        </span>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="width: 25vw;">
+                                        <span style="margin-left: 30px;" data-link="/CareerHistory/Index/@cid.ToString()">
+                                            @item.CompanyName
+                                        </span>
+                                    </td>
+                                }
+                                <td style="width: 25vw;">@item.Address1</td>
+                                <td style="width: 20vw;">@item.City</td>
+                                <td style="width: 5vw;">@item.StateInitials</td>
+                                <td style="width: 15vw; padding-left: 25px;">@item.PhoneNumber</td>
+                                <td style="width: 5vw;  padding-left: 25px;">@item.StartDate</td>
+                                <td style="width: 5vw;  padding-left: 25px;">@item.EndDate</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
