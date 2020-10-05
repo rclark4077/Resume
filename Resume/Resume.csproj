@@ -172,6 +172,9 @@
     <Compile Include="Models\ContactNote.cs">
       <DependentUpon>AzureNavigation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Download.cs">
+      <DependentUpon>AzureNavigation.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EducationalInstitution.cs">
       <DependentUpon>AzureNavigation.tt</DependentUpon>
     </Compile>
@@ -211,10 +214,16 @@
     <Compile Include="Models\Submodule.cs">
       <DependentUpon>AzureNavigation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>AzureNavigation.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TechnicalSkill.cs">
       <DependentUpon>AzureNavigation.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TechnicalSkillType.cs">
+      <DependentUpon>AzureNavigation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UrlSourceType.cs">
       <DependentUpon>AzureNavigation.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +237,7 @@
     <Compile Include="ViewModels\PriorEducationViewModel.cs" />
     <Compile Include="ViewModels\QualificationViewModel.cs" />
     <Compile Include="ViewModels\SocialNetworksViewModel.cs" />
+    <Compile Include="ViewModels\SubmoduleViewModel.cs" />
     <Compile Include="ViewModels\UrlSelectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -244,7 +254,6 @@
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\bg-gradient-png8.png" />
     <Content Include="Models\AzureNavigation.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AzureNavigation.edmx</DependentUpon>
@@ -281,6 +290,7 @@
       <DependentUpon>AzureNavigation.edmx</DependentUpon>
     </Content>
     <Content Include="libman.json" />
+    <Content Include="Downloads\Resume_of_RandyClark.doc" />
     <None Include="Properties\PublishProfiles\darthclark - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -380,11 +390,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_ErrorViewBag.cshtml" />
     <Content Include="Views\CareerHistory\Index.cshtml" />
-    <Content Include="Views\test\Create.cshtml" />
-    <Content Include="Views\test\Delete.cshtml" />
-    <Content Include="Views\test\Details.cshtml" />
-    <Content Include="Views\test\Edit.cshtml" />
-    <Content Include="Views\test\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -408,7 +413,6 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Downloads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Resume.Models;
+using Resume.ViewModels;
+using System;
 using System.Dynamic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Resume.Models;
-using Resume.ViewModels;
 
 
 namespace Resume.Controllers
@@ -43,7 +41,7 @@ namespace Resume.Controllers
         }
 
         // GET: Qualifications
-        public ActionResult Index(int? profileId=1)
+        public ActionResult Index(int? profileId = 1)
         {
             Object qualifications = new Object();
             qualifications = from ts in db.TechnicalSkills
@@ -53,9 +51,9 @@ namespace Resume.Controllers
                                 && ts.Status == 1
                              select new QualificationViewModel()
                              {
-                                 TechnicalSkillTypeId           = tst.TechnicalSkillTypeId,
-                                 TechnicalSkillTypeDescription  = tst.TechnicalSkillTypeDescription,
-                                 TechnicalSkillDescription      = ts.TechnicalSkillDescription
+                                 TechnicalSkillTypeId = tst.TechnicalSkillTypeId,
+                                 TechnicalSkillTypeDescription = tst.TechnicalSkillTypeDescription,
+                                 TechnicalSkillDescription = ts.TechnicalSkillDescription
                              };
 
             return View(qualifications);

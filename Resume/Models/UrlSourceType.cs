@@ -12,24 +12,19 @@ namespace Resume.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Module
+    public partial class UrlSourceType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Module()
+        public UrlSourceType()
         {
-            this.Submodules = new HashSet<Submodule>();
+            this.Downloads = new HashSet<Download>();
         }
     
-        public int ModuleId { get; set; }
-        public string ModuleDescription { get; set; }
-        public int SortOrder { get; set; }
-        public string ControllerName { get; set; }
-        public string ActionName { get; set; }
-        public int SecurityLevel { get; set; }
-        public string MaterialIcon { get; set; }
+        public int UrlSourceTypeId { get; set; }
+        public string UrlSourceTypeDescription { get; set; }
         public int Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Submodule> Submodules { get; set; }
+        public virtual ICollection<Download> Downloads { get; set; }
     }
 }

@@ -12,7 +12,7 @@ DECLARE @tbl        varchar(254)
         ,@output    varchar(254)
         ,@v         sql_variant
 
-    SET @tbl = 'Submodule'
+    SET @tbl = 'Downloads'
 
 BEGIN TRY
     BEGIN TRANSACTION
@@ -23,39 +23,35 @@ BEGIN TRY
                             WHERE o.name = @tbl)
         BEGIN
             PRINT '-- Create Table '+@tbl+ ' in '+db_name()+ ' ----------------------------------------------'
-            CREATE TABLE dbo.Submodule
+            CREATE TABLE dbo.Downloads
             (
-                SubmoduleId				int             NOT NULL    IDENTITY (1, 1),
-                SubmoduleDescription	varchar(50)     NOT NULL,
-				ModuleId				int				NOT NULL,
-				SortOrder				int				NOT NULL,
-				ControllerName			varchar(50)			NULL,
-				ActionName				varchar(50)			NULL,
-                SecurityLevel           int             NOT NULL,
-				CompanyId				int					NULL,
-				ProjectId				int					NULL,
+                DownloadId				int             NOT NULL    IDENTITY (1, 1),
+				SubmoduleId				int					NULL,
+				DownloadDescription		varchar(254)	NOT NULL,
+				DownloadUrl				varchar(254)	NOT NULL,
+				UrlSourceTypeId			int				NOT NULL,
 				Status					int				NOT NULL	DEFAULT (1), -- 0=Inactive, 1=Active
             )  ON [PRIMARY]
-
+			
             ---========================---
             ---== KEYS & CONSTRAINTS ==---
             ---========================---
             -- Primary Key Clustered ASC
-            ALTER TABLE dbo.Submodule 
-                ADD CONSTRAINT [PK_Submodule] PRIMARY KEY CLUSTERED (SubmoduleId ASC)
+            ALTER TABLE dbo.Downloads 
+                ADD CONSTRAINT [PK_Downloads] PRIMARY KEY CLUSTERED (DownloadId ASC)
                 WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 
             -- Foreign Key Constraints
-            ALTER TABLE dbo.Submodule
-               ADD CONSTRAINT FK_Submodule_ModuleId FOREIGN KEY (ModuleId)
-                  REFERENCES dbo.Module (ModuleId)
+            ALTER TABLE dbo.Downloads
+               ADD CONSTRAINT FK_Downloads_SubmoduleId FOREIGN KEY (SubmoduleId)
+                  REFERENCES dbo.Submodule (SubmoduleId)
+				  
+            ALTER TABLE dbo.Downloads
+               ADD CONSTRAINT FK_Downloads_UrlSourceTypeId FOREIGN KEY (UrlSourceTypeId)
+                  REFERENCES dbo.UrlSourceType (UrlSourceTypeId)
+
 
             -- Defaults & Check Constraints
-			ALTER TABLE dbo.Submodule WITH CHECK
-				ADD CONSTRAINT UC_Submodule_SubmoduleDescription UNIQUE (SubmoduleDescription)
-
-			ALTER TABLE dbo.Submodule WITH CHECK
-				ADD CONSTRAINT UC_SubModule_SortOrder UNIQUE (ModuleId, SortOrder)
 
             ---===========---
             ---== INDEX ==---
@@ -65,10 +61,7 @@ BEGIN TRY
             ---== COLUMN DESCRIPTIONS ==---
             ---=========================---
             SET @v = N'0=Inactive, 1=Active'
-            EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'Submodule', N'COLUMN', N'Status'
-			
-            SET @v = N'Must be unique by ModuleId:  If ModuleId=1, then no 2 Submodules can be same sort order having the same ModuleId'
-            EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'Submodule', N'COLUMN', N'SortOrder'
+            EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'Downloads', N'COLUMN', N'Status'
         END
         ELSE -- stop sql code execution and jump to CATCH Block [Commit will not execute]
         BEGIN
@@ -87,7 +80,7 @@ BEGIN TRY
             PRINT @output
 
 			-- reseed if had to drop & re-create
-			DBCC CHECKIDENT('Submodule', RESEED, 1)
+			DBCC CHECKIDENT('Downloads', RESEED, 1)
         END
 END TRY
 BEGIN CATCH

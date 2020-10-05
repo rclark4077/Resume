@@ -1,7 +1,7 @@
-﻿using Resume.Controllers;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Resume.Controllers;
 using Resume.Models;
 using Resume.ViewModels;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web.Mvc;
 
 namespace Resume.Tests.Controllers
@@ -40,7 +40,7 @@ namespace Resume.Tests.Controllers
 
 
         [TestMethod]
-        public void GetControllerAction ()
+        public void GetControllerAction()
         {
             // Arrange
             var controller = new ProjectsController();

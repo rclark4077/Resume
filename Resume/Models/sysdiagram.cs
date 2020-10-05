@@ -12,17 +12,12 @@ namespace Resume.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class sysdiagram
     {
-        public int ProjectId { get; set; }
-        public int ProjectTypeId { get; set; }
-        public int ProfileId { get; set; }
-        public int CompanyId { get; set; }
-        public string ProjectTitle { get; set; }
-        public string ProjectDescription { get; set; }
-    
-        public virtual Company Company { get; set; }
-        public virtual Profile Profile { get; set; }
-        public virtual ProjectType ProjectType { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

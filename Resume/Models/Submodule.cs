@@ -14,18 +14,25 @@ namespace Resume.Models
     
     public partial class Submodule
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Submodule()
+        {
+            this.Downloads = new HashSet<Download>();
+        }
+    
         public int SubmoduleId { get; set; }
         public string SubmoduleDescription { get; set; }
         public int ModuleId { get; set; }
+        public int SortOrder { get; set; }
         public string ControllerName { get; set; }
         public string ActionName { get; set; }
         public int SecurityLevel { get; set; }
-        public int SortOrder { get; set; }
         public Nullable<int> CompanyId { get; set; }
         public Nullable<int> ProjectId { get; set; }
-        public string DownloadURL { get; set; }
         public int Status { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Download> Downloads { get; set; }
         public virtual Module Module { get; set; }
     }
 }

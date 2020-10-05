@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Resume.Models;
+using Resume.ViewModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Resume.Models;
 
 namespace Resume.Controllers
 {
@@ -15,10 +13,22 @@ namespace Resume.Controllers
         [ChildActionOnly]
         public ActionResult GetDownloads()
         {
-            var downloads = from submodule in db.Submodules
-                            where submodule.ModuleId == 7
-                            orderby submodule.SubmoduleId descending
-                            select submodule;
+            var downloads = from sub in db.Submodules
+                                join download in db.Downloads
+                                    on sub.SubmoduleId equals download.SubmoduleId
+                            join urlsourcetype in db.UrlSourceTypes
+                                on download.UrlSourceTypeId equals urlsourcetype.UrlSourceTypeId
+                            where sub.ModuleId == 6
+                            orderby sub.SubmoduleId descending
+                            select new SubmoduleViewModel()
+                            {
+                                SubmoduleDescription = sub.SubmoduleDescription,
+                                SecurityLevel = sub.SecurityLevel,
+                                UrlSourceType = urlsourcetype.UrlSourceTypeDescription,
+                                UrlSourceTypeId = urlsourcetype.UrlSourceTypeId,
+                                DownloadUrl = download.DownloadUrl,
+                                Status = sub.Status
+                            };
 
             return PartialView("_HeaderDownloads", downloads);
         }

@@ -31,7 +31,6 @@ namespace Resume.Models
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<ContactNote> ContactNotes { get; set; }
         public virtual DbSet<EducationalInstitution> EducationalInstitutions { get; set; }
-        public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<NoteType> NoteTypes { get; set; }
         public virtual DbSet<ProfileAttribute> ProfileAttributes { get; set; }
         public virtual DbSet<Profile> Profiles { get; set; }
@@ -42,8 +41,12 @@ namespace Resume.Models
         public virtual DbSet<SocialNetworkType> SocialNetworkTypes { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Submodule> Submodules { get; set; }
         public virtual DbSet<TechnicalSkill> TechnicalSkills { get; set; }
         public virtual DbSet<TechnicalSkillType> TechnicalSkillTypes { get; set; }
+        public virtual DbSet<Download> Downloads { get; set; }
+        public virtual DbSet<Module> Modules { get; set; }
+        public virtual DbSet<Submodule> Submodules { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<UrlSourceType> UrlSourceTypes { get; set; }
     }
 }

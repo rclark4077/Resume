@@ -1,7 +1,6 @@
-﻿using Resume.Controllers;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Resume.Controllers;
 using Resume.Models;
-using Resume.ViewModels;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web.Mvc;
 
 

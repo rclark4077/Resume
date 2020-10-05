@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Resume.Models.Submodule>
+﻿@model IEnumerable<Resume.ViewModels.SubmoduleViewModel>
 
 
 @section jsVars{
@@ -17,9 +17,14 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 65vw;">
+                                <th style="width: 35vw;">
                                     <div class="table-column-header">
                                         <span>Download Description</span>
+                                    </div>
+                                </th>
+                                <th style="width: 30vw">
+                                    <div class="table-column-header">
+                                        <span>Download Source Type</span>
                                     </div>
                                 </th>
                                 <th style="width: 35vw;">
@@ -41,14 +46,22 @@
                             @foreach (var item in Model)
                             {
                             <tr>
-                                <td style="width: 2vw;">
-                                    @if (@SubmoduleId == item.SubmoduleId.ToString())
+                                <td style="width: 35vw;">@item.SubmoduleDescription</td>
+                                <td style="width: 30vw;">@item.UrlSourceType</td>
+                                <td style="width: 35vw;">
+                                    @switch (item.UrlSourceTypeId)
                                     {
-                                        <i class="material-icons md-20" style="float: left; margin-right: 5px; color: #00ffb4;">play_arrow</i>
+                                        case 2:
+                                            string temp = @item.DownloadUrl.Split('/')[2];
+                                            temp = temp.Replace("_", " ");
+                                            <a href="@item.DownloadUrl">@temp</a>;
+                                            break;
+                                        case 1:
+                                        default:
+                                            <a href="@item.DownloadUrl">@item.DownloadUrl</a>
+                                            break;
                                     }
                                 </td>
-                                <td style="width: 65vw;">@item.SubmoduleDescription</td>
-                                <td style="width: 35vw;">@item.DownloadURL</td>
                             </tr>
                             }
                         </tbody>

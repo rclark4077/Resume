@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Resume.Models;
+﻿using Resume.Models;
 using Resume.ViewModels;
+using System.Data;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Resume.Controllers
 {
@@ -16,7 +10,7 @@ namespace Resume.Controllers
     {
         private AzureNavigationEntities db = new AzureNavigationEntities();
 
-        public PartialViewResult GetCompany(int id=1)
+        public PartialViewResult GetCompany(int id = 1)
         {
             ViewBag.Name = "Randy Clark";
             ViewBag.Id = id;
@@ -55,7 +49,7 @@ namespace Resume.Controllers
         }
 
         // GET: CareerHistory
-        public ActionResult Index(int id=1)
+        public ActionResult Index(int id = 1)
         {
             ViewBag.Id = id;
             var careerposition = from profile in db.Profiles

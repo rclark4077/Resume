@@ -12,17 +12,16 @@ namespace Resume.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class Download
     {
-        public int ProjectId { get; set; }
-        public int ProjectTypeId { get; set; }
-        public int ProfileId { get; set; }
-        public int CompanyId { get; set; }
-        public string ProjectTitle { get; set; }
-        public string ProjectDescription { get; set; }
+        public int DownloadId { get; set; }
+        public Nullable<int> SubmoduleId { get; set; }
+        public string DownloadDescription { get; set; }
+        public string DownloadUrl { get; set; }
+        public int Status { get; set; }
+        public int UrlSourceTypeId { get; set; }
     
-        public virtual Company Company { get; set; }
-        public virtual Profile Profile { get; set; }
-        public virtual ProjectType ProjectType { get; set; }
+        public virtual Submodule Submodule { get; set; }
+        public virtual UrlSourceType UrlSourceType { get; set; }
     }
 }

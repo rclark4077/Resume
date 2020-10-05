@@ -1,9 +1,9 @@
-﻿using System.Data;
+﻿using Resume.Models;
+using Resume.ViewModels;
+using System.Data;
 using System.Dynamic;
 using System.Linq;
 using System.Web.Mvc;
-using Resume.Models;
-using Resume.ViewModels;
 
 
 namespace Resume.Controllers
@@ -18,13 +18,13 @@ namespace Resume.Controllers
             ViewBag.Name = "Randy Clark";
             ViewBag.Controller = "Home";
 
-            var Profiles =              from Profile in db.Profiles
-                                        where (id.ToString() == null || Profile.ProfileId == id)
-                                        select Profile;
+            var Profiles = from Profile in db.Profiles
+                           where (id.ToString() == null || Profile.ProfileId == id)
+                           select Profile;
 
-            var ProfileAttributes =     from ProfileAttribute in db.ProfileAttributes
-                                        where (id.ToString() == null || ProfileAttribute.ProfileId == id)
-                                        select ProfileAttribute;
+            var ProfileAttributes = from ProfileAttribute in db.ProfileAttributes
+                                    where (id.ToString() == null || ProfileAttribute.ProfileId == id)
+                                    select ProfileAttribute;
 
 
             var SocialNetworkProfiles = from sp in db.SocialNetworkProfiles
@@ -39,9 +39,9 @@ namespace Resume.Controllers
                                             SocialNetworkAddress = sn.SocialNetworkAddress
                                         };
 
-            var ContactNotes =          from ContactNote in db.ContactNotes
-                                        where (id.ToString() == null || ContactNote.ProfileId == id)
-                                        select ContactNote;
+            var ContactNotes = from ContactNote in db.ContactNotes
+                               where (id.ToString() == null || ContactNote.ProfileId == id)
+                               select ContactNote;
 
 
             dynamic model = new ExpandoObject();

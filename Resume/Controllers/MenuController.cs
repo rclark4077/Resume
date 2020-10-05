@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Resume.Models;
+﻿using Resume.Models;
 using System.Dynamic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Resume.Controllers
 {
@@ -12,14 +12,14 @@ namespace Resume.Controllers
         [ChildActionOnly]
         public PartialViewResult BuildNavigation()
         {
-            var modules         = from module in db.Modules
-                                  where module.Status == 1
-                                  select module;
+            var modules = from module in db.Modules
+                          where module.Status == 1
+                          select module;
 
-            var submodules      = from submodule in db.Submodules
-                                  where submodule.Status == 1
-                                  orderby submodule.SortOrder descending
-                                  select submodule;
+            var submodules = from submodule in db.Submodules
+                             where submodule.Status == 1
+                             orderby submodule.SortOrder descending
+                             select submodule;
 
             dynamic model = new ExpandoObject();
             model.Modules = modules;
