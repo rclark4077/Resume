@@ -23,6 +23,10 @@ namespace Resume
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             container.RegisterType<ICareerHistoryRepository, CareerHistoryRepository>();
             container.RegisterType<ICareerHistoryService, CareerHistoryService>();
+            container.RegisterType<IHomeRepository, HomeRepository>();
+            container.RegisterType<IHomeService, HomeService>();
+            container.RegisterType<IDownloadsRepository, DownloadsRepository>();
+            container.RegisterType<IDownloadsService, DownloadsService>();
         }
     }
 }

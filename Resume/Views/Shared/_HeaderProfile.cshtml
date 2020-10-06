@@ -110,9 +110,19 @@
                                     </div>
                                     <div>
                                         <p>This site was built from the ground up with very little 3rd party framework involvement. This was intentional to illustrate my full-stack programming capabilities without the need for frameworks like angular or jquery.</p>
-                                        <p>The only framework that was used is <span class="textHighlight">Bootstrap 4</span>.  This came with one other JS add-on for Bootstrap called <span class="textHighlight">Popcorn</span>.  This operates when the side-menu is compressed and thus the descriptions for the navigation are hidden.  All animations, sliders, zooms, form-actions, page updates...etc were built using pure javascript in concert with CSS3 and MVC Request/Response handlers</p>
-                                        <p>Also, <span class="textHighlight">please note</span> that this MVC application is only built for Microsoft Edge, Firefox, Firefox Developer & Google Chrome</p>
+                                        <p>The only framework that was used is <span class="text-Highlight">Bootstrap 4</span>.  This came with one other JS add-on for Bootstrap called <span class="text-Highlight">Popcorn</span>.  This operates when the side-menu is compressed and thus the descriptions for the navigation are hidden.  All animations, sliders, zooms, form-actions, page updates...etc were built using pure javascript in concert with CSS3 and MVC Request/Response handlers</p>
+                                        <p>Also, <span class="text-Highlight">please note</span> that this MVC application is only built for Microsoft Edge, Firefox, Firefox Developer & Google Chrome</p>
                                         <p>You can download this entire site's code for further code analysis. This includes all aspects of the database operations to create, insert, and manipulate database & tables using the download navigation links</p>
+                                    </div>
+
+                                    <div>
+                                        <p><span style="color: #00ffb4; font-size: 20px;">***</span> The data layer controlled by the "edmx" entity data models also controls this site's navigational menu system, made up of "Modules" and "Submodules"</p>
+                                        <p>You'll find the Module and Submodule tables in the database</p>
+                                    </div>
+                                    <div>Thank you for visiting!<br /><br />
+                                        <span class="text-Highlight-mint">
+                                            Randy Clark
+                                        </span>
                                     </div>
                                 </td>
                                 <td style="width: 50%; background-color: #6c7479;">
@@ -123,13 +133,31 @@
                                     <div>
                                         <p>
                                             <ul>
-                                                <li>design pattern: <span class="textHighlight">Model-View-Controller</span> (MVC)</li>
+                                                <li>design patterns: 
+                                                    <ul>
+                                                        <li>primary design patterns:
+                                                            <ul>
+                                                                <li>Model-View-Controller: <span class="text-Highlight">(MVC)</span></li>
+                                                                <li>Model-View-View-Model: <span class="text-Highlight">(MVVM)</span></li>
+                                                                <li>Constructors <span class="text-Highlight">dependency injections</span></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>                                                
+                                                <li>Total of 4 projects in 1 solution: <span class="text-Highlight">enhanced separation of concerns</span>
+                                                    <ul>
+                                                        <li>web layer: MVC routing, controllers & views (oh my)</li>
+                                                        <li>dependency injection framework: <span class="text-Highlight">Unity MVC 5</span></li>
+                                                        <li>data access layer: <span class="text-Highlight">entity framework 6</span> edmx, interfaces, repositories</li>
+                                                        <li>service layer: defines dependency injection objects</li>
+                                                    </ul>
+                                                </li>
                                                 <li>
                                                     frontend:
                                                     <ul>
-                                                        <li>frameworks: <span class="textHighlight">bootstrap 4</span></li>
+                                                        <li>frameworks: <span class="text-Highlight">bootstrap 4</span></li>
                                                         <li>other API: Popcorn (tooltip)</li>
-                                                        <li>front-end langauges: html 5, css 3, (pure) javascript</li>
+                                                        <li>front-end langauges: html 5, css 3, (pure/higher order) javascript</li>
                                                     </ul>
                                                 </li>
                                                 <li>
@@ -141,25 +169,21 @@
                                                 <li>
                                                     data layer:
                                                     <ul>
-                                                        <li>entity framework 6: <span class="textHighlight">ado.net entity data model</span></li>
+                                                        <li>entity framework 6: <span class="text-Highlight">ado.net entity data model</span></li>
                                                         <li>database: MSSQL 2014 TSQL (local development)</li>
-                                                        <li><span class="textHighlight">database hosted (live): Azure SQL cloud hosting</span></li>
+                                                        <li><span class="text-Highlight">database hosted (live): Azure SQL cloud hosting</span></li>
                                                     </ul>
                                                 </li>
                                                 <li>unit testing: Microsoft TestFramework</li>
                                                 <li>
-                                                    hosting:
+                                                    hosting services:
                                                     <ul>
-                                                        <li>webiste: <a href="http://darthclark.azurewebsites.net">Microsoft Azure Cloud Service</a></li>
-                                                        <li>repository: <a href="https://github.com/rclark4077">https://github.com/rclark4077</a></li>
+                                                        <li>website: <span class="paragraph-title-click"><a href="http://darthclark.azurewebsites.net">Microsoft Azure Cloud Service</a></span></li>
+                                                        <li>source control: <span class="paragraph-title-click"><a href="https://github.com/rclark4077/Resume">GitHub</a></span></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </p>
-                                    </div>
-                                    <div>
-                                        <p><span style="color: #00ffb4; font-size: 20px;">***</span> The data layer controlled by the "edmx" entity data model also controls this site's navigational menu system, made up of "Modules" and "Submodules"</p>
-                                        <p>You'll find the Module and Submodule tables in the database</p>
                                     </div>
                                 </td>
                             </tr>

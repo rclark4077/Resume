@@ -1,5 +1,4 @@
-﻿using Resume.ViewModels;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Resume.Services.Interfaces
 {

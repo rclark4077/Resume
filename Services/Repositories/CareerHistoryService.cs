@@ -1,7 +1,6 @@
 ﻿using System.Collections;
-using Resume.Services.Interfaces;
 using Resume.DAL.Interfaces;
-using Resume.ViewModels;
+using Resume.Services.Interfaces;
 
 namespace Resume.Services.Repositories
 {
