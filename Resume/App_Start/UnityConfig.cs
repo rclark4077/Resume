@@ -29,6 +29,8 @@ namespace Resume
             container.RegisterType<IDownloadsService, DownloadsService>();
             container.RegisterType<IEducationRepository, EducationRepository>();
             container.RegisterType<IEducationService, EducationService>();
+            container.RegisterType<IMenuRepository, MenuRepository>();
+            container.RegisterType<IMenuService, MenuService>();
         }
     }
 }

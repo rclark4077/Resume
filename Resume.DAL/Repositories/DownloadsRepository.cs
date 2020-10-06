@@ -9,6 +9,7 @@ namespace Resume.DAL.Repositories
     public class DownloadsRepository : IDownloadsRepository
     {
         AzureEntities db = new AzureEntities();
+
         public IEnumerable GetDownloads()
         {
             var downloads = from sub in db.Submodules

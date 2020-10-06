@@ -17,9 +17,5 @@ namespace Resume.Controllers
         public int AccomplishmentId { get; set; }
         public string AccomplishmentDescription { get; set; }
         public int CareerHistoryId { get; set; }
-
-
-
-
     }
 }

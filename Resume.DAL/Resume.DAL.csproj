@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IDownloadsRepository.cs" />
     <Compile Include="Interfaces\IEducationRepository.cs" />
     <Compile Include="Interfaces\IHomeRepository.cs" />
+    <Compile Include="Interfaces\IMenumuRepository.cs" />
     <Compile Include="Models\Azure.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +145,7 @@
     <Compile Include="Repositories\DownloadsRepository.cs" />
     <Compile Include="Repositories\EducationRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />
+    <Compile Include="Repositories\MenuRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

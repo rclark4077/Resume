@@ -47,11 +47,13 @@
     <Compile Include="Interfaces\IDownloadsService.cs" />
     <Compile Include="Interfaces\IEducationService.cs" />
     <Compile Include="Interfaces\IHomeService.cs" />
+    <Compile Include="Interfaces\IMenuService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CareerHistoryService.cs" />
     <Compile Include="Repositories\DownloadsService.cs" />
     <Compile Include="Repositories\EducationService.cs" />
     <Compile Include="Repositories\HomeService.cs" />
+    <Compile Include="Repositories\MenuService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Resume.DAL\Resume.DAL.csproj">
