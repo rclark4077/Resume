@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICareerHistoryRepository.cs" />
     <Compile Include="Interfaces\IDownloadsRepository.cs" />
+    <Compile Include="Interfaces\IEducationRepository.cs" />
     <Compile Include="Interfaces\IHomeRepository.cs" />
     <Compile Include="Models\Azure.Context.cs">
       <AutoGen>True</AutoGen>
@@ -141,6 +142,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CareerHistoryRepository.cs" />
     <Compile Include="Repositories\DownloadsRepository.cs" />
+    <Compile Include="Repositories\EducationRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />
   </ItemGroup>
   <ItemGroup>

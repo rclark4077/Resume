@@ -27,6 +27,8 @@ namespace Resume
             container.RegisterType<IHomeService, HomeService>();
             container.RegisterType<IDownloadsRepository, DownloadsRepository>();
             container.RegisterType<IDownloadsService, DownloadsService>();
+            container.RegisterType<IEducationRepository, EducationRepository>();
+            container.RegisterType<IEducationService, EducationService>();
         }
     }
 }
