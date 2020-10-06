@@ -127,8 +127,8 @@ section, aside, header, footer,
     overflow-y: scroll;
 }
 #section-2 .container {
+    position: relative;
     min-width: 99%;
-    min-height: 100%;
     margin: auto;
 }
 #section-2 .container .row > div.col {
@@ -138,9 +138,12 @@ section, aside, header, footer,
     display: flex;
     flex-direction: row-reverse;
     background-color: #f0ffff;
-    padding: 10px 15px 0px 0px;
+    padding: 5px 15px 5px 0px;
 }
 #contentPanel {
+    position: relative;
+    width: 100%;
+    margin: auto;
     background-color: #f0ffff;
 }
 a {
@@ -154,7 +157,11 @@ a:hover {
     transition: all .15s linear;
 }
 #contentPanel .body {
-    padding: 10px 10px 5px 10px;
+    position: absolute;
+    padding: 0px 10px 0px 10px;
+    margin: auto;
+    background-color: #f0ffff;
+    overflow-y: auto;
 }
 #contentPanel .body table:first-of-type thead th:last-of-type {
     padding-top: 10px;
@@ -188,7 +195,7 @@ a:hover {
     background-color: #00ffb4;
 }
 .collapsible {
-    max-height: 0px;
+    height: 0%;
     transition: all .75s linear;
 }
 .table-collapse {

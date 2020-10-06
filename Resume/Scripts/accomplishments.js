@@ -1,10 +1,12 @@
-﻿const accSourceText = panel2.querySelector("table#tableRow span[data-accomplishmentdescription]");
-const dynamicTextContent = (accSourceText ? accSourceText.dataset.accomplishmentdescription : null);
+﻿const accSourceText         = panel2.querySelector("table#tableRow span[data-accomplishmentdescription]");
+const dynamicTextContent    = (accSourceText ? accSourceText.dataset.accomplishmentdescription : null);
+const defaultTextContent    = null;
 //  ------------------------------------------------------------------------------------------ [ Main() ]
 if (dynamicTextContent != null) {// suppress all windows except for those menus have submodules (ie: professional history && projects)
-    const accContainer  = document.getElementById("accomplishmentContainer");
-    const accImage      = document.getElementById("accomplishmentMinMax");
-    const accContent    = document.getElementById("accomplishments");
+    const accContainer      = document.getElementById("accomplishmentContainer");
+    const accImage          = document.getElementById("accomplishmentMinMax");
+    const accContent        = document.getElementById("accomplishments");
+
 
     //  window dimensions
     const w_w = window.innerWidth;
@@ -14,14 +16,13 @@ if (dynamicTextContent != null) {// suppress all windows except for those menus 
     let acc_w = accContent.clientWidth;
     let acc_h = accContent.clientHeight;// change this value to popup/compress notification panel height
 
-    let stop_position_x = ((w_w - acc_w) / 2);
-    let stop_position_y = 0; // original: w_h - (acc_h/2 + 20); <<< leave this in case changes later
-
-    const defaultTextContent = null;
     let displayFlag = true;
 
     //const defaultTextContent = "Contact Information";
     function popUp(el) {
+        let stop_position_x = ((w_w - acc_w) / 2);
+        let stop_position_y = 0; // original: w_h - (acc_h/2 + 20); <<< leave this in case changes later
+
         with (el.style) {
             left = stop_position_x + "px";
             top = stop_position_y + "px";
@@ -65,7 +66,7 @@ if (dynamicTextContent != null) {// suppress all windows except for those menus 
                         panelMinMax("show", () => {
                             setTimeout(function () {
                                 panelMinMax("hide");
-                            }, 5000);
+                            }, 20000);
                         });
                     } else {
                         panelMinMax("hide");
@@ -79,7 +80,6 @@ if (dynamicTextContent != null) {// suppress all windows except for those menus 
                     } else {
                         panelMinMax("hide")
                     };
-                    //popUp(accContainer);
                 });
                 break;
         };
@@ -91,7 +91,7 @@ if (dynamicTextContent != null) {// suppress all windows except for those menus 
         panelMinMax("show", function () {
             setTimeout(function () {
                 panelMinMax("hide");
-            }, 5000);
+            }, 20000);
         });
     })(accContainer, accContent);
 }
