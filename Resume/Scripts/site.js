@@ -129,7 +129,6 @@ btnBodyContentToggle.addEventListener("click", e => {
     };
     cardBody.classList.toggle('collapsible');
 });
-
 //  [content panel 2: company header click events]
 for (let i = 0; i < tableSpan.length; i++) {
     tableSpan[i].addEventListener("click", e => {

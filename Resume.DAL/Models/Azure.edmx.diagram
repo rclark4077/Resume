@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce265f1a403c41c68381a9215957b111" Name="Diagram1">
+        <EntityTypeShape EntityType="ResumesModel.CareerAccomplishment" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.CareerHistory" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.CareerPosition" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Company" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.ContactNote" Width="1.5" PointX="8.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Download" Width="1.5" PointX="13.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.EducationalInstitution" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Module" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.NoteType" Width="1.5" PointX="6" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.ProfileAttribute" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Profile" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Project" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.ProjectType" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.SocialNetworkProfile" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.SocialNetwork" Width="1.5" PointX="6" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.SocialNetworkType" Width="1.5" PointX="3.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.State" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Student" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.Submodule" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.TechnicalSkill" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.TechnicalSkillType" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumesModel.UrlSourceType" Width="1.5" PointX="11" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="ResumesModel.FK_CareerAccomplishments_CareerHistoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_CareerHistory_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_CareerHistory_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_CareerPositions_CareerHistoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Company_StateInitials" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Projects_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_ContactNotes_NoteTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_ContactNotes_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Downloads_SubmoduleId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Downloads_UrlSourceTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Students_InstitutionId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Submodule_ModuleId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_ProfileAttributes_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Profiles_StateInitials" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Projects_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_SocialNetworkProfiles_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Students_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_TechnicalSkills_ProfileId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Projects_ProjectTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_SocialNetworkProfiles_SocialNetworkId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_SocialNetworks_SocialNetworkTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_TechnicalSkills_TechnicalSkillTypeId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

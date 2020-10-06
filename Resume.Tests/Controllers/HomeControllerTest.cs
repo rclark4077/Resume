@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Resume.Controllers;
 using Resume.Models;
+using Resume.Services.Interfaces;
 using System.Web.Mvc;
 
 namespace Resume.Tests.Controllers
@@ -9,6 +10,7 @@ namespace Resume.Tests.Controllers
     public class HomeControllerTest
     {
         private AzureNavigationEntities db = new AzureNavigationEntities();
+        private ICareerHistoryService _ics;
 
         [TestMethod]
         public void GetHeaderProfile()
@@ -28,7 +30,7 @@ namespace Resume.Tests.Controllers
         public void Index()
         {
             // Arrange
-            CareerHistoryController controller = new CareerHistoryController();
+            CareerHistoryController controller = new CareerHistoryController(_ics);
 
             // Act
             ViewResult result = controller.Index(1) as ViewResult;

@@ -81,9 +81,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Resume.DAL\Resume.DAL.csproj">
+      <Project>{2da9007a-cff7-4eb8-920b-afcfb8915ff7}</Project>
+      <Name>Resume.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Resume\Resume.csproj">
       <Project>{f5d379e6-004f-41b3-8631-afdf3329d2e1}</Project>
       <Name>Resume</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Resume.Services.csproj">
+      <Project>{bd135ba3-7981-47da-a62c-241d96d846ce}</Project>
+      <Name>Resume.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
