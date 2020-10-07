@@ -154,90 +154,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AzureNavigation.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AzureNavigation.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AzureNavigation.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AzureNavigation.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AzureNavigation.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CareerAccomplishment.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CareerHistory.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CareerPosition.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Company.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ContactNote.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Download.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EducationalInstitution.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Module.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NoteType.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Profile.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProfileAttribute.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Project.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProjectType.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SocialNetwork.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SocialNetworkProfile.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SocialNetworkType.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\State.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Student.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Submodule.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TechnicalSkill.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TechnicalSkillType.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UrlSourceType.cs">
-      <DependentUpon>AzureNavigation.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -259,16 +175,6 @@
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Models\AzureNavigation.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AzureNavigation.edmx</DependentUpon>
-      <LastGenOutput>AzureNavigation.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AzureNavigation.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AzureNavigation.edmx</DependentUpon>
-      <LastGenOutput>AzureNavigation.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\accomplishments.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -287,13 +193,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <EntityDeploy Include="Models\AzureNavigation.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AzureNavigation.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AzureNavigation.edmx.diagram">
-      <DependentUpon>AzureNavigation.edmx</DependentUpon>
-    </Content>
     <Content Include="libman.json" />
     <Content Include="Downloads\Resume_of_RandyClark.doc" />
     <Content Include="Downloads\DatabaseDiagram.doc" />
@@ -465,7 +364,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57588</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57588/</IISUrl>
+          <IISUrl>http://localhost:57589/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
