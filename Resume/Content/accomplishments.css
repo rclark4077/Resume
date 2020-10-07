@@ -5,14 +5,14 @@
     top: -1000px;
     margin: auto;
     width: 60%;
-    color: #333;
-    background-color: #f0ffff;
-    box-shadow: 0px 0px 20px 3px rgba(150,150,150, .5);
+    color: #cbffec;
+    background-color: #444;
+    box-shadow: 0px 0px 20px 3px rgba(150,150,150, .25);
 }
 #accomplishmentContainer:hover {
     opacity: 1;
-    background-color: #cbffec;
-    transition: all .25s linear;
+    background-color: #333;
+    transition: all .5s linear;
 }
 #accomplishmentContainer > header {
     display: block;

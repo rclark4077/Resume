@@ -58,6 +58,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -113,6 +116,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -131,7 +143,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AAA_scratchpad.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\CareerHistoryController.cs" />
     <Compile Include="Controllers\DownloadsController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
@@ -232,13 +244,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\CareerHistoryViewModel.cs" />
-    <Compile Include="ViewModels\CompaniesAndAccomplishmentsViewModel.cs" />
-    <Compile Include="ViewModels\PriorEducationViewModel.cs" />
-    <Compile Include="ViewModels\QualificationViewModel.cs" />
-    <Compile Include="ViewModels\SocialNetworksViewModel.cs" />
-    <Compile Include="ViewModels\SubmoduleViewModel.cs" />
-    <Compile Include="ViewModels\UrlSelectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\accomplishments.css" />
@@ -291,6 +296,7 @@
     </Content>
     <Content Include="libman.json" />
     <Content Include="Downloads\Resume_of_RandyClark.doc" />
+    <Content Include="Downloads\DatabaseDiagram.doc" />
     <None Include="Properties\PublishProfiles\darthclark - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -425,6 +431,20 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resume.DAL\Resume.DAL.csproj">
+      <Project>{2da9007a-cff7-4eb8-920b-afcfb8915ff7}</Project>
+      <Name>Resume.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Resume.Services.csproj">
+      <Project>{bd135ba3-7981-47da-a62c-241d96d846ce}</Project>
+      <Name>Resume.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModels\Resume.ViewModels.csproj">
+      <Project>{bb73a2d2-04a1-4c55-a5ee-54f4276d422a}</Project>
+      <Name>Resume.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

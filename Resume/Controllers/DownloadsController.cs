@@ -1,39 +1,27 @@
-﻿using Resume.Models;
-using Resume.ViewModels;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Resume.Services.Interfaces;
 
 namespace Resume.Controllers
 {
     public class DownloadsController : Controller
     {
-        AzureNavigationEntities db = new AzureNavigationEntities();
+        IDownloadsService _iDownloadsService;
 
-        // GET: Downloads [ChildActionOnly]
-        [ChildActionOnly]
-        public ActionResult GetDownloads()
+        public DownloadsController(IDownloadsService IDownloadsService)
         {
-            var downloads = from sub in db.Submodules
-                                join download in db.Downloads
-                                    on sub.SubmoduleId equals download.SubmoduleId
-                            join urlsourcetype in db.UrlSourceTypes
-                                on download.UrlSourceTypeId equals urlsourcetype.UrlSourceTypeId
-                            where sub.ModuleId == 6
-                            orderby sub.SubmoduleId descending
-                            select new SubmoduleViewModel()
-                            {
-                                SubmoduleDescription = sub.SubmoduleDescription,
-                                SecurityLevel = sub.SecurityLevel,
-                                UrlSourceType = urlsourcetype.UrlSourceTypeDescription,
-                                UrlSourceTypeId = urlsourcetype.UrlSourceTypeId,
-                                DownloadUrl = download.DownloadUrl,
-                                Status = sub.Status
-                            };
+            _iDownloadsService = IDownloadsService;
+        }
 
+        // GET: Downloads/GetDownloads
+        [ChildActionOnly]
+        public PartialViewResult GetDownloads()
+        {
+            var downloads = _iDownloadsService.GetDownloads();
+            
             return PartialView("_HeaderDownloads", downloads);
         }
 
-        // GET: Downloads
+        // GET: Downloads/Index
         public ActionResult Index()
         {
             return View();

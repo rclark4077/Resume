@@ -1,30 +1,22 @@
-﻿using Resume.Models;
-using Resume.ViewModels;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Resume.Services.Interfaces;
 
 namespace Resume.Controllers
 {
     public class EducationController : Controller
     {
-        AzureNavigationEntities db = new AzureNavigationEntities();
+        IEducationService _iEducationService;
 
+        public EducationController(IEducationService iEducationService)
+        {
+            _iEducationService = iEducationService;
+        }
+
+        //  GET: Education/GetEducation(1)
+        [ChildActionOnly]
         public PartialViewResult GetEducation(int id = 1)
         {
-            var education = from student in db.Students
-                            join institution in db.EducationalInstitutions
-                                on student.InstitutionId equals institution.InstitutionId
-                            where student.ProfileId == id
-                            select new PriorEducationViewModel()
-                            {
-                                ProfileId = student.ProfileId,
-                                InstitutionId = student.InstitutionId,
-                                InstitutionDescription = institution.InstitutionDescription,
-                                Major = student.Major,
-                                Curriculum = student.Curriculum,
-                                Degree = student.Degree,
-                                GraduationDate = student.GraduationDate
-                            };
+            var education = _iEducationService.GetEducation(id);
 
             return PartialView("_HeaderEducation", education);
         }

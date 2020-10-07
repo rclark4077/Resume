@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Resume.ViewModels.CompaniesAndAccomplishmentsViewModel>
+﻿@model IEnumerable<Resume.ViewModels.AccomplishmentsViewModel>
 @{
     ViewBag.SelectedCompanyId = Request.QueryString["LastSelectedParam"];
 
@@ -62,34 +62,34 @@
                             @foreach (var item in Model)
                             {
                                 int cid = item.CompanyId;
-                            <tr>
-                                @if (cid == ViewBag.Id)
-                                {
-                                    <td style="width: 25vw;">
-                                        <i class="material-icons md-20" style="float: left; margin-right: 5px; color: #00ffb4;">play_arrow</i>
-                                        <span id="compayAccomplishments"
-                                              data-link="/CareerHistory/Index/@cid.ToString()"
-                                              data-accomplishmentId="@item.AccomplishmentId"
-                                              data-accomplishmentdescription="@item.AccomplishmentDescription">
-                                            @item.CompanyName
-                                        </span>
-                                    </td>
-                                }
-                                else
-                                {
-                                    <td style="width: 25vw;">
-                                        <span style="margin-left: 30px;" data-link="/CareerHistory/Index/@cid.ToString()">
-                                            @item.CompanyName
-                                        </span>
-                                    </td>
-                                }
-                                <td style="width: 25vw;">@item.Address1</td>
-                                <td style="width: 20vw;">@item.City</td>
-                                <td style="width: 5vw;">@item.StateInitials</td>
-                                <td style="width: 15vw; padding-left: 25px;">@item.PhoneNumber</td>
-                                <td style="width: 5vw;  padding-left: 25px;">@item.StartDate</td>
-                                <td style="width: 5vw;  padding-left: 25px;">@item.EndDate</td>
-                            </tr>
+                                <tr>
+                                    @if (cid == ViewBag.Id)
+                                    {
+                                        <td style="width: 25vw;">
+                                            <i class="material-icons md-20" style="float: left; margin-right: 5px; color: #00ffb4;">play_arrow</i>
+                                            <span id="compayAccomplishments"
+                                                  data-link="/CareerHistory/Index/@cid.ToString()"
+                                                  data-accomplishmentId="@item.AccomplishmentId"
+                                                  data-accomplishmentdescription="@item.AccomplishmentDescription">
+                                                @item.CompanyName
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td style="width: 25vw;">
+                                            <span style="margin-left: 30px;" data-link="/CareerHistory/Index/@cid.ToString()">
+                                                @item.CompanyName
+                                            </span>
+                                        </td>
+                                    }
+                                    <td style="width: 25vw;">@item.Address1</td>
+                                    <td style="width: 20vw;">@item.City</td>
+                                    <td style="width: 5vw;">@item.StateInitials</td>
+                                    <td style="width: 15vw; padding-left: 25px;">@item.PhoneNumber</td>
+                                    <td style="width: 5vw;  padding-left: 25px;">@item.StartDate</td>
+                                    <td style="width: 5vw;  padding-left: 25px;">@item.EndDate</td>
+                                </tr>
                             }
                         </tbody>
                     </table>

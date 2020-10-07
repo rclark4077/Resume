@@ -1,92 +1,64 @@
-﻿using Resume.Models;
+﻿using System.Web.Mvc;
+using Resume.Services.Interfaces;
 using Resume.ViewModels;
-using System;
-using System.Data;
-using System.Linq;
-using System.Web.Mvc;
 
 namespace Resume.Controllers
 {
     public class ProjectsController : Controller
     {
-        private AzureNavigationEntities db = new AzureNavigationEntities();
+        IProductsService _iProductsService;
+
+        public ProjectsController(IProductsService iProductsService)
+        {
+            _iProductsService = iProductsService;
+        }
 
         [ChildActionOnly]
-        public PartialViewResult GetCompany(int? id)
+        public PartialViewResult GetCompany(int id = 1)
         {
-            //  !!! Important, this is an exact duplicate of ProjectController/GetCompany
+            //  !!! Important, this is an exact duplicate of CareerHistoryController/GetCompany
             //      the reason for this is that the shared _ResumeLayout content page action links can only pass 1 controller
             ViewBag.Name = "Randy Clark";
+            ViewBag.Id = id;
 
-            if (String.IsNullOrEmpty(id.ToString()))
-            {
-                ViewBag.Id = 0;
-            }
-            else
-            {
-                ViewBag.Id = id;
-            };
             if (ViewBag.SelectedCompanyId != "" && ViewBag.SelectedCompanyId != null)
             {
                 ViewBag.Id = ViewBag.SelectedCompanyId;
             }
 
-            var company = from co in db.Companies
-                          join ch in db.CareerHistories
-                              on co.CompanyId equals ch.CompanyId
-                          join ca in db.CareerAccomplishments
-                              on ch.CareerHistoryId equals ca.CareerHistoryId
-                          select new CompaniesAndAccomplishmentsViewModel
-                          {
-                              CompanyId = co.CompanyId,
-                              CompanyName = co.CompanyName,
-                              Address1 = co.Address1,
-                              Address2 = co.Address2,
-                              Address3 = co.Address3,
-                              StateInitials = co.StateInitials,
-                              City = co.City,
-                              ZipCode = co.ZipCode,
-                              ZipCodeSuffix = co.ZipCodeSuffix,
-                              PhoneNumber = co.PhoneNumber,
-                              AccomplishmentId = ca.AccomplishmentId,
-                              AccomplishmentDescription = ca.AccomplishmentDescription,
-                              CareerHistoryId = ca.CareerHistoryId
-                          };
+            var company = _iProductsService.GetCompany(id);
 
             return PartialView("_HeaderCompanies", company);
         }
         // GET: Projects
-        public ActionResult Index(string id = null, string LastSelectedController = null, string LastSelectedAction = null, string LastSelectedParam = null, string LastSelectedProjectId = null)
+        public ActionResult Index(string Id = null, string LastSelectedController = null, string LastSelectedAction = null, string LastSelectedParam = null, string LastSelectedProjectId = null)
         {
-            ViewBag.LastSelectedController = LastSelectedController;// these ViewBags indicate menuu/submenu/param selected
+            ViewBag.LastSelectedController = LastSelectedController;
             ViewBag.LastSelectedAction = LastSelectedAction;
             ViewBag.LastSelectedParam = LastSelectedParam;
             ViewBag.LastSelectedProjectId = LastSelectedProjectId;
+            ViewBag.SelectedCompanyId = Id;
+            ViewBag.SomeId = Id;
 
-            if (LastSelectedParam != null)
-            {
-                id = LastSelectedParam;// this is to filter the actual page contents
-            }
-            ViewBag.SelectedCompanyId = id;
-
-            Object project = new Object();
-            project = from pro in db.Projects
-                      where (id == null || pro.CompanyId.ToString() == id)
-                      select pro;
+            var project = _iProductsService.Index(Id
+                                                    , LastSelectedController
+                                                    , LastSelectedAction
+                                                    , LastSelectedParam
+                                                    , LastSelectedProjectId);
 
             return View(project);
         }
         [HttpPost]
         public ActionResult GetControllerAction(UrlSelectionViewModel url)
         {
-            return RedirectToAction("Index", "Projects", new
-            {
-                id = url.Param.ToString(),
-                LastSelectedController = url.Controller,
-                LastSelectedAction = url.Action,
-                LastSelectedParam = url.Param.ToString(),
-                LastSelectedProjectId = url.ProjectId.ToString()
-            });
+            return RedirectToAction("Index", "Projects", new {
+                                                                id = url.Param,
+                                                                LastSelectedController = url.Controller,
+                                                                LastSelectedAction = url.Action,
+                                                                LastSelectedParam = url.Param,
+                                                                LastSelectedProjectId = url.ProjectId.ToString()
+                                                             }
+            );
         }
     }
 }
