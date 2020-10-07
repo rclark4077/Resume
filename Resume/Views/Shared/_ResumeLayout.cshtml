@@ -78,12 +78,14 @@
                             <div class="body">
                                 <br />
                                 @{
-                                    if(renderActionName != null)
+                                    if (renderActionName != null)
                                     {
                                         Html.RenderAction(renderActionName, controllerName);
                                     }
                                 }
                                 @RenderBody()
+
+                                <br />
                             </div>
                         </div>
                     </div>
