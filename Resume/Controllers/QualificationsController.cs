@@ -1,60 +1,43 @@
-﻿using Resume.Models;
-using Resume.ViewModels;
-using System;
-using System.Dynamic;
-using System.Linq;
+﻿using System.Dynamic;
 using System.Web.Mvc;
-
+using Resume.Models;
+using Resume.ViewModels;
+using Resume.DAL.Interfaces;
 
 namespace Resume.Controllers
 {
     public class QualificationsController : Controller
     {
-        AzureNavigationEntities db = new AzureNavigationEntities();
+        IQualificationsRepository _iQualificationsRepository;
+
+        public QualificationsController(IQualificationsRepository iQalificationsRepository)
+        {
+            _iQualificationsRepository = iQalificationsRepository;
+        }
 
         [ChildActionOnly]
-        public PartialViewResult GetQualificationTypes(int? technicalSkillTypeId)
+        public PartialViewResult GetQualificationTypes(int technicalSkillTypeId = 1)
         {
             ViewBag.Name = "Randy Clark";
 
-            if (String.IsNullOrEmpty(technicalSkillTypeId.ToString()))
-            {
-                ViewBag.TechnicalSkillTypeId = 0;
-            }
-            else
-            {
-                ViewBag.TechnicalSkillTypeId = technicalSkillTypeId;
-            };
+            //if (String.IsNullOrEmpty(technicalSkillTypeId.ToString()))
+            //{
+            //    ViewBag.TechnicalSkillTypeId = 0;
+            //}
+            //else
+            //{
+            //    ViewBag.TechnicalSkillTypeId = technicalSkillTypeId;
+            //};
 
-            Object skillTypes = from TechnicalSkillType in db.TechnicalSkillTypes
-                                where (technicalSkillTypeId.ToString() == null || TechnicalSkillType.TechnicalSkillTypeId == technicalSkillTypeId)
-                                select TechnicalSkillType;
-
-            Object attributes = from att in db.ProfileAttributes
-                                select att;
-
-            dynamic model = new ExpandoObject();
-            model.SkillTypes = skillTypes;
-            model.PersonalAttributes = attributes;
+            dynamic model = _iQualificationsRepository.GetQualificationTypes(technicalSkillTypeId);
 
             return PartialView("_HeaderQualifications", model);
         }
 
         // GET: Qualifications
-        public ActionResult Index(int? profileId = 1)
+        public ActionResult Index(int profileId = 1)
         {
-            Object qualifications = new Object();
-            qualifications = from ts in db.TechnicalSkills
-                             join tst in db.TechnicalSkillTypes
-                                 on ts.TechnicalSkillTypeId equals tst.TechnicalSkillTypeId
-                             where (profileId.ToString() == null || ts.ProfileId == profileId)
-                                && ts.Status == 1
-                             select new QualificationViewModel()
-                             {
-                                 TechnicalSkillTypeId = tst.TechnicalSkillTypeId,
-                                 TechnicalSkillTypeDescription = tst.TechnicalSkillTypeDescription,
-                                 TechnicalSkillDescription = ts.TechnicalSkillDescription
-                             };
+            var qualifications = _iQualificationsRepository.Index(profileId);
 
             return View(qualifications);
         }

@@ -144,7 +144,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="Controllers\AAA_scratchpad.cs" />
     <Compile Include="Controllers\CareerHistoryController.cs" />
     <Compile Include="Controllers\DownloadsController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
@@ -297,6 +296,7 @@
     </Content>
     <Content Include="libman.json" />
     <Content Include="Downloads\Resume_of_RandyClark.doc" />
+    <Content Include="Downloads\DatabaseDiagram.doc" />
     <None Include="Properties\PublishProfiles\darthclark - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -8,7 +8,7 @@ const cardBody = card.querySelector(".body");
 const panel2 = document.getElementById("section-2");
 const btnBodyContentToggle = panel2.querySelector(".container i#flexIcon");
 const tableSpan = panel2.querySelectorAll("div#contentPanel .body .company-list table td span");
-
+const tr = cardBody.querySelectorAll("table table tbody tr");
 //  ------------------------------------------------------------------------ [Global functions]
 function getTarget(e) {
     ev = e || window.event;             // ie8 legacy object
@@ -138,26 +138,28 @@ for (let i = 0; i < tableSpan.length; i++) {
 };
 
 //  [all zoom-in text buttons click events]
-for (let r = 0; r < cardBody.querySelectorAll("table table tbody tr").length; r++) {
-    let zoomIcon = cardBody.querySelectorAll("table table tbody tr")[r].querySelector(".paragraph-title");
-    if (zoomIcon) {
-        zoomIcon.addEventListener("click", function () {
-            //  when zoom button is clicked, zoom in entire <td> textContent
-            if (zoomIcon.textContent == "zoom" || zoomIcon.textContent == "normalize") {
-                try {
-                    let zoomTd = zoomIcon.parentNode.parentNode;
-                    zoomTd.classList.toggle("zoom-text");
-                    zoomTd.nextElementSibling.classList.toggle("zoom-text");
-                } catch (e) {
-                    let err = e.message;
+for (let r = 0; r < tr.length; r++) {
+    let zoomIcon = tr[r].querySelectorAll(".paragraph-title");
+    for (let z = 0; z < zoomIcon.length; z++) {
+        if (zoomIcon[z]) {
+            zoomIcon[z].addEventListener("click", function () {
+                //  when zoom button is clicked, zoom in entire <td> textContent
+                if (zoomIcon[z].textContent == "zoom" || zoomIcon[z].textContent == "normalize") {
+                    try {
+                        let zoomTd = zoomIcon[z].parentNode.parentNode;
+                        zoomTd.classList.toggle("zoom-text");
+                        zoomTd.nextElementSibling.classList.toggle("zoom-text");
+                    } catch (e) {
+                        let err = e.message;
+                    };
+                    let buttonTextValue = (el => {
+                        return el.textContent == "zoom" ? "normalize" : "zoom";
+                    });
+                    zoomIcon[z].textContent = buttonTextValue(this);
                 };
-                let buttonTextValue = (el => {
-                    return el.textContent == "zoom" ? "normalize" : "zoom";
-                });
-                zoomIcon.textContent = buttonTextValue(this);
-            };
-            zoomIcon.classList.toggle("paragraph-title-click");
-        });
+                zoomIcon[z].classList.toggle("paragraph-title-click");
+            });
+        };
     };
 };
 ////////////////////////////////////////////////////

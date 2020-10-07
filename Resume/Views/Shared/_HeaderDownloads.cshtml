@@ -17,7 +17,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 35vw;">
+                                <th style="width: 25vw;">
                                     <div class="table-column-header">
                                         <span>Download Description</span>
                                     </div>
@@ -27,7 +27,7 @@
                                         <span>Download Source Type</span>
                                     </div>
                                 </th>
-                                <th style="width: 35vw;">
+                                <th style="width: 45vw;">
                                     <div class="table-column-header">
                                         <span>Download Link</span>
                                     </div>
@@ -40,15 +40,15 @@
         </thead>
         <tbody>
             <tr>
-                <td style="padding: 20px;">
+                <td style="padding-left: 20px;">
                     <table>
                         <tbody>
                             @foreach (var item in Model)
                             {
                             <tr>
-                                <td style="width: 35vw;">@item.SubmoduleDescription</td>
+                                <td style="width: 25vw;">@item.SubmoduleDescription</td>
                                 <td style="width: 30vw;">@item.UrlSourceType</td>
-                                <td style="width: 35vw;">
+                                <td style="width: 40vw;">
                                     @switch (item.UrlSourceTypeId)
                                     {
                                         case 2:

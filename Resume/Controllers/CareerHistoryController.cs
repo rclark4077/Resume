@@ -14,6 +14,8 @@ namespace Resume.Controllers
             _iCareerHistoryService = iCareerHistoryService;
         }
 
+        //  !!! Important, this is an exact duplicate of ProjectController/GetCompany
+        //      the reason for this is that the shared _ResumeLayout content page action links can only pass 1 controller
         [ChildActionOnly]
         public PartialViewResult GetCompany(int id = 1)
         {

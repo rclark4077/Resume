@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<Resume.ViewModels.CompaniesAndAccomplishmentsViewModel>
 
-
 @{
     ViewBag.SelectedCompanyId = Request.QueryString["LastSelectedParam"];
 
@@ -9,7 +8,7 @@
         ViewBag.SelectedCompanyId = ViewBag.Id;
     }
 }
-@*<div class="company-list">*@
+<div class="company-list">
     <table id="tableRow" class="table table-striped table-dark table-bordered table-hover table-responsive-sm">
         <tbody>
             <tr>
@@ -98,5 +97,5 @@
             </tr>
         </tbody>
     </table>
-@*</div>*@
+</div>
 

@@ -78,7 +78,10 @@
                             <div class="body">
                                 <br />
                                 @{
-                                    Html.RenderAction(renderActionName, controllerName);
+                                    if(renderActionName != null)
+                                    {
+                                        Html.RenderAction(renderActionName, controllerName);
+                                    }
                                 }
                                 @RenderBody()
                             </div>
