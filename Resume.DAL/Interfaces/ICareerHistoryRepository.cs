@@ -1,4 +1,4 @@
-﻿using Resume.ViewModels;
+﻿using Resume.ViewModel;
 using System.Collections;
 
 namespace Resume.DAL.Interfaces

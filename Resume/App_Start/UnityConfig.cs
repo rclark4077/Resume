@@ -1,10 +1,10 @@
-using System.Web.Mvc;
-using Unity;
-using Unity.Mvc5;
 using Resume.DAL.Interfaces;
 using Resume.DAL.Repositories;
 using Resume.Services.Interfaces;
 using Resume.Services.Repositories;
+using System.Web.Mvc;
+using Unity;
+using Unity.Mvc5;
 
 
 namespace Resume
@@ -13,13 +13,13 @@ namespace Resume
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
-            
+            var container = new UnityContainer();
+
             // register all your components with the container here
             // it is NOT necessary to register your controllers
-            
+
             // e.g. container.RegisterType<ITestService, TestService>();
-            
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             container.RegisterType<ICareerHistoryRepository, CareerHistoryRepository>();
             container.RegisterType<ICareerHistoryService, CareerHistoryService>();

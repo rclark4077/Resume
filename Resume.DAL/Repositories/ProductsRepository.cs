@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Resume.DAL.Interfaces;
 using Resume.DAL.Models;
-using Resume.ViewModels;
+using Resume.ViewModel;
 
 
 namespace Resume.DAL.Repositories

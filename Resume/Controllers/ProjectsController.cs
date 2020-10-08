@@ -1,6 +1,6 @@
-﻿using System.Web.Mvc;
-using Resume.Services.Interfaces;
-using Resume.ViewModels;
+﻿using Resume.Services.Interfaces;
+using Resume.ViewModel;
+using System.Web.Mvc;
 
 namespace Resume.Controllers
 {
@@ -51,13 +51,14 @@ namespace Resume.Controllers
         [HttpPost]
         public ActionResult GetControllerAction(UrlSelectionViewModel url)
         {
-            return RedirectToAction("Index", "Projects", new {
-                                                                id = url.Param,
-                                                                LastSelectedController = url.Controller,
-                                                                LastSelectedAction = url.Action,
-                                                                LastSelectedParam = url.Param,
-                                                                LastSelectedProjectId = url.ProjectId.ToString()
-                                                             }
+            return RedirectToAction("Index", "Projects", new
+            {
+                id = url.Param,
+                LastSelectedController = url.Controller,
+                LastSelectedAction = url.Action,
+                LastSelectedParam = url.Param,
+                LastSelectedProjectId = url.ProjectId.ToString()
+            }
             );
         }
     }

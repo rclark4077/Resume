@@ -1,4 +1,4 @@
-﻿namespace Resume.ViewModels
+﻿namespace Resume.ViewModel
 {
     public class SocialNetworksViewModel
     {

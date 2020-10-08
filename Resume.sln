@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.DAL", "Resume.DAL\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.Services", "Services\Resume.Services.csproj", "{BD135BA3-7981-47DA-A62C-241D96D846CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.ViewModels", "ViewModels\Resume.ViewModels.csproj", "{BB73A2D2-04A1-4C55-A5EE-54F4276D422A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.ViewModel", "ViewModels\Resume.ViewModel.csproj", "{BB73A2D2-04A1-4C55-A5EE-54F4276D422A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using Resume.Services.Interfaces;
+﻿using Resume.Services.Interfaces;
+using System.Web.Mvc;
 
 namespace Resume.Controllers
 {
@@ -17,7 +17,7 @@ namespace Resume.Controllers
         public PartialViewResult GetDownloads()
         {
             var downloads = _iDownloadsService.GetDownloads();
-            
+
             return PartialView("_HeaderDownloads", downloads);
         }
 
