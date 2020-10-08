@@ -195,8 +195,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="libman.json" />
-    <Content Include="Downloads\Resume_of_RandyClark.doc" />
     <Content Include="Downloads\DatabaseDiagram.doc" />
+    <Content Include="Downloads\Resume_Randy_Clark.doc" />
     <None Include="Properties\PublishProfiles\darthclark - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
