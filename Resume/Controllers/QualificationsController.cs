@@ -24,7 +24,7 @@ namespace Resume.Controllers
             return PartialView("_HeaderQualifications", model);
         }
 
-        // GET: Qualifications
+        // GET: Qualifications/Index/1
         public ActionResult Index(int profileId = 1)
         {
             var qualifications = _iQualificationsRepository.Index(profileId);
