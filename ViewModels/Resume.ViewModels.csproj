@@ -7,7 +7,7 @@
     <ProjectGuid>{BB73A2D2-04A1-4C55-A5EE-54F4276D422A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ViewModels</RootNamespace>
+    <RootNamespace>Resume.ViewModels</RootNamespace>
     <AssemblyName>Resume.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -7,7 +7,7 @@
     <ProjectGuid>{BD135BA3-7981-47DA-A62C-241D96D846CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Services</RootNamespace>
+    <RootNamespace>Resume.Services</RootNamespace>
     <AssemblyName>Resume.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
