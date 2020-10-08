@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using Resume.Services.Interfaces;
+﻿using Resume.Services.Interfaces;
+using System.Web.Mvc;
 
 namespace Resume.Controllers
 {

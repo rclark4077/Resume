@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Resume.ViewModels
+namespace Resume.ViewModel
 {
     public class CareerHistoryViewModel
     {

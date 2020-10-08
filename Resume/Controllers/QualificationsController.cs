@@ -1,6 +1,5 @@
-﻿using System.Dynamic;
+﻿using Resume.DAL.Interfaces;
 using System.Web.Mvc;
-using Resume.DAL.Interfaces;
 
 namespace Resume.Controllers
 {

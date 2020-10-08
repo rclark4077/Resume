@@ -64,9 +64,9 @@
       <Project>{2da9007a-cff7-4eb8-920b-afcfb8915ff7}</Project>
       <Name>Resume.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ViewModels\Resume.ViewModels.csproj">
+    <ProjectReference Include="..\ViewModels\Resume.ViewModel.csproj">
       <Project>{bb73a2d2-04a1-4c55-a5ee-54f4276d422a}</Project>
-      <Name>Resume.ViewModels</Name>
+      <Name>Resume.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
