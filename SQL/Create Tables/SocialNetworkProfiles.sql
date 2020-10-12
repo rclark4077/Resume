@@ -28,7 +28,8 @@ BEGIN TRY
             (
                 SocialNetworkProfileId  int         NOT NULL    IDENTITY (1, 1),
                 ProfileId               int         NOT NULL,
-                SocialNetworkId         int         NOT NULL
+                SocialNetworkId         int         NOT NULL,
+				SocialProfileStatus		int			NOT	NULL	DEFAULT(1)
             )  ON [PRIMARY]
 
 
@@ -60,6 +61,8 @@ BEGIN TRY
             ---=========================---
             ---== COLUMN DESCRIPTIONS ==---
             ---=========================---
+            SET @v = N'SocialProfileStatus valid values: 0=Inactive, 1=Active'
+            EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'SocialNetworkProfiles', N'COLUMN', N'SocialProfileStatus'
         END
         ELSE -- stop sql code execution and jump to CATCH Block [Commit will not execute]
         BEGIN

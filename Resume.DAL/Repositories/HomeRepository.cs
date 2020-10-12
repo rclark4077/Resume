@@ -27,11 +27,12 @@ namespace Resume.DAL.Repositories
                                             on sp.SocialNetworkId equals sn.SocialNetworkId
                                         join st in db.SocialNetworkTypes
                                             on sn.SocialNetworkTypeId equals st.SocialNetworkTypeId
-                                        where sp.ProfileId == id
+                                        where sp.ProfileId == id && sp.SocialProfileStatus == 1//Active
                                         select new SocialNetworksViewModel()
                                         {
                                             SocialNetworkDescription = st.SocialNetworkDescription,
-                                            SocialNetworkAddress = sn.SocialNetworkAddress
+                                            SocialNetworkAddress = sn.SocialNetworkAddress,
+                                            SocialProfileStatus = sp.SocialProfileStatus
                                         };
 
             var ContactNotes = from ContactNote in db.ContactNotes

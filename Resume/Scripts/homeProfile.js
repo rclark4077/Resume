@@ -26,7 +26,7 @@ if (letters && controller.toLowerCase() == "home") {
             window.clearInterval(intervalId);
             //  mimic keyboard cursor flashing as if ready for input
             let id = window.setInterval(function () {
-                let terminalCursor = document.querySelector(".home-render-action table.tableRow:first-child th:first-child h1 span:last-child");
+                let terminalCursor = document.querySelector(".home-render-action table.tableRow:first-child th:first-child h3 span:last-child");
                 terminalCursor.style.borderLeft = ((terminalCursor.style.borderLeft == "20px solid rgb(0, 255, 180)")
                     ? "20px solid #343A40"
                     : "20px solid rgb(0, 255, 180)");

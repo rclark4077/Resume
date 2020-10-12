@@ -151,6 +151,7 @@
           <Property Name="SocialNetworkProfileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProfileId" Type="int" Nullable="false" />
           <Property Name="SocialNetworkId" Type="int" Nullable="false" />
+          <Property Name="SocialProfileStatus" Type="int" />
         </EntityType>
         <EntityType Name="SocialNetworks">
           <Key>
@@ -815,6 +816,7 @@
           <Property Name="SocialNetworkId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Profile" Relationship="Self.FK_SocialNetworkProfiles_ProfileId" FromRole="SocialNetworkProfiles" ToRole="Profiles" />
           <NavigationProperty Name="SocialNetwork" Relationship="Self.FK_SocialNetworkProfiles_SocialNetworkId" FromRole="SocialNetworkProfiles" ToRole="SocialNetworks" />
+          <Property Name="SocialProfileStatus" Type="Int32" />
         </EntityType>
         <EntityType Name="SocialNetwork">
           <Key>
@@ -1470,6 +1472,7 @@
           <EntitySetMapping Name="SocialNetworkProfiles">
             <EntityTypeMapping TypeName="ResumesModel.SocialNetworkProfile">
               <MappingFragment StoreEntitySet="SocialNetworkProfiles">
+                <ScalarProperty Name="SocialProfileStatus" ColumnName="SocialProfileStatus" />
                 <ScalarProperty Name="SocialNetworkProfileId" ColumnName="SocialNetworkProfileId" />
                 <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
                 <ScalarProperty Name="SocialNetworkId" ColumnName="SocialNetworkId" />
