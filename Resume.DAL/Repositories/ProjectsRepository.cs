@@ -8,7 +8,7 @@ using Resume.ViewModel;
 
 namespace Resume.DAL.Repositories
 {
-    public class ProductsRepository : IProductsRepository
+    public class ProjectsRepository : IProjectsRepository
     {
         AzureEntities db = new AzureEntities();
 

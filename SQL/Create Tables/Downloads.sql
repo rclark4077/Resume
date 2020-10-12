@@ -27,6 +27,7 @@ BEGIN TRY
             (
                 DownloadId				int             NOT NULL    IDENTITY (1, 1),
 				SubmoduleId				int					NULL,
+				PofileId				int				NOT NULL,
 				DownloadDescription		varchar(254)	NOT NULL,
 				DownloadUrl				varchar(254)	NOT NULL,
 				UrlSourceTypeId			int				NOT NULL,
@@ -45,11 +46,14 @@ BEGIN TRY
             ALTER TABLE dbo.Downloads
                ADD CONSTRAINT FK_Downloads_SubmoduleId FOREIGN KEY (SubmoduleId)
                   REFERENCES dbo.Submodule (SubmoduleId)
-				  
+
+            ALTER TABLE dbo.Downloads
+               ADD CONSTRAINT FK_Downloads_ProfileId FOREIGN KEY (ProfileId)
+                  REFERENCES dbo.Profiles (ProfileId)
+
             ALTER TABLE dbo.Downloads
                ADD CONSTRAINT FK_Downloads_UrlSourceTypeId FOREIGN KEY (UrlSourceTypeId)
                   REFERENCES dbo.UrlSourceType (UrlSourceTypeId)
-
 
             -- Defaults & Check Constraints
 

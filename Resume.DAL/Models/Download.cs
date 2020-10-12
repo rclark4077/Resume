@@ -20,8 +20,10 @@ namespace Resume.DAL.Models
         public string DownloadUrl { get; set; }
         public int UrlSourceTypeId { get; set; }
         public int Status { get; set; }
+        public int ProfileId { get; set; }
     
         public virtual Submodule Submodule { get; set; }
         public virtual UrlSourceType UrlSourceType { get; set; }
+        public virtual Profile Profile { get; set; }
     }
 }

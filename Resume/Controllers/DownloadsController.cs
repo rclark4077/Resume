@@ -1,8 +1,10 @@
 ﻿using Resume.Services.Interfaces;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace Resume.Controllers
 {
+    [SessionState(SessionStateBehavior.Default)]
     public class DownloadsController : Controller
     {
         IDownloadsService _iDownloadsService;
@@ -16,7 +18,7 @@ namespace Resume.Controllers
         [ChildActionOnly]
         public PartialViewResult GetDownloads()
         {
-            var downloads = _iDownloadsService.GetDownloads();
+            var downloads = _iDownloadsService.GetDownloads(1);
 
             return PartialView("_HeaderDownloads", downloads);
         }

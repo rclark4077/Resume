@@ -4,6 +4,6 @@ namespace Resume.DAL.Interfaces
 {
     public interface IDownloadsRepository
     {
-        IEnumerable GetDownloads();
+        IEnumerable GetDownloads(int Id);
     }
 }

@@ -57,7 +57,7 @@
     <Compile Include="Interfaces\IHomeRepository.cs" />
     <Compile Include="Interfaces\IMenumuRepository.cs" />
     <Compile Include="Interfaces\IQualificationsRepository.cs" />
-    <Compile Include="Interfaces\IProductsRepository.cs" />
+    <Compile Include="Interfaces\IProjectsRepository.cs" />
     <Compile Include="Models\Azure.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +106,7 @@
     <Compile Include="Models\ProfileAttribute.cs">
       <DependentUpon>Azure.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProfileSession.cs" />
     <Compile Include="Models\Project.cs">
       <DependentUpon>Azure.tt</DependentUpon>
     </Compile>
@@ -149,7 +150,7 @@
     <Compile Include="Repositories\EducationRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
-    <Compile Include="Repositories\ProductsRepository.cs" />
+    <Compile Include="Repositories\ProjectsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

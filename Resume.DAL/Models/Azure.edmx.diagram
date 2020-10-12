@@ -50,6 +50,7 @@
         <AssociationConnector Association="ResumesModel.FK_SocialNetworkProfiles_SocialNetworkId" ManuallyRouted="false" />
         <AssociationConnector Association="ResumesModel.FK_SocialNetworks_SocialNetworkTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="ResumesModel.FK_TechnicalSkills_TechnicalSkillTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumesModel.FK_Downloads_ProfileId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

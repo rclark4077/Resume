@@ -24,6 +24,7 @@ namespace Resume.DAL.Models
             this.SocialNetworkProfiles = new HashSet<SocialNetworkProfile>();
             this.Students = new HashSet<Student>();
             this.TechnicalSkills = new HashSet<TechnicalSkill>();
+            this.Downloads = new HashSet<Download>();
         }
     
         public int ProfileId { get; set; }
@@ -56,5 +57,7 @@ namespace Resume.DAL.Models
         public virtual ICollection<Student> Students { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TechnicalSkill> TechnicalSkills { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Download> Downloads { get; set; }
     }
 }

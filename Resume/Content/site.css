@@ -1,51 +1,13 @@
 ﻿/* site theme
     {
-        #4e4e6b [medium dark purple];
-        #16162a [dark purple]
-        #14141f [cark purple/gray]
-        #b2bcc7 [medium purple/gray]
-        #ff4400 [orange red]
-        #18acac [matte plastic blue 3]
-        #109494 [matte plastic blue-2]
-        #097474 [matte plastic blue-1]
-        #003328 [dark seafoam]
-        #007395 [steel blue]
-        #00485e [steel blue - normal]
-        #092d37 [steel blue - medium]
-        #021c24 [steel blue - dark]
-        #000709 [steel blue - darker]
-        #43494E [steel gray/blue - medium]
-        #343A40 [steel gray/blue - dark]
-        #5bc0de [twitter's information color scheme]
-        #3ce6ff [skyblue]
-        #5cb85c [twitter's success color scheme ]
-        #ffffeb [cream]
-        #f0ffff [light azure blue]
-        #abcfcf [medium azure blue]
-        #6fa6a6 [dark azure blue]
-        #c0cccc [medium azure blue]
-        #909999 [medium azure blue]
-        #cbffec [mint]
-        #00ffb4 [mint green]
-        #0f7e9b [corn blue]
-        #cb95b3 [light burgundy]
-        #a36185 [medium burgundy]
-        #8a436a [burgundy]
-        #baffe7 [lighter mint]
-        #8bffd6 [light mint]
-        #5cd1a8 [medium mint]
-        #10a671 [dark mint]
-        #414160 [mauve]
-        #201b38 [medium mauve]
-        #130f23 [dark mauve]
-        #0f0d19 [darker mauve]
-        #101010 [dark charcoal]
-        
-        #CBEEF0 [light teal]
-        #AAC8CA [teal]
-        #8BA6A8 [off teal]
-        #515D5E [dark teal]
-        #08090A [darkest teal]
+        colors & bgs
+            #cbffec - mint
+            #00ffb4 - dark mint
+            #333    - dark grey
+            #f0ffff - light azure blue
+            #cbeef0 - light teal
+            #101010 - dark charcoal
+            #43494E - charcoal
     }
 */
 * {
@@ -55,15 +17,10 @@
 }
 body {
     min-height: 100%;
-    color: #14141f;
-    background-color: #c0cccc;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
+    line-height: 1.5;
     overflow: hidden;
-}
-body, #panelsContainer, section, .section-1
-nav, ul.nav-level-1 {
-    min-height: 100%;
 }
 body, div, header, span, nav, ul, li, i, a
 section, aside, header, footer,
@@ -89,16 +46,15 @@ section, aside, header, footer,
 }
 /* ------------------------------------------------------------------------------------- [#section-1 - Menu Panel] */
 #section-1 {
-    background-color: #101010; /* dark charcoal */
+    background-color: #101010;
     transition: width .15s;
     transition-timing-function: linear;
+    line-height: 1;
 }
 #section-1 #nav-bar-container{
-    width: 100%;
     color: #cbffec;
 }
 #section-1 ul.nav-level-1 li i.material-icons {
-    position: relative;
     top: 4px;
 }
 #section-1 ul.nav-level-1 li:first-child {
@@ -106,33 +62,34 @@ section, aside, header, footer,
     background-color: #00ffb4;
 }
 #section-1 ul.nav-level-1 li:first-child:hover {
-    background-color: red;
+    background-color: #f00;
     transition: background-color .25s linear;
 }
 #section-1 ul.nav-level-1 li div {
     padding: 10px 10px 10px 48px;
-    color: #000;
+    color: #333;
     background-color: #cbffec;
 }
 #section-1 ul.nav-level-1 li div:hover {
-    color: #fff;
+    color: #cbffec;
     background-color: #333;
 }
-
+#section-1 ul.nav-level-1 li div span:hover {
+    color: #cbffec;
+    background-color: #43494E;
+}
 /* ------------------------------------------------------------------------------------- [#section-2 - Content Panel] */
 #section-2 {
-    height: 100vh;
     transition: all 0.15s ease;
     transition-property: width, left;
     overflow-y: scroll;
 }
 #section-2 .container {
-    position: relative;
     min-width: 99%;
     margin: auto;
 }
 #section-2 .container .row > div.col {
-    margin-top: 10px;
+    margin-top: 7px;
 }
 #flexIcon {
     display: flex;
@@ -141,20 +98,9 @@ section, aside, header, footer,
     padding: 5px 15px 5px 0px;
 }
 #contentPanel {
-    position: relative;
     width: 100%;
     margin: auto;
     background-color: #f0ffff;
-}
-a {
-    color: #fff;
-    padding: 3px;
-    border-radius: 3px;
-}
-a:hover {
-    color: #000;
-    background-color: red;
-    transition: all .15s linear;
 }
 #contentPanel .body {
     position: absolute;
@@ -167,25 +113,19 @@ a:hover {
     padding-top: 10px;
 }
 /* ------------------------------------------------------------------------------------- [anchors]  */
-#section-2 .container a {
+a {
     color: #fff;
-    text-decoration: none;
+    padding: 3px;
+    border-radius: 3px;
 }
-/* ------------------------------------------------------------------------------------- [hover && active classes]  */
-.nav-panel-expanded {
-    width: 275px;
-}
-#section-1 ul.nav-level-1 li div span:hover {
-    text-decoration: underline;
-    color: #fff;
-    background-color: #43494E;
+a:hover {
+    color: #000;
+    background-color: red;
+    transition: all .15s linear;
 }
 /* ------------------------------------------------------------------------------------- [action classes]  */
-.text-highlight {
-    color: black;
-    background-color: cornsilk;
-    font-weight: bold;
-    padding: 3px;
+.nav-panel-expanded {
+    width: 275px;
 }
 .display-block {
     display: none;
@@ -200,7 +140,7 @@ a:hover {
 }
 .table-collapse {
     visibility: collapse;
-    color: #333333;
+    color: #333;
 }
 .columnHeader {
     font-size: 18px;
@@ -208,7 +148,7 @@ a:hover {
 }
 .text-Highlight {
     color: #101010;
-    background-color: #f0ffff;
+    background-color: #cbffec;
     padding: 0px 4px 2px 4px;
     border-radius: 3px;
 }
@@ -220,15 +160,7 @@ a:hover {
     padding: 10px;
     box-shadow: 0px 0px 5px 5px rgba(0,0,0, 0.10);
 }
-.paragraph-title {
-    font-weight: bold;
-    color: black;
-    background-color: #00ffb4;
-    border-radius: 3px;
-    padding: 10px;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0, 0.10);
-}
-.paragraph-title {
+.paragraph-title { /* this is like text-Highlight-mint, but this class is used by javascript to actuate hyper-link */
     font-weight: bold;
     color: black;
     background-color: #00ffb4;
@@ -242,10 +174,9 @@ a:hover {
     transition: all .5s ease-in-out;
 }
 .paragraph-title-click {
-    cursor: pointer;
     font-size: 14px;
-    color: white;
-    background-color: red;
+    color: #fff;
+    background-color: #f00;
     border-radius: 3px;
 }
 .zoom-text {
@@ -259,14 +190,6 @@ a:hover {
     font-weight: bold;
     color: black;
     background-color: #cbffec;
-    border-radius: 3px;
-    padding: 10px;
-}
-.table-column-header-dark {
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    background-color: #00ffb4;
     border-radius: 3px;
     padding: 10px;
 }

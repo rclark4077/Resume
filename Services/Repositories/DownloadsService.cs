@@ -13,9 +13,9 @@ namespace Resume.Services.Repositories
             _iDownLoadRepository = iDownloadRepository;
         }
 
-        public IEnumerable GetDownloads()
+        public IEnumerable GetDownloads(int Id)
         {
-            return _iDownLoadRepository.GetDownloads();
+            return _iDownLoadRepository.GetDownloads(Id);
         }
     }
 }
