@@ -31,8 +31,8 @@ namespace Resume
             container.RegisterType<IEducationService, EducationService>();
             container.RegisterType<IMenuRepository, MenuRepository>();
             container.RegisterType<IMenuService, MenuService>();
-            container.RegisterType<IProductsRepository, ProductsRepository>();
-            container.RegisterType<IProductsService, ProductsService>();
+            container.RegisterType<IProjectsRepository, ProjectsRepository>();
+            container.RegisterType<IProjectsService, ProjectsService>();
             container.RegisterType<IQualificationsRepository, QualificationsRepository>();
             container.RegisterType<IQualificationsService, QualificationsService>();
         }

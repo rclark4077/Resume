@@ -2,7 +2,7 @@
 
 namespace Resume.DAL.Interfaces
 {
-    public interface IProductsRepository
+    public interface IProjectsRepository
     {
         IEnumerable GetCompany(int id = 1);
         IEnumerable Index(string id

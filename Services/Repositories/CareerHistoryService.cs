@@ -13,12 +13,12 @@ namespace Resume.Services.Repositories
             _iCareerHistoryRepository = iCareerHistoryRepository;
         }
 
-        public IEnumerable GetCompany(int id = 1)
+        public IEnumerable GetCompany(int id)
         {
             return _iCareerHistoryRepository.GetCompany(id);
         }
 
-        public IEnumerable Index(int id = 1)
+        public IEnumerable Index(int id)
         {
             return _iCareerHistoryRepository.Index(id);
         }

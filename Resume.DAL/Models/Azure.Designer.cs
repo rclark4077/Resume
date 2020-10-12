@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\dev\@projects\Practice\Resume\Resume.DAL\Models\Azure.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\dev\@projects\Resume\Resume.DAL\Models\Azure.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

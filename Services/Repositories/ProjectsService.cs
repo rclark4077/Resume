@@ -5,11 +5,11 @@ using Resume.Services.Interfaces;
 namespace Resume.Services.Repositories
 {
 
-    public class ProductsService : IProductsService
+    public class ProjectsService : IProjectsService
     {
-        IProductsRepository _iProductsRepository;
+        IProjectsRepository _iProductsRepository;
 
-        public ProductsService(IProductsRepository iProductsRepository)
+        public ProjectsService(IProjectsRepository iProductsRepository)
         {
             _iProductsRepository = iProductsRepository;
         }

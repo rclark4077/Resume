@@ -63,6 +63,7 @@
           </Key>
           <Property Name="DownloadId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubmoduleId" Type="int" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
           <Property Name="DownloadDescription" Type="varchar" MaxLength="254" Nullable="false" />
           <Property Name="DownloadUrl" Type="varchar" MaxLength="254" Nullable="false" />
           <Property Name="UrlSourceTypeId" Type="int" Nullable="false" />
@@ -322,6 +323,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Downloads_ProfileId">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Downloads" Type="Self.Downloads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="Downloads">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Downloads_SubmoduleId">
           <End Role="Submodule" Type="Self.Submodule" Multiplicity="0..1" />
           <End Role="Downloads" Type="Self.Downloads" Multiplicity="*" />
@@ -554,6 +567,10 @@
             <End Role="Profiles" EntitySet="Profiles" />
             <End Role="ContactNotes" EntitySet="ContactNotes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Downloads_ProfileId" Association="Self.FK_Downloads_ProfileId">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Downloads" EntitySet="Downloads" />
+          </AssociationSet>
           <AssociationSet Name="FK_Downloads_SubmoduleId" Association="Self.FK_Downloads_SubmoduleId">
             <End Role="Submodule" EntitySet="Submodule" />
             <End Role="Downloads" EntitySet="Downloads" />
@@ -694,6 +711,8 @@
           <Property Name="Status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Submodule" Relationship="Self.FK_Downloads_SubmoduleId" FromRole="Downloads" ToRole="Submodule" />
           <NavigationProperty Name="UrlSourceType" Relationship="Self.FK_Downloads_UrlSourceTypeId" FromRole="Downloads" ToRole="UrlSourceType" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Profile" Relationship="ResumesModel.FK_Downloads_ProfileId" FromRole="Download" ToRole="Profile" />
         </EntityType>
         <EntityType Name="EducationalInstitution">
           <Key>
@@ -762,6 +781,7 @@
           <NavigationProperty Name="SocialNetworkProfiles" Relationship="Self.FK_SocialNetworkProfiles_ProfileId" FromRole="Profiles" ToRole="SocialNetworkProfiles" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_ProfileId" FromRole="Profiles" ToRole="Students" />
           <NavigationProperty Name="TechnicalSkills" Relationship="Self.FK_TechnicalSkills_ProfileId" FromRole="Profiles" ToRole="TechnicalSkills" />
+          <NavigationProperty Name="Downloads" Relationship="ResumesModel.FK_Downloads_ProfileId" FromRole="Profile" ToRole="Download" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -1272,7 +1292,23 @@
             <End Role="TechnicalSkillTypes" EntitySet="TechnicalSkillTypes" />
             <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
           </AssociationSet>
+          <AssociationSet Name="FK_Downloads_ProfileId" Association="ResumesModel.FK_Downloads_ProfileId">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Download" EntitySet="Downloads" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Downloads_ProfileId">
+          <End Type="ResumesModel.Profile" Role="Profile" Multiplicity="1" />
+          <End Type="ResumesModel.Download" Role="Download" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="ProfileId" />
+            </Principal>
+            <Dependent Role="Download">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1339,6 +1375,7 @@
           <EntitySetMapping Name="Downloads">
             <EntityTypeMapping TypeName="ResumesModel.Download">
               <MappingFragment StoreEntitySet="Downloads">
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
                 <ScalarProperty Name="DownloadId" ColumnName="DownloadId" />
                 <ScalarProperty Name="SubmoduleId" ColumnName="SubmoduleId" />
                 <ScalarProperty Name="DownloadDescription" ColumnName="DownloadDescription" />

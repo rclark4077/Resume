@@ -6,11 +6,11 @@ namespace Resume.Controllers
 {
     public class ProjectsController : Controller
     {
-        IProductsService _iProductsService;
+        IProjectsService _iProjectsService;
 
-        public ProjectsController(IProductsService iProductsService)
+        public ProjectsController(IProjectsService iProjectsService)
         {
-            _iProductsService = iProductsService;
+            _iProjectsService = iProjectsService;
         }
 
         [ChildActionOnly]
@@ -26,7 +26,7 @@ namespace Resume.Controllers
                 ViewBag.Id = ViewBag.SelectedCompanyId;
             }
 
-            var company = _iProductsService.GetCompany(id);
+            var company = _iProjectsService.GetCompany(id);
 
             return PartialView("_HeaderCompanies", company);
         }
@@ -40,7 +40,7 @@ namespace Resume.Controllers
             ViewBag.SelectedCompanyId = Id;
             ViewBag.SomeId = Id;
 
-            var project = _iProductsService.Index(Id
+            var project = _iProjectsService.Index(Id
                                                     , LastSelectedController
                                                     , LastSelectedAction
                                                     , LastSelectedParam
@@ -51,15 +51,15 @@ namespace Resume.Controllers
         [HttpPost]
         public ActionResult GetControllerAction(UrlSelectionViewModel url)
         {
-            return RedirectToAction("Index", "Projects", new
-            {
-                id = url.Param,
-                LastSelectedController = url.Controller,
-                LastSelectedAction = url.Action,
-                LastSelectedParam = url.Param,
-                LastSelectedProjectId = url.ProjectId.ToString()
-            }
-            );
+            return RedirectToAction("Index"
+                                    , "Projects"
+                                    , new {
+                                            id = url.Param,
+                                            LastSelectedController = url.Controller,
+                                            LastSelectedAction = url.Action,
+                                            LastSelectedParam = url.Param,
+                                            LastSelectedProjectId = url.ProjectId.ToString()
+                                        });
         }
     }
 }

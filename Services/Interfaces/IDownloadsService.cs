@@ -4,6 +4,6 @@ namespace Resume.Services.Interfaces
 {
     public interface IDownloadsService
     {
-        IEnumerable GetDownloads();
+        IEnumerable GetDownloads(int Id);
     }
 }
