@@ -5,6 +5,7 @@
             #00ffb4 - dark mint
             #333    - dark grey
             #f0ffff - light azure blue
+            #c0cccc - medium azure blue
             #cbeef0 - light teal
             #101010 - dark charcoal
             #43494E - charcoal
@@ -19,6 +20,7 @@ body {
     min-height: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
+    background-color: #c0cccc;
     line-height: 1.5;
     overflow: hidden;
 }
@@ -89,7 +91,7 @@ section, aside, header, footer,
     margin: auto;
 }
 #section-2 .container .row > div.col {
-    margin-top: 7px;
+    margin-top: 10px;
 }
 #flexIcon {
     display: flex;

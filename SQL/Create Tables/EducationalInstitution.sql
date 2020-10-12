@@ -28,7 +28,7 @@ BEGIN TRY
             (
                 InstitutionId           int             NOT NULL    IDENTITY (1, 1),
                 InstitutionDescription  varchar(100)    NOT NULL,
-				InstitutionStatus		bit				NOT NULl	DEFAULT(1),
+				InstitutionStatus		int				NOT NULl	DEFAULT(1),
 				SortOrder				int				NOT NULL
             )  ON [PRIMARY]
 
@@ -55,7 +55,7 @@ BEGIN TRY
             ---== COLUMN DESCRIPTIONS ==---
             ---=========================---
             SET @v = N'InstitutionStatus valid values: 0=Inactive, 1=Active'
-            EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'EducationalInstitution', N'COLUMN', N'SortOrder'
+            EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'EducationalInstitution', N'COLUMN', N'InstitutionStatus'
         END
         ELSE -- stop sql code execution and jump to CATCH Block [Commit will not execute]
         BEGIN

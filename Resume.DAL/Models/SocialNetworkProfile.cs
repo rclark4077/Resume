@@ -17,6 +17,7 @@ namespace Resume.DAL.Models
         public int SocialNetworkProfileId { get; set; }
         public int ProfileId { get; set; }
         public int SocialNetworkId { get; set; }
+        public int SocialProfileStatus { get; set; }
     
         public virtual Profile Profile { get; set; }
         public virtual SocialNetwork SocialNetwork { get; set; }

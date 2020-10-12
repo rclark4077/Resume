@@ -106,7 +106,6 @@
     <Compile Include="Models\ProfileAttribute.cs">
       <DependentUpon>Azure.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProfileSession.cs" />
     <Compile Include="Models\Project.cs">
       <DependentUpon>Azure.tt</DependentUpon>
     </Compile>

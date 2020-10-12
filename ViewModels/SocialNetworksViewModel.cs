@@ -4,5 +4,6 @@
     {
         public string SocialNetworkDescription { get; set; }
         public string SocialNetworkAddress { get; set; }
+        public int SocialProfileStatus { get; set; }
     }
 }
