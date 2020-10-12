@@ -12,64 +12,72 @@
         <thead>
             <tr>
                 <th>
-                    <h1 id="welcomeString">C:\></h1>
-                </th>
-                <th>"...Looking forward to my next challenging opportunity in the areas of web, software & database engineering"</th>
-                <th>
-                    <div class="container">
-                        @foreach (dynamic item in Model.SocialNetworkProfiles)
-                        {
-                        desc = @item.SocialNetworkDescription;
+                    <div class="content">
                         <div class="row no-gutters">
-                            <div class="col-xl-2 contact">
-                                @{
-                                    switch (@desc.Trim().ToLower())
-                                    {
-                                        case "phone number":
-                                            <i class="material-icons md-18 md-darkmint">perm_phone_msg</i>
-                                            break;
-                                        case "email":
-                                            <i class="material-icons md-18 md-darkmint">alternate_email</i>
-                                            break;
-                                        case "linkedin":
-                                            <div id="linkedinIcon">in</div>
-                                            break;
-                                        case "web site":
-                                            <i class="material-icons md-18 md-darkmint">language</i>
-                                            break;
-                                        default:
-                                            <i class="material-icons md-18 md-darkmint">email</i>
-                                            break;
-                                    }
-                                }
+                            <div class="col col-5">
+                                <h1 id="welcomeString">C:\></h1>
                             </div>
-                            <div class="col-xl-10">
-                                @{
-                                    switch (@desc.Trim().ToLower())
+                            <div class="col col-3">
+                                <div style="font-size: 40px;float: left;">"</div><br />...Looking forward to my next challenging opportunity in the areas of web, software & database engineering<div style="font-size: 40px;float:right;">"</div>
+                            </div>
+                            <div class="col col-4">
+                                <div class="container">
+                                    @foreach (dynamic item in Model.SocialNetworkProfiles)
                                     {
-                                        case "phone number":
-                                            <a href="tel:1-@item.SocialNetworkAddress">@item.SocialNetworkAddress</a>
-                                            break;
-                                        case "email":
-                                            <a href="mailto:@item.SocialNetworkAddress">
-                                                @item.SocialNetworkAddress
-                                            </a>
-                                            break;
-                                        case "linkedin":
-                                        case "web site":
-                                            <a href="@item.SocialNetworkAddress">
-                                                @item.SocialNetworkAddress
-                                            </a>
-                                            break;
-                                        default:
-                                            @item.SocialNetworkAddress
-                                            break;
+                                        desc = @item.SocialNetworkDescription;
+                                        <div class="row no-gutters">
+                                            <div class="col-xl-1 contact">
+                                                @{
+                                                    switch (@desc.Trim().ToLower())
+                                                    {
+                                                        case "phone number":
+                                                            <i class="material-icons md-18 md-darkmint">perm_phone_msg</i>
+                                                            break;
+                                                        case "email":
+                                                            <i class="material-icons md-18 md-darkmint">alternate_email</i>
+                                                            break;
+                                                        case "linkedin":
+                                                            <div id="linkedinIcon">in</div>
+                                                            break;
+                                                        case "web site":
+                                                            <i class="material-icons md-18 md-darkmint" style="border: 1px solid blue;">language</i>
+                                                            break;
+                                                        default:
+                                                            <i class="material-icons md-18 md-darkmint">email</i>
+                                                            break;
+                                                    }
+                                                }
+                                            </div>
+                                            <div class="col-xl-11">
+                                                @{
+                                                    switch (@desc.Trim().ToLower())
+                                                    {
+                                                        case "phone number":
+                                                            <a href="tel:1-@item.SocialNetworkAddress">@item.SocialNetworkAddress</a>
+                                                            break;
+                                                        case "email":
+                                                            <a href="mailto:@item.SocialNetworkAddress">
+                                                                @item.SocialNetworkAddress
+                                                            </a>
+                                                            break;
+                                                        case "linkedin":
+                                                        case "web site":
+                                                            <a href="@item.SocialNetworkAddress">
+                                                                @item.SocialNetworkAddress
+                                                            </a>
+                                                            break;
+                                                        default:
+                                                            @item.SocialNetworkAddress
+                                                            break;
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
                                     }
-                                }
+                                </div><br />
                             </div>
                         </div>
-                        }
-                    </div><br />
+                    </div>
                 </th>
             </tr>
         </thead>

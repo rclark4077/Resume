@@ -7,39 +7,36 @@
     color: #f0ffff;
 }
 .home-render-action table.tableRow:first-child:first-child th:first-child {
-    width: 40vw;
+    width: 100vw;
     padding: 10px 10px 30px 10px;
 }
 .home-render-action table.tableRow:first-child:first-child th:first-child h1 span:first-child {
     color: #f0ffff;
     padding-left: 10px;
 }
-.home-render-action table.tableRow:first-child th:nth-child(2) {
-    width: 25vw;
-    text-align: left;
-    font-size: 18px;
-    padding-top: 15px;
+.home-render-action table.tableRow:first-child th div:nth-child(2) span {
+    padding: 20px;
 }
-.home-render-action table.tableRow:first-child th:nth-child(3) {
-    width: 25vw;
-    text-align: right;
+.home-render-action table.tableRow:first-child th div:nth-child(3) div.container div div.contact i {
+    line-height: 0;
 }
-.home-render-action table.tableRow:first-child th:nth-child(3) div.container div div.contact i {
-    line-height: 1px;
-}
-.home-render-action table.tableRow:first-child th:nth-child(3) div.container div div.contact + div {
+.home-render-action table.tableRow:first-child th div:nth-child(3) div.container div div.contact + div {
     text-align: left;
     padding-top: 8px;
 }
-.home-render-action table.tableRow:first-child th:nth-child(3) div.container div div.contact div#linkedinIcon {
-    width: 17px;
-    height: 17px;
+.home-render-action table.tableRow:first-child th div:nth-child(3) div.container div div.contact i {
+    float: right;
+    padding: 0;
+    margin-top: 18px;
+}
+.home-render-action table.tableRow:first-child th div:nth-child(3) div.container div div.contact div#linkedinIcon {
+    float: right;
+    font-size: 10px;
     border-radius: 1px;
     color: #101010;
     background-color: #00ffb4;
-    padding: 0px 1px 0px 0px;
-    margin: 9px 17px 0px 0px;
-    float: right;
+    margin: 10px 3px 0px 0px;
+    padding: 0 3px 0 3px;
 }
 .home-render-action table.tableRow:nth-child(2) {
     width: 100%;

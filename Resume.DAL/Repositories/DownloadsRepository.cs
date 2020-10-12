@@ -24,7 +24,7 @@ namespace Resume.DAL.Repositories
                             orderby sub.SubmoduleId descending
                             select new SubmoduleViewModel()
                             {
-                                SubmoduleDescription = sub.SubmoduleDescription,
+                                DownloadDescription = download.DownloadDescription,
                                 SecurityLevel = sub.SecurityLevel,
                                 UrlSourceType = urlsourcetype.UrlSourceTypeDescription,
                                 UrlSourceTypeId = urlsourcetype.UrlSourceTypeId,

@@ -2,7 +2,7 @@
 {
     public class SubmoduleViewModel
     {
-        public string SubmoduleDescription { get; set; }
+        public string DownloadDescription { get; set; }
         public int SecurityLevel { get; set; }
         public string DownloadUrl { get; set; }
         public string UrlSourceType { get; set; }
