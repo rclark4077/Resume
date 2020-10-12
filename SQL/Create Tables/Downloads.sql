@@ -27,7 +27,7 @@ BEGIN TRY
             (
                 DownloadId				int             NOT NULL    IDENTITY (1, 1),
 				SubmoduleId				int					NULL,
-				PofileId				int				NOT NULL,
+				ProfileId				int				NOT NULL,
 				DownloadDescription		varchar(254)	NOT NULL,
 				DownloadUrl				varchar(254)	NOT NULL,
 				UrlSourceTypeId			int				NOT NULL,
