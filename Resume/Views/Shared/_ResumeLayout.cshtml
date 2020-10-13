@@ -48,8 +48,11 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     @Styles.Render("~/bundles/mastercss")
+
+    <script src="/Scripts/dist/bootstrap-native.js"></script>
     @RenderSection("jsVars", required: false)
 </head>
 <body>
@@ -92,12 +95,27 @@
             </div>
         </section>
     </div>
+
+    @*popcorn tooltip object*@
     <div id="tooltip" role="tooltip" style="display: none;"></div>
-    <div id="accomplishmentContainer">
-        <section id="accomplishments">
-        </section>
-        <i id="accomplishmentMinMax" class="material-icons md-14 md-black" title="Show/Hide">clear</i>
+
+    @*bootstrap modal dialog*@
+    <button id="myModalTrigger" type="button" data-toggle="modal" data-target="#accomplishmentContainer">Launch modal</button>
+    <div id="accomplishmentContainer" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accomplishmentHeader">Modal title</h5>
+                </div>
+                <div id="accomplishments" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modernizr")
