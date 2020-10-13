@@ -1,98 +1,31 @@
-﻿const accSourceText         = panel2.querySelector("table#tableRow span[data-accomplishmentdescription]");
-const dynamicTextContent    = (accSourceText ? accSourceText.dataset.accomplishmentdescription : null);
-const defaultTextContent    = null;
-//  ------------------------------------------------------------------------------------------ [ Main() ]
-if (dynamicTextContent != null) {// suppress all windows except for those menus have submodules (ie: professional history && projects)
-    const accContainer      = document.getElementById("accomplishmentContainer");
-    const accImage          = document.getElementById("accomplishmentMinMax");
-    const accContent        = document.getElementById("accomplishments");
+﻿if (controller === "Projects" || controller === "CareerHistory") {
+    ((window) => {
+        accomplishments = {
+            show: function () {
+                const accHeader = document.getElementById("accomplishmentHeader");
+                const accContent = document.getElementById("accomplishments");
+
+                const accSourceText = panel2.querySelector("table#tableRow span[data-accomplishmentdescription]");
+                const dynamicTextContent = (accSourceText ? accSourceText.dataset.accomplishmentdescription : null);
+
+                // [1] reference modal
+                var myModal = document.getElementById('accomplishmentContainer');
+
+                // [2] reference a triggering button (but not used as a trigger)
+                var btnModal = document.getElementById('myModalTrigger');
 
 
-    //  window dimensions
-    const w_w = window.innerWidth;
-    const w_h = window.innerHeight;
+                // [3] set content (header & content)
+                accHeader.textContent = accSourceText.textContent;
+                accContent.textContent = dynamicTextContent;
 
-    //  view port dimensions
-    let acc_w = accContent.clientWidth;
-    let acc_h = accContent.clientHeight;// change this value to popup/compress notification panel height
+                // [4] initialize with no options provided
+                var modalInitJS = new BSN.Modal(myModal);
 
-    let displayFlag = true;
-
-    //const defaultTextContent = "Contact Information";
-    function popUp(el) {
-        let stop_position_x = ((w_w - acc_w) / 2);
-        let stop_position_y = 0; // original: w_h - (acc_h/2 + 20); <<< leave this in case changes later
-
-        with (el.style) {
-            left = stop_position_x + "px";
-            top = stop_position_y + "px";
-        };
-    };
-    function panelMinMax(status, callback = null) {
-        popUp(accContainer);
-        switch (status) {
-            case "show":
-                if (displayFlag) {
-                    accContent.textContent = dynamicTextContent;
-                    with (accContainer.style) {
-                        opacity = "1";
-                    };
-                    displayFlag = false;
-                };
-                break;
-            case "hide":
-                accContent.textContent = defaultTextContent;
-                with (accContainer.style) {
-                    opacity = "0.75";
-                    top = "-" + acc_h + "px";
-                };
-                displayFlag = true;
-                break;
-        };
-        if (callback) {
-            callback();
-        };
-    };
-    function setEvents(el) {
-        switch (el.id) {
-            case "accomplishmentContainer":
-                el.addEventListener("mouseover", () => {
-                    panelMinMax("show");
-                    displayFlag = true;
-                });
-            case "accomplishmentMinMax":
-                el.addEventListener("click", () => {
-                    if (displayFlag) {
-                        panelMinMax("show", () => {
-                            setTimeout(function () {
-                                panelMinMax("hide");
-                            }, 20000);
-                        });
-                    } else {
-                        panelMinMax("hide");
-                    };
-                });
-                break;
-            default: // use this for window or document level DOM events/property settings
-                window.addEventListener("resize", function () {
-                    if (displayFlag) {
-                        panelMinMax("show")
-                    } else {
-                        panelMinMax("hide")
-                    };
-                });
-                break;
-        };
-    };
-    setEvents(accContainer);
-    setEvents(accImage);
-    setEvents(window);
-    ((accContainer, accContent) => {
-        panelMinMax("show", function () {
-            setTimeout(function () {
-                panelMinMax("hide");
-            }, 20000);
-        });
-    })(accContainer, accContent);
-}
-
+                // [5] show modal
+                modalInitJS.show();
+            },
+        }
+    })(window);
+    accomplishments.show();
+};

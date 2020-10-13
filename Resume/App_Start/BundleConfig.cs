@@ -21,15 +21,19 @@ namespace Resume
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/popper.min.js",
-                      "~/Scripts/bootstrap.js"));
+                        "~/Scripts/popper.min.js",
+                        "~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-native-js").Include(
+                      "~/Scripts/dist/polyfill.js",
+                      "~/Scripts/dist/bootstrap-native.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Scripts/site.js",
-                        "~/Scripts/homeProfile.js",
                         "~/Scripts/projects.js",
                         "~/Scripts/htmlEntities.js",
-                        "~/Scripts/accomplishments.js"));
+                        "~/Scripts/accomplishments.js",
+                        "~/Scripts/homeProfile.js"));
 
             bundles.Add(new StyleBundle("~/bundles/mastercss").Include(
                         "~/Content/bootstrap.css",

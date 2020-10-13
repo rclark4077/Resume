@@ -177,6 +177,14 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\accomplishments.js" />
+    <Content Include="Scripts\assets\css\offcanvas.css" />
+    <Content Include="Scripts\assets\css\prism.css" />
+    <Content Include="Scripts\assets\css\theme.css" />
+    <Content Include="Scripts\assets\img\apple-touch-icon.png" />
+    <Content Include="Scripts\assets\img\favicon.ico" />
+    <Content Include="Scripts\assets\js\prism.js" />
+    <Content Include="Scripts\assets\js\scripts.js" />
+    <Content Include="Scripts\dist\bootstrap-native.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -213,6 +221,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\dist\polyfill.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\projects.js" />
     <Content Include="Scripts\site.js" />
