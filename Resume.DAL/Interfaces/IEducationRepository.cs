@@ -4,6 +4,6 @@ namespace Resume.DAL.Interfaces
 {
     public interface IEducationRepository
     {
-        IEnumerable GetEducation(int id = 1);
+        IEnumerable GetEducation(int id);
     }
 }

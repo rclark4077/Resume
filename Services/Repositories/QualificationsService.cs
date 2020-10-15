@@ -14,14 +14,14 @@ namespace Resume.Services.Repositories
             _iQualificationsService = iQualificationsService;
         }
 
-        public dynamic GetQualificationTypes(int technicalSkillTypeId = 1)
+        public dynamic GetQualificationTypes(int technicalSkillTypeId)
         {
-            return _iQualificationsService.GetQualificationTypes(technicalSkillTypeId = 1);
+            return _iQualificationsService.GetQualificationTypes(technicalSkillTypeId);
         }
 
-        public IEnumerable Index(int profileId = 1)
+        public IEnumerable Index(int profileId)
         {
-            return _iQualificationsService.Index(profileId = 1);
+            return _iQualificationsService.Index(profileId);
         }
     }
 }

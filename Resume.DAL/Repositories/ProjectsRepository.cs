@@ -12,7 +12,7 @@ namespace Resume.DAL.Repositories
     {
         AzureEntities db = new AzureEntities();
 
-        public IEnumerable GetCompany(int id = 1)
+        public IEnumerable GetCompany(int id)
         {
             var company = from co in db.Companies
                           join ch in db.CareerHistories

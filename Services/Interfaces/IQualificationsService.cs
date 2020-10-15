@@ -5,7 +5,7 @@ namespace Resume.Services.Interfaces
 {
     public interface IQualificationsService
     {
-        dynamic GetQualificationTypes(int technicalSkillTypeId = 1);
-        IEnumerable Index(int profileId = 1);
+        dynamic GetQualificationTypes(int technicalSkillTypeId);
+        IEnumerable Index(int profileId);
     }
 }

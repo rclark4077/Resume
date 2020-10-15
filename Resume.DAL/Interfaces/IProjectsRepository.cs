@@ -4,7 +4,7 @@ namespace Resume.DAL.Interfaces
 {
     public interface IProjectsRepository
     {
-        IEnumerable GetCompany(int id = 1);
+        IEnumerable GetCompany(int id);
         IEnumerable Index(string id
                             , string LastSelectedController = null
                             , string LastSelectedAction = null

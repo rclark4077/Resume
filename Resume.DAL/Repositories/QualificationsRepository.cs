@@ -11,7 +11,7 @@ namespace Resume.DAL.Repositories
     {
         AzureEntities db = new AzureEntities();
 
-        public dynamic GetQualificationTypes(int technicalSkillTypeId = 1)
+        public dynamic GetQualificationTypes(int technicalSkillTypeId)
         {
 
             var skillTypes = from TechnicalSkillType in db.TechnicalSkillTypes
@@ -28,7 +28,7 @@ namespace Resume.DAL.Repositories
             return model;
         }
 
-        public IEnumerable Index(int profileId = 1)
+        public IEnumerable Index(int profileId)
         {
             var qualifications = from ts in db.TechnicalSkills
                                  join tst in db.TechnicalSkillTypes
