@@ -1,8 +1,14 @@
-﻿using Resume.DAL.Interfaces;
+﻿using System.Collections;
 
 namespace Resume.Services.Interfaces
 {
-    public interface IProjectsService : IProjectsRepository
+    public interface IProjectsService
     {
+        IEnumerable GetCompany(int id);
+        IEnumerable Index(string id
+                            , string LastSelectedController = null
+                            , string LastSelectedAction = null
+                            , string LastSelectedParam = null
+                            , string LastSelectedProjectId = null);
     }
 }

@@ -10,7 +10,7 @@ namespace Resume.DAL.Repositories
     {
         AzureEntities db = new AzureEntities();
 
-        public IEnumerable GetEducation(int id = 1)
+        public IEnumerable GetEducation(int id)
         {
             var education = from student in db.Students
                             join institution in db.EducationalInstitutions

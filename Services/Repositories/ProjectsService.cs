@@ -13,7 +13,7 @@ namespace Resume.Services.Repositories
         {
             _iProductsRepository = iProductsRepository;
         }
-        public IEnumerable GetCompany(int id = 1)
+        public IEnumerable GetCompany(int id)
         {
             return _iProductsRepository.GetCompany(id);
         }

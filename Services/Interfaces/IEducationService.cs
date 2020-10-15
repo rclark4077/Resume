@@ -4,6 +4,6 @@ namespace Resume.Services.Interfaces
 {
     public interface IEducationService
     {
-        IEnumerable GetEducation(int id = 1);
+        IEnumerable GetEducation(int id);
     }
 }

@@ -13,7 +13,7 @@ namespace Resume.Services.Repositories
             _iEducationRepository = iEducationRepository;
         }
 
-        public IEnumerable GetEducation(int id = 1)
+        public IEnumerable GetEducation(int id)
         {
             return _iEducationRepository.GetEducation(id);
         }
