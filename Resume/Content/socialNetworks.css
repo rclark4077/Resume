@@ -32,7 +32,7 @@
     border-radius: 5px;
 }
 .socialnetworks table.tableRow:first-child th:first-child div.container div.row div.col:last-child {
-    border-right: 60px solid #00ffb4;
+    border-right: 100px solid #00ffb4;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     font-family: 'Quicksand-Light';

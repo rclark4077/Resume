@@ -52,29 +52,35 @@
          **/
         zoomsections: function (paragraphTitles) {
             for (let p = 0; p < paragraphTitles.length; p++) {
-                paragraphTitles[p].addEventListener("click", function (e) {
-                    let title = getTarget(e);
-                    let grandParent = title.parentNode.parentNode;// represents <td> container
+                if (!paragraphTitles[p].classList.contains("noevent")) {
+                    paragraphTitles[p].addEventListener("click", function (e) {
+                        let title = getTarget(e);//<span>
+                        let grandParent = title.parentNode.parentNode;// represents grandparnet <td> container of previous <span>
 
-                    if (title.dataset.noevent != "true") {
+
                         let paragraphs = grandParent.querySelectorAll("div:not(:first-of-type) p");
-                        //  override if contains <ul> tag
                         if (title.textContent.toLowerCase() == "architecture") {
-                            paragraphs = grandParent.querySelectorAll("div:not(:first-of-type)")
+                            paragraphs = grandParent.querySelectorAll("div:not(:first-of-type) table")
                         };
                         for (let j = 0; j < paragraphs.length; j++) {
                             paragraphs[j].classList.toggle("zoom-text");
                         };
-                    } else {
-                        let greatGrandParent = grandParent.parentNode.parentNode;
-                        let paragraphs = greatGrandParent.querySelectorAll("td:not(:first-of-type) div:not(:first-of-type)");
-
-                        for (let j = 0; j < paragraphs.length; j++) {
-                            paragraphs[j].classList.toggle("zoom-text");
-                        };
-                    };
-                });
+                    });
+                };
             };
+        },
+        /**
+         * Sets event listeners on tables to be displayed
+         **/
+        displaytables: function (spantags) {
+            for (s = 0; s < spantags.length; s++) {
+                let span = spantags[s];
+                span.addEventListener("click", () => {
+                    let table = span.parentNode.parentNode.parentNode.parentNode;
+                    let tbody = table.children[1];//[1] = <tbody>  while [0] = <thead>
+                    tbody.classList.toggle("display-table");
+                });
+            }
         }
     }
 })(window);
@@ -84,7 +90,7 @@ document.onreadystatechange = function () {
             terminal.hello(document.getElementById("welcomeString"), "randy.clark\\resume` :) ", controller);
             terminal.removepipe(document.querySelector("div.socialnetworks table:nth-child(2) tbody td span.bullet:last-child"));
             terminal.zoomsections(document.querySelectorAll(".paragraph-title"));
-
+            terminal.displaytables(document.querySelectorAll(".home-render-action table.tableRow:nth-child(3) td table th span"));
             break;
     }
 };
