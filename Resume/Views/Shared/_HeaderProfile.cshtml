@@ -18,7 +18,7 @@
             </tr>
         </tbody>
     </table>
-    <table class="tableRow table table-striped table-dark table-hover">
+    <table class="tableRow table-dark">
         <tbody>
             @foreach (dynamic item in Model.ContactNotes)
             {
@@ -43,7 +43,7 @@
             }
         </tbody>
     </table>
-    <table class="tableRow table-striped table-dark table-hover">
+    <table class="tableRow table-dark">
         <tbody>
             <tr>
                 <td style="width: 50%;">
@@ -57,8 +57,10 @@
                     </div>
                     <div>
                         <p>This site was built from the ground up with very little 3rd party framework involvement. This was intentional to illustrate my full-stack programming capabilities without the need for front-end frameworks like angular or jquery but still provide for a rich and dynamic user experience</p>
-                        <p>Starting with the menu system, it was built to be fed by the database and can be found in the <a class="text-Highlight" href="/Downloads/Index/1" style="color: #333;">downloads</a> as table modules and submodules in this application's model entities</p>
+                        <p>Starting with the menu system, it was built to be fed by the database and can be found in the downloads section as table modules and submodules in this application's model entities</p>
                         <p>The only frameworks that were used are .Net 4.5, Unity MVC5 (used for dependency injections helping to allow for model, repository and service separations) and Bootstrap 4 with Bootstrap-Native (this is for ES6 javascript api access).  This came with one other JS add-on for Bootstrap called Popcorn.  Popcorn operates when the side-menu is compressed and thus the descriptions for the navigation are hidden.  All animations, sliders, zooms, form-actions, page updates...etc were built using pure javascript in concert with CSS3 and MVC Request/Response handlers</p>
+                    </div>
+                    <div>
                         <p>As for the MVC base design pattern used, I chose to also include a derivative called Model-View-View-Model (aka MVVM) design approach for a more defined separation of concerns mainly from the UI and the business-logic layers</p>
                         <p>Also, please note, at this time, this ASP.Net MVC application is only built for Microsoft Edge, Firefox, Firefox Developer & Google Chrome</p>
                         <p>You can download this entire site's code for further code analysis. This includes all aspects of the database operations to create, read, and manipulate database & tables using the <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="/Downloads/Index/1" style="color: #333;">downloads</a></span> navigation links</p>
@@ -71,146 +73,144 @@
                     </div>
                 </td>
                 <td style="width: 50%; background-color: #4a5257;">
-                    <div>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">design principle: SOLID</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>design pattern</td>
-                                    <td>
-                                        <div>Model-View-Controller</div>
-                                        <div>Model-View-View-Model</div>
-                                        <div>Constructor Dependency Injections</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">front-end</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>frameworks</td>
-                                    <td>
-                                        <div>bootstrap 4</div>
-                                        <div>bootstrap-native (direct es6 javascript api)</div>
-                                        <div>popcorn</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>languages</td>
-                                    <td>
-                                        <div>html5</div>
-                                        <div>css3</div>
-                                        <div>es6 javascript</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">back-end</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>frameworks</td>
-                                    <td>
-                                        <div>.net 4.5</div>
-                                        <div>unity mvc5</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>languages</td>
-                                    <td>
-                                        <div>c#</div>
-                                        <div>razor</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">database & frameworks</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>data access</td>
-                                    <td>
-                                        <div>entity framework6 - ado.net entity data model(s)</div>
-                                        <div>linq queries</div>
-                                        <div>mssql 2014</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">separation of concerns</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>project layers</td>
-                                    <td>
-                                        <div>web layer: mvc routing, controllers & views</div>
-                                        <div>service layer: called upon services by controllers, separating business logic from data layer</div>
-                                        <div>view-models layer: employs MVVM direct separation of data from the service</div>
-                                        <div>data access layer: defines edmx data models, interfaces and class repositories</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">unit testing</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>framework</td>
-                                    <td>Microsoft TestFramework</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span class="paragraph-title">hosting</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="display-table">
-                                <tr>
-                                    <td>database</td>
-                                    <td>azure sql cloud service</td>
-                                </tr>
-                                <tr>
-                                    <td>website</td>
-                                    <td>azure web app cloud service</td>
-                                </tr>
-                                <tr>
-                                    <td>source control</td>
-                                    <td>
-                                        <span data-noevent="true" class="paragraph-title" style="padding: 4px;">
-                                            <a href="https://github.com/rclark4077/Resume" style="color: #333;">GitHub</a>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">design principle: SOLID</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>design pattern</td>
+                                <td>
+                                    <div>Model-View-Controller</div>
+                                    <div>Model-View-View-Model</div>
+                                    <div>Constructor Dependency Injections</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">front-end</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>frameworks</td>
+                                <td>
+                                    <div>bootstrap 4</div>
+                                    <div>bootstrap-native (direct es6 javascript api)</div>
+                                    <div>popcorn</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>languages</td>
+                                <td>
+                                    <div>html5</div>
+                                    <div>css3</div>
+                                    <div>es6 javascript</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">back-end</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>frameworks</td>
+                                <td>
+                                    <div>.net 4.5</div>
+                                    <div>unity mvc5</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>languages</td>
+                                <td>
+                                    <div>c#</div>
+                                    <div>razor</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">database & frameworks</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>data access</td>
+                                <td>
+                                    <div>entity framework6 - ado.net entity data model(s)</div>
+                                    <div>linq queries</div>
+                                    <div>mssql 2014</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">separation of concerns</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>project layers</td>
+                                <td>
+                                    <div>web layer: mvc routing, controllers & views</div>
+                                    <div>service layer: called upon services by controllers, separating business logic from data layer</div>
+                                    <div>view-models layer: employs MVVM direct separation of data from the service</div>
+                                    <div>data access layer: defines edmx data models, interfaces and class repositories</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">unit testing</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>framework</td>
+                                <td>Microsoft TestFramework</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="background-color: #4a5257;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><span class="paragraph-title">hosting</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="display-table">
+                            <tr>
+                                <td>database</td>
+                                <td>azure sql cloud service</td>
+                            </tr>
+                            <tr>
+                                <td>website</td>
+                                <td>azure web app cloud service</td>
+                            </tr>
+                            <tr>
+                                <td>source control</td>
+                                <td>
+                                    <span data-noevent="true" class="paragraph-title" style="padding: 4px;">
+                                        <a href="https://github.com/rclark4077/Resume" style="color: #333;">GitHub</a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
         </tbody>

@@ -31,7 +31,7 @@
 }
 .home-render-action table.tableRow:nth-child(3) td table {
     width: 100%;
-    background-color: #4a5257;
+    /*background-color: #4a5257;*/
 }
 .home-render-action table.tableRow:nth-child(3) td table thead {
     height: 65px;
