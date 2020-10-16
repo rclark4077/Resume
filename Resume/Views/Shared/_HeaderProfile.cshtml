@@ -7,241 +7,153 @@
         const controller = "Home";
     </script>
 }
-<div class="home-render-action">
-    <table class="tableRow">
-        <thead>
-            <tr>
-                <th>
-                    <div class="container">
-                        <div class="row no-gutters">
-                            <div class="col col-4">
-                                <h3 id="welcomeString">C:\></h3>
-                            </div>
-                            <div class="col col-34">
-                                <div style="float: left; font-size: 40px; color: #00ffb4;">"</div><br />...Looking forward to my next challenging opportunity in the areas of web, software & database engineering<div style="float: right; padding-right: 60px; font-size: 40px; color: #00ffb4;">"</div>
-                            </div>
-                            <div class="col col-4">
-                                <div class="container">
-                                    @foreach (dynamic item in Model.SocialNetworkProfiles)
-                                    {
-                                        desc = @item.SocialNetworkDescription;
-                                        <div class="row no-gutters">
-                                            <div class="col-xl-1 contact">
-                                                @{
-                                                    switch (@desc.Trim().ToLower())
-                                                    {
-                                                        case "phone number":
-                                                            <i class="material-icons md-18 md-darkmint">perm_phone_msg</i>
-                                                            break;
-                                                        case "email":
-                                                            <i class="material-icons md-18 md-darkmint">alternate_email</i>
-                                                            break;
-                                                        case "linkedin":
-                                                            <div id="linkedinIcon">in</div>
-                                                            break;
-                                                        case "web site":
-                                                            <i class="material-icons md-18 md-darkmint">language</i>
-                                                            break;
-                                                        default:
-                                                            <i class="material-icons md-18 md-darkmint">email</i>
-                                                            break;
-                                                    }
-                                                }
-                                            </div>
-                                            <div class="col-xl-11">
-                                                @{
-                                                    switch (@desc.Trim().ToLower())
-                                                    {
-                                                        case "phone number":
-                                                            <a href="tel:1-@item.SocialNetworkAddress">@item.SocialNetworkAddress</a>
-                                                            break;
-                                                        case "email":
-                                                            <a href="mailto:@item.SocialNetworkAddress">
-                                                                @item.SocialNetworkAddress
-                                                            </a>
-                                                            break;
-                                                        case "linkedin":
-                                                        case "web site":
-                                                            <a href="@item.SocialNetworkAddress">
-                                                                @item.SocialNetworkAddress
-                                                            </a>
-                                                            break;
-                                                        default:
-                                                            @item.SocialNetworkAddress
-                                                            break;
-                                                    }
-                                                }
-                                            </div>
-                                        </div>
-                                    }
-                                </div><br />
-                            </div>
-                        </div>
-                    </div>
-                </th>
-            </tr>
-        </thead>
-    </table>
-    <table class="tableRow table-striped table-dark">
+<div class="home-render-action" style="padding: 20px;">
+
+
+
+    <table class="tableRow table table-striped table-dark table-hover">
         <tbody>
             <tr>
                 <td>
-                    <div>
-                        @foreach (dynamic item in Model.ProfileAttributes)
-                        {
-                            <span class="profileAttributes" style="vertical-align: middle; padding-right: 20px;">@item.ProfileAttributeDescription</span>
-                            <span class="bullet" style="padding-right: 20px;">&vert;</span>
-                        }
-                    </div>
+                    @foreach (dynamic item in Model.ProfileAttributes)
+                    {
+                        <span class="profileAttributes" style="vertical-align: middle; padding-right: 20px;">@item.ProfileAttributeDescription</span>
+                        <span class="bullet" style="padding-right: 20px;">&vert;</span>
+                    }
                 </td>
             </tr>
         </tbody>
     </table>
     <table class="tableRow table table-striped table-dark table-hover">
         <tbody>
+            @foreach (dynamic item in Model.ContactNotes)
+            {
+                <tr>
+                    <td style="background-color: #4a5257;">
+                        <div><span class="paragraph-title">@item.NoteType.NoteTypeDescription</span></div>
+                        <div>
+                            <br />
+                            <p>
+                                @item.Note
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div><span class="paragraph-title">See Also...</span></div>
+                        <div>
+                            <br />
+                            <p>Please check out the <a class="text-Highlight" href="/Qualifications/Index/1">qualifications</a> and <a class="text-Highlight" href="/Projects/Index/1" style="color: #333;">projects</a> sections of this website that briefly describe my technical and personal capabilities and experience</p>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="tableRow table-striped table-dark table-hover">
+        <tbody>
             <tr>
-                <td>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td style="width: 50%;">
-                                        <!-- column 1-->
-                                        <div>
-                                            <span class="paragraph-title">About this site</span>
-                                        </div>
-                                        <div>
-                                            <br />
-                                            <p>Thank you for visiting my resume` web application.  This site was built for your benefit to experience a bit of my code design and engineering capabilities. The programming techniques used to build this site are described in the right panel: <span data-noevent="true" class="paragraph-title" style="padding: 4px;">Architecture</span></p>
-                                        </div>
-                                        <div>
-                                            <p>This site was built from the ground up with very little 3rd party framework involvement. This was intentional to illustrate my full-stack programming capabilities without the need for front-end frameworks like angular or jquery but still provide for a rich and dynamic user experience</p>
-                                            <p>Starting with the menu system, it was built to be fed by the database and can be found in the <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="/Downloads/Index/1" style="color: #333;">downloadable</a></span> database as table modules and submodules in this application's model entities</p>
-                                            <p>The only frameworks that were used are .Net 4.5, <span class="text-Highlight">Unity MVC5</span> (used for dependency injections helping to allow for model, repository and service separations) and <span class="text-Highlight">Bootstrap 4</span> with Bootstrap-Native (this is for ES6 javascript api access).  This came with one other JS add-on for Bootstrap called <span class="text-Highlight">Popcorn</span>.  Popcorn operates when the side-menu is compressed and thus the descriptions for the navigation are hidden.  All animations, sliders, zooms, form-actions, page updates...etc were built using pure javascript in concert with CSS3 and MVC Request/Response handlers</p>
-                                            <p>As for the MVC base design pattern used, I chose to also include a derivative called Model-View-View-Model (aka MVVM) design approach for a more defined separation of concerns mainly from the UI and the business-logic layers</p>
-                                            <p>Also, <span class="text-Highlight">please note</span>, at this time, this ASP.Net MVC application is only built for Microsoft Edge, Firefox, Firefox Developer & Google Chrome</p>
-                                            <p>You can download this entire site's code for further code analysis. This includes all aspects of the database operations to create, read, and manipulate database & tables using the <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="/Downloads/Index/1" style="color: #333;">downloads</a></span> navigation links</p>
-                                        </div>
-                                        <div>
-                                            <br />
-                                            <span class="text-Highlight-mint">
-                                                Thank you for visiting
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td style="width: 50%; background-color: #4a5257;">
-                                        <!-- column 2 -->
-                                        <div>
-                                            <span class="paragraph-title">Architecture</span>
-                                        </div>
-                                        <div>
-                                            <p>
-                                                <ul>
-                                                    <li>
-                                                        <br />
-                                                        <span class="text-Highlight">design principle</span> SOLID
-                                                        <br /><br />
-                                                    </li>
-                                                    <li>
-                                                        <span class="text-Highlight">design patterns</span>
-                                                        <ul>
-                                                            <li>Model-View-Controller: (MVC)</li>
-                                                            <li>Model-View-View-Model: (MVVM)</li>
-                                                            <li>Constructors Dependency Injections<br /><br /></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <span class="text-Highlight">frontend</span>
-                                                        <ul>
-                                                            <li>frameworks:
-                                                                <ul>
-                                                                    <li>bootstrap 4</li>
-                                                                    <li>bootstrap-Native (this is a ES6 javascript api)</li>
-                                                                </ul>
-                                                                    <li>other API: Popcorn (tooltip)</li>
-                                                                    <li>front-end langauges: html 5, css 3, (pure/higher order) javascript<br /><br /></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <span class="text-Highlight">backend</span>
-                                                                <ul>
-                                                                    <li>frameworks:
-                                                                        <ul>
-                                                                            <li>.Net 4.5</li>
-                                                                            <li>unity mvc 5</li>
-                                                                        </ul>
-                                                                    <li>languages: c# and razor</li>
-                                                                </ul><br />
-                                                            <li>
-                                                                <span class="text-Highlight">data layer</span>
-                                                                <ul>
-                                                                    <li>entity framework 6: ado.net entity data model</li>
-                                                                    <li>database: MSSQL 2014 TSQL (for local development)<br /><br /></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <span class="text-Highlight">enhanced separation of concerns</span>
-                                                                <ul>
-                                                                    <li>web layer: MVC routing, controllers & views</li>
-                                                                    <li>service layer: separation of normal MVC Controllers' business logic onto services who then communicate to the data access layer</li>
-                                                                    <li>view models layer: to employ MVVM design pattern by providing output user view data structure for the service layer</li>
-                                                                    <li>data access layer: defines interfaces and repositories for entity framework 6 edmx models<br /><br /></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><span class="text-Highlight">unit testing</span> Microsoft TestFramework<br /><br /></li>
-                                                            <li>
-                                                                <span class="text-Highlight">hosting services</span>
-                                                                <ul>
-                                                                    <li>database (live): Azure SQL cloud hosting</li>
-                                                                    <li>website: Microsoft Azure Cloud Service</li>
-                                                                    <li>source control: <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="https://github.com/rclark4077/Resume" style="color: #333;">GitHub</a></span></li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <td style="width: 50%;">
+                    <!-- column 1-->
+                    <div>
+                        <span class="paragraph-title">About this site</span>
+                    </div>
+                    <div>
+                        <br />
+                        <p>Thank you for visiting my resume` web application.  This site was built for your benefit to experience a bit of my code design and engineering capabilities. The programming techniques used to build this site are described in the right panel: <span data-noevent="true" class="paragraph-title" style="padding: 4px;">Architecture</span></p>
+                    </div>
+                    <div>
+                        <p>This site was built from the ground up with very little 3rd party framework involvement. This was intentional to illustrate my full-stack programming capabilities without the need for front-end frameworks like angular or jquery but still provide for a rich and dynamic user experience</p>
+                        <p>Starting with the menu system, it was built to be fed by the database and can be found in the <a class="text-Highlight" href="/Downloads/Index/1" style="color: #333;">downloads</a> as table modules and submodules in this application's model entities</p>
+                        <p>The only frameworks that were used are .Net 4.5, <span class="text-Highlight">Unity MVC5</span> (used for dependency injections helping to allow for model, repository and service separations) and <span class="text-Highlight">Bootstrap 4</span> with Bootstrap-Native (this is for ES6 javascript api access).  This came with one other JS add-on for Bootstrap called <span class="text-Highlight">Popcorn</span>.  Popcorn operates when the side-menu is compressed and thus the descriptions for the navigation are hidden.  All animations, sliders, zooms, form-actions, page updates...etc were built using pure javascript in concert with CSS3 and MVC Request/Response handlers</p>
+                        <p>As for the MVC base design pattern used, I chose to also include a derivative called Model-View-View-Model (aka MVVM) design approach for a more defined separation of concerns mainly from the UI and the business-logic layers</p>
+                        <p>Also, <span class="text-Highlight">please note</span>, at this time, this ASP.Net MVC application is only built for Microsoft Edge, Firefox, Firefox Developer & Google Chrome</p>
+                        <p>You can download this entire site's code for further code analysis. This includes all aspects of the database operations to create, read, and manipulate database & tables using the <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="/Downloads/Index/1" style="color: #333;">downloads</a></span> navigation links</p>
+                    </div>
+                    <div>
+                        <br />
+                        <span class="text-Highlight-mint">
+                            Thank you for visiting
+                        </span>
+                    </div>
+                </td>
+                <td style="width: 50%; background-color: #4a5257;">
+                    <!-- column 2 -->
+                    <div>
+                        <span class="paragraph-title">Architecture</span>
+                    </div>
+                    <div>
+                        <p>
+                            <ul>
+                                <li>
+                                    <br />
+                                    <span class="text-Highlight">design principle</span> SOLID
+                                    <br /><br />
+                                </li>
+                                <li>
+                                    <span class="text-Highlight">design patterns</span>
+                                    <ul>
+                                        <li>Model-View-Controller: (MVC)</li>
+                                        <li>Model-View-View-Model: (MVVM)</li>
+                                        <li>Constructors Dependency Injections<br /><br /></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="text-Highlight">frontend</span>
+                                    <ul>
+                                        <li>
+                                            frameworks:
+                                            <ul>
+                                                <li>bootstrap 4</li>
+                                                <li>bootstrap-Native (this is a ES6 javascript api)</li>
+                                                <li>other API: Popcorn (tooltip)</li>
+                                                <li>front-end langauges: html 5, css 3, (pure/higher order) javascript<br /><br /></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="text-Highlight">backend</span>
+                                            <ul>
+                                                <li>
+                                                    frameworks:
+                                                    <ul>
+                                                        <li>.Net 4.5</li>
+                                                        <li>unity mvc 5</li>
+                                                    </ul>
+                                                <li>languages: c# and razor</li>
+                                            </ul><br />
+                                        <li>
+                                            <span class="text-Highlight">data layer</span>
+                                            <ul>
+                                                <li>entity framework 6: ado.net entity data model</li>
+                                                <li>service queries: linq</li>
+                                                <li>database: MSSQL 2014 TSQL (for local development)<br /><br /></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="text-Highlight">enhanced separation of concerns</span>
+                                            <ul>
+                                                <li>web layer: MVC routing, controllers & views</li>
+                                                <li>service layer: separation of normal MVC Controllers' business logic onto services who then communicate to the data access layer</li>
+                                                <li>view models layer: to employ MVVM design pattern by providing output user view data structure for the service layer</li>
+                                                <li>data access layer: defines interfaces and repositories for entity framework 6 edmx models<br /><br /></li>
+                                            </ul>
+                                        </li>
+                                        <li><span class="text-Highlight">unit testing</span> Microsoft TestFramework<br /><br /></li>
+                                        <li>
+                                            <span class="text-Highlight">hosting services</span>
+                                            <ul>
+                                                <li>database (live): Azure SQL cloud hosting</li>
+                                                <li>website: Microsoft Azure Cloud Service</li>
+                                                <li>source control: <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="https://github.com/rclark4077/Resume" style="color: #333;">GitHub</a></span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <table>
-                        @foreach (dynamic item in Model.ContactNotes)
-                        {
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div><span class="paragraph-title">@item.NoteType.NoteTypeDescription</span></div>
-                                        <div>
-                                            <p>
-                                                @item.Note
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        }
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table style="width: 100%;">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div><span class="paragraph-title">See Also...</span></div>
-                                    <div>
-                                        <p>Please check out the <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="/Qualifications/Index/1" style="color: #333;">qualifications</a></span> and <span data-noevent="true" class="paragraph-title" style="padding: 4px;"><a href="/Projects/Index/1" style="color: #333;">projects</a></span> sections of this website that briefly describe my technical and personal capabilities and experience</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
+
         </tbody>
     </table>
 </div>

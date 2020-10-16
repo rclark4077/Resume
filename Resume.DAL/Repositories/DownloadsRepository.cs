@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using Resume.DAL.Interfaces;
 using Resume.DAL.Models;
 using Resume.ViewModel;
-using Resume.DAL.Interfaces;
-using System.Web.Mvc;
+using System.Collections;
+using System.Linq;
 
 namespace Resume.DAL.Repositories
 {

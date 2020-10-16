@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace Resume.Services.Interfaces
+﻿namespace Resume.Services.Interfaces
 {
     public interface IMenuService
     {

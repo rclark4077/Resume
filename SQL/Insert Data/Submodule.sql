@@ -28,7 +28,8 @@ AS (
 	--SELECT 'primos erp system'				, 5				, 10			, null					, null				, 70				, 4				, 10				, 1				UNION ALL	-- module:  projects
 	--SELECT 'asp.net mvc code'				, 6				, 1				, null					, null				, 70				, null			, null				, 1				UNION ALL	-- module:  downloads
 	--SELECT 'database scripts'				, 6				, 2				, null					, null				, 70				, null			, null				, 1				UNION ALL	-- module:  downloads
-	SELECT 'resume'				            , 6				, 3				, null					, null				, 70				, null			, null				, 1				--UNION ALL	module:  downloads
+	--SELECT 'resume'				            , 6				, 3				, null					, null				, 70				, null			, null				, 1				--UNION ALL	module:  downloads
+	SELECT 'software projects'				, 6				, 5				, null					, null				, 70				, null			, null				, 1
 )	INSERT INTO dbo.Submodule
 		(SubmoduleDescription				, ModuleId		, SortOrder		, ControllerName		, ActionName		, SecurityLevel		, CompanyId		, ProjectId			, Status)
 	SELECT cte.SubmoduleDescription			, cte.ModuleId	, cte.SortOrder	, cte.ControllerName	, cte.ActionName	, cte.SecurityLevel	, cte.CompanyId	, cte.ProjectId		, cte.Status
@@ -43,7 +44,7 @@ AS (
 --  	WHERE s.SubmoduleId in (23, 24)
 		
 
-SELECT * FROM Module WHERE ModuleId = 4
+SELECT * FROM Module WHERE ModuleId = 6
 
-SELECT * FROM Submodule WHERE ModuleId = 4
+SELECT * FROM Submodule WHERE ModuleId = 6
 SELECT * FROM Company

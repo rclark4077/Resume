@@ -12,6 +12,18 @@ namespace Resume.Controllers
             _iHomeService = iHomeService;
         }
 
+        //  GET: Home/GetWelcomeHeading/1
+        [ChildActionOnly]
+        public PartialViewResult GetSocialNetworks(int id = 1)
+        {
+            ViewBag.Name = "Randy Clark";
+            ViewBag.Controller = "Home";
+
+            var model = _iHomeService.GetSocialNetworks(id);
+
+            return PartialView("_HeaderSocialNetworks", model);
+        }
+
         //  GET: Home/GetHeaderProfile/1
         [ChildActionOnly]
         public PartialViewResult GetHeaderProfile(int id = 1)

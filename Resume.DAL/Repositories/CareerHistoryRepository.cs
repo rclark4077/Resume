@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Linq;
-using Resume.DAL.Interfaces;
+﻿using Resume.DAL.Interfaces;
 using Resume.DAL.Models;
 using Resume.ViewModel;
+using System.Collections;
+using System.Linq;
 
 namespace Resume.DAL.Repositories
 {
@@ -13,29 +13,29 @@ namespace Resume.DAL.Repositories
         public IEnumerable GetCompany(int id)
         {
             var company = from co in db.Companies
-                            join ch in db.CareerHistories
-                                on co.CompanyId equals ch.CompanyId
-                            join ca in db.CareerAccomplishments
-                                on ch.CareerHistoryId equals ca.CareerHistoryId
-                            orderby ch.StartDate descending
-                            select new AccomplishmentsViewModel
-                            {
-                                CompanyId = co.CompanyId,
-                                CompanyName = co.CompanyName,
-                                Address1 = co.Address1,
-                                Address2 = co.Address2,
-                                Address3 = co.Address3,
-                                StateInitials = co.StateInitials,
-                                City = co.City,
-                                ZipCode = co.ZipCode,
-                                ZipCodeSuffix = co.ZipCodeSuffix,
-                                PhoneNumber = co.PhoneNumber,
-                                AccomplishmentId = ca.AccomplishmentId,
-                                AccomplishmentDescription = ca.AccomplishmentDescription,
-                                CareerHistoryId = ca.CareerHistoryId,
-                                StartDate = ch.StartDate,
-                                EndDate = ch.EndDate
-                            };
+                          join ch in db.CareerHistories
+                              on co.CompanyId equals ch.CompanyId
+                          join ca in db.CareerAccomplishments
+                              on ch.CareerHistoryId equals ca.CareerHistoryId
+                          orderby ch.StartDate descending
+                          select new AccomplishmentsViewModel
+                          {
+                              CompanyId = co.CompanyId,
+                              CompanyName = co.CompanyName,
+                              Address1 = co.Address1,
+                              Address2 = co.Address2,
+                              Address3 = co.Address3,
+                              StateInitials = co.StateInitials,
+                              City = co.City,
+                              ZipCode = co.ZipCode,
+                              ZipCodeSuffix = co.ZipCodeSuffix,
+                              PhoneNumber = co.PhoneNumber,
+                              AccomplishmentId = ca.AccomplishmentId,
+                              AccomplishmentDescription = ca.AccomplishmentDescription,
+                              CareerHistoryId = ca.CareerHistoryId,
+                              StartDate = ch.StartDate,
+                              EndDate = ch.EndDate
+                          };
             return company;
         }
 

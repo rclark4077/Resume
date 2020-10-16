@@ -1,6 +1,7 @@
 ﻿/* site theme
     {
         colors & bgs
+            #343A40 - bootstrap table-dark base color
             #cbffec - mint
             #00ffb4 - dark mint
             #333    - dark grey
@@ -11,17 +12,12 @@
             #43494E - charcoal
     }
 */
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
 body {
     min-height: 100%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
-    background-color: #c0cccc;
     line-height: 1.5;
+    font-family: 'Raleway-Light', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    background-color: #909999;
     overflow: hidden;
 }
 body, div, header, span, nav, ul, li, i, a
@@ -60,6 +56,7 @@ section, aside, header, footer,
     top: 4px;
 }
 #section-1 ul.nav-level-1 li:first-child {
+    font-family: Quicksand-Regular;
     color: #101010;
     background-color: #00ffb4;
 }
@@ -72,13 +69,11 @@ section, aside, header, footer,
     color: #333;
     background-color: #cbffec;
 }
-#section-1 ul.nav-level-1 li div:hover {
+
+#section-1 ul.nav-level-1 li div:hover,
+#section-1 ul.nav-level-1 li div span:hover{
     color: #cbffec;
     background-color: #333;
-}
-#section-1 ul.nav-level-1 li div span:hover {
-    color: #cbffec;
-    background-color: #43494E;
 }
 /* ------------------------------------------------------------------------------------- [#section-2 - Content Panel] */
 #section-2 {
@@ -124,6 +119,8 @@ a {
 a:hover {
     color: #000;
     background-color: red;
+    font-family: 'Quicksand-Regular';
+    text-decoration: none;
     transition: all .15s linear;
 }
 /* ------------------------------------------------------------------------------------- [action classes]  */
@@ -169,7 +166,7 @@ a:hover {
     background-color: #00ffb4;
     border-radius: 3px;
     padding: 10px;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0, 0.10);
+    box-shadow: 0px 0px 5px 5px rgba(50,50,50, 0.30);
 }
 .paragraph-title:hover {
     background-color: red;

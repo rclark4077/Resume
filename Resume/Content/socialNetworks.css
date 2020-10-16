@@ -1,0 +1,59 @@
+﻿.socialnetworks {
+    height: 100%;
+    background-color: #343A40;
+}
+.socialnetworks table.tableRow:first-child th:first-child {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+.socialnetworks table.tableRow:first-child th div:nth-child(2) div {
+    letter-spacing: 1.5px;
+}
+.socialnetworks table.tableRow:first-child th:first-child div.container div.row div.col {
+    white-space: nowrap;
+    overflow: hidden;
+}
+.socialnetworks table.tableRow:first-child th:first-child div.container div.row div.col:first-child {
+    background-image: url("/Images/quote.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-left: 15px solid #00ffb4;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.socialnetworks table.tableRow:first-child th:first-child div.container div.row div.col:nth-child(2) {
+    top: 5px;
+    font-family: 'Courier New';
+    font-size: 20px;
+    color: #333;
+    background-color: #00ffb4;
+    padding: 20px 0 5px 10px;
+    border-radius: 5px;
+}
+.socialnetworks table.tableRow:first-child th:first-child div.container div.row div.col:last-child {
+    border-right: 60px solid #00ffb4;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Quicksand-Light';
+}
+.socialnetworks table.tableRow:first-child th div:nth-child(3) div.container div div.contact i {
+    line-height: 0;
+    float: right;
+    padding: 0;
+    margin-top: 12px;
+}
+.socialnetworks table.tableRow:first-child th div:nth-child(3) div#linkedinIcon {
+    float: right;
+    font-family: Verdana;
+    font-size: 10px;
+    border-radius: 1px;
+    color: #101010;
+    background-color: #00ffb4;
+    margin: 5px 2px 0px 0px;
+    padding: 0 3px 0 3px;
+}
+.socialnetworks table.tableRow:first-child th div:nth-child(3) div.container div div.contact + div {
+    text-align: left;
+    padding-left: 10px;
+}

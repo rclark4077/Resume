@@ -12,7 +12,7 @@
                 var myModal = document.getElementById('accomplishmentContainer');
 
                 // [2] reference a triggering button (but not used as a trigger)
-                var btnModal = document.getElementById('myModalTrigger');
+                //var btnModal = document.getElementById('myModalTrigger');
 
 
                 // [3] set content (header & content)

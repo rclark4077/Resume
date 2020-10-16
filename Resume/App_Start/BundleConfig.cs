@@ -35,11 +35,16 @@ namespace Resume
                         "~/Scripts/accomplishments.js",
                         "~/Scripts/homeProfile.js"));
 
+            bundles.Add(new StyleBundle("~/bundles/fonts").Include(
+                        "~/Content/fonts.css"));
+
             bundles.Add(new StyleBundle("~/bundles/mastercss").Include(
                         "~/Content/bootstrap.css",
                         "~/Content/site.css",
+                        "~/Content/socialNetworks.css",
                         "~/Content/homeProfile.css",
                         "~/Content/accomplishments.css"));
+
         }
     }
 }

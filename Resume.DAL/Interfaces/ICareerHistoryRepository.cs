@@ -1,5 +1,4 @@
-﻿using Resume.ViewModel;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Resume.DAL.Interfaces
 {

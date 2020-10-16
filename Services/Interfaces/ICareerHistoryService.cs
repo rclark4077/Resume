@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Resume.DAL.Interfaces;
 
 namespace Resume.Services.Interfaces
 {

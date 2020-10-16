@@ -167,6 +167,24 @@ for (let r = 0; r < tr.length; r++) {
 ////////////////////////////////////////////////////                         [begin main(ul)() iffe]
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (ul => {// aka function main(string args[])
     //  [1] set each listed nav link's title to the textContent property
     for (let i = 0; i < ul.children.length; i++) {

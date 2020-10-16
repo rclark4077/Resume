@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace Resume.DAL.Interfaces
+﻿namespace Resume.DAL.Interfaces
 {
     public interface IMenuRepository
     {

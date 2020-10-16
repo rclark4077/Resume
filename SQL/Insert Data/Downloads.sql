@@ -76,13 +76,15 @@ GO
 --GO
 SET IDENTITY_INSERT [dbo].[Downloads] ON 
 GO
-INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (1, 23, 1, N'asp.net mvc code', N'https://github.com/rclark4077/Resume', 1, 1)
-GO													   		  
-INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (2, 24, 1, N'database scripts', N'https://github.com/rclark4077/ResumeTSQLScripts', 1, 1)
-GO													   		  
-INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (3, 25, 1, N'web app database diagram', N'/Downloads/DatabaseDiagram.doc', 2, 1)
-GO													   		  
-INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (4, 26, 1, N'resume of randy clark', N'/Downloads/Resume_of_RandyClark.doc', 2, 1)
+--INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (1, 23, 1, N'asp.net mvc code', N'https://github.com/rclark4077/Resume', 1, 1)
+--GO													   		  
+--INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (2, 24, 1, N'database scripts', N'https://github.com/rclark4077/ResumeTSQLScripts', 1, 1)
+--GO													   		  
+--INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (3, 25, 1, N'web app database diagram', N'/Downloads/DatabaseDiagram.doc', 2, 1)
+--GO													   		  
+--INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (4, 26, 1, N'resume of randy clark', N'/Downloads/Resume_of_RandyClark.doc', 2, 1)
+--GO
+INSERT [dbo].[Downloads] ([DownloadId], [SubmoduleId], [ProfileId], [DownloadDescription], [DownloadUrl], [UrlSourceTypeId], [Status]) VALUES (5, 27, 1, N'software portfolio', N'/Downloads/software_portfolio.doc', 2, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Downloads] OFF
 GO
