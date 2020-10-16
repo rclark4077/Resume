@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Dynamic;
-using System.Linq;
-using Resume.Services.Interfaces;
+﻿using Resume.Services.Interfaces;
+using System.Collections;
 
 namespace Resume.Services.Repositories
 {

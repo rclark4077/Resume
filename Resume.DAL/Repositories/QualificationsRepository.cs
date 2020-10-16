@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Linq;
-using System.Dynamic;
+﻿using Resume.DAL.Interfaces;
 using Resume.DAL.Models;
-using Resume.DAL.Interfaces;
 using Resume.ViewModel;
+using System.Collections;
+using System.Dynamic;
+using System.Linq;
 
 namespace Resume.DAL.Repositories
 {
@@ -15,11 +15,11 @@ namespace Resume.DAL.Repositories
         {
 
             var skillTypes = from TechnicalSkillType in db.TechnicalSkillTypes
-                                where (technicalSkillTypeId.ToString() == null || TechnicalSkillType.TechnicalSkillTypeId == technicalSkillTypeId)
-                                select TechnicalSkillType;
+                             where (technicalSkillTypeId.ToString() == null || TechnicalSkillType.TechnicalSkillTypeId == technicalSkillTypeId)
+                             select TechnicalSkillType;
 
             var attributes = from att in db.ProfileAttributes
-                                select att;
+                             select att;
 
             dynamic model = new ExpandoObject();
             model.SkillTypes = skillTypes;

@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using System.Dynamic;
-using Resume.DAL.Interfaces;
+﻿using Resume.DAL.Interfaces;
 using Resume.DAL.Models;
+using System.Dynamic;
+using System.Linq;
 
 namespace Resume.DAL.Repositories
 {

@@ -53,13 +53,14 @@ namespace Resume.Controllers
         {
             return RedirectToAction("Index"
                                     , "Projects"
-                                    , new {
-                                            id = url.Param,
-                                            LastSelectedController = url.Controller,
-                                            LastSelectedAction = url.Action,
-                                            LastSelectedParam = url.Param,
-                                            LastSelectedProjectId = url.ProjectId.ToString()
-                                        });
+                                    , new
+                                    {
+                                        id = url.Param,
+                                        LastSelectedController = url.Controller,
+                                        LastSelectedAction = url.Action,
+                                        LastSelectedParam = url.Param,
+                                        LastSelectedProjectId = url.ProjectId.ToString()
+                                    });
         }
     }
 }

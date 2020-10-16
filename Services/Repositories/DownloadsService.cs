@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using Resume.DAL.Interfaces;
+﻿using Resume.DAL.Interfaces;
 using Resume.Services.Interfaces;
+using System.Collections;
 
 namespace Resume.Services.Repositories
 {

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Resume.ViewModel.SocialNetworksViewModel>
+
+@{
+    string @desc = "";
+}
+<div class="socialnetworks" style="padding: 20px;">
+    <table class="tableRow table-striped table-dark table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col col-4"><div></div><!-- image --></div>
+                            <div class="col col-4" style="margin: auto;">
+                                <p id="welcomeString">C:\></p>
+                            </div>
+                            <div class="col col-4">
+                                <div class="container">
+                                    @foreach (var item in Model)
+                                    {
+                                        desc = @item.SocialNetworkDescription;
+                                        <div class="row no-gutters">
+                                            <div class="col-xl-1 contact">
+                                                @{
+                                                    switch (@desc.Trim().ToLower())
+                                                    {
+                                                        case "phone number":
+                                                            <i class="material-icons md-18 md-darkmint">perm_phone_msg</i>
+                                                            break;
+                                                        case "email":
+                                                            <i class="material-icons md-18 md-darkmint">alternate_email</i>
+                                                            break;
+                                                        case "linkedin":
+                                                            <div id="linkedinIcon">in</div>
+                                                            break;
+                                                        case "web site":
+                                                            <i class="material-icons md-18 md-darkmint">language</i>
+                                                            break;
+                                                        default:
+                                                            <i class="material-icons md-18 md-darkmint">email</i>
+                                                            break;
+                                                    }
+                                                }
+                                            </div>
+                                            <div class="col-xl-11">
+                                                @{
+                                                    switch (@item.SocialNetworkDescription.Trim().ToLower())
+                                                    {
+                                                        case "phone number":
+                                                            <a href="tel:1-@item.SocialNetworkAddress">@item.SocialNetworkAddress</a>
+                                                            break;
+                                                        case "email":
+                                                            <a href="mailto:@item.SocialNetworkAddress">
+                                                                @item.SocialNetworkAddress
+                                                            </a>
+                                                            break;
+                                                        case "linkedin":
+                                                        case "web site":
+                                                            <a href="@item.SocialNetworkAddress">
+                                                                @item.SocialNetworkAddress
+                                                            </a>
+                                                            break;
+                                                        default:
+                                                            @item.SocialNetworkAddress
+                                                            break;
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>

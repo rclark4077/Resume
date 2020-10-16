@@ -46,6 +46,7 @@
     <Compile Include="AccomplishmentsViewModel.cs" />
     <Compile Include="CareerHistoryViewModel.cs" />
     <Compile Include="CompaniesAndAccomplishmentsViewModel.cs" />
+    <Compile Include="ProfilesViewModel.cs" />
     <Compile Include="LastSelectedViewModel.cs" />
     <Compile Include="PriorEducationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

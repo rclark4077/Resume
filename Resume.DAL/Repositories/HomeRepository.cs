@@ -1,15 +1,33 @@
-﻿using System.Dynamic;
-using System.Linq;
+﻿using Resume.DAL.Interfaces;
 using Resume.DAL.Models;
-using Resume.DAL.Interfaces;
 using Resume.ViewModel;
-using System.Web.Mvc;
+using System.Collections;
+using System.Dynamic;
+using System.Linq;
 
 namespace Resume.DAL.Repositories
 {
     public class HomeRepository : IHomeRepository
     {
         AzureEntities db = new AzureEntities();
+
+        public IEnumerable GetSocialNetworks(int id)
+        {
+            var SocialNetworkProfiles = from sp in db.SocialNetworkProfiles
+                                        join sn in db.SocialNetworks
+                                            on sp.SocialNetworkId equals sn.SocialNetworkId
+                                        join st in db.SocialNetworkTypes
+                                            on sn.SocialNetworkTypeId equals st.SocialNetworkTypeId
+                                        where sp.ProfileId == id && sp.SocialProfileStatus == 1//Active
+                                        select new SocialNetworksViewModel()
+                                        {
+                                            SocialNetworkDescription = st.SocialNetworkDescription,
+                                            SocialNetworkAddress = sn.SocialNetworkAddress,
+                                            SocialProfileStatus = sp.SocialProfileStatus
+                                        };
+
+            return (SocialNetworkProfiles);
+        }
 
         public dynamic GetHeaderProfile(int id)
         {

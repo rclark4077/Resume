@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    @Styles.Render("~/bundles/fonts")
     @Styles.Render("~/bundles/mastercss")
 
     <script src="/Scripts/dist/bootstrap-native.js"></script>
@@ -79,7 +80,14 @@
                         <div id="contentPanel">
                             <div><i id="flexIcon" class="material-icons md-20" title="Hide">toggle_on</i></div>
                             <div class="body">
-                                <br />
+                                @if(controllerName == "Home")
+                                {
+                                    <br />
+                                }
+                                @{
+                                    Html.RenderAction("GetSocialNetworks", "Home", new { id = 1 });
+                                }
+
                                 @{
                                     if (renderActionName != null)
                                     {

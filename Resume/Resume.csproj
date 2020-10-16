@@ -172,10 +172,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\Fonts.css" />
     <Content Include="Content\homeProfile.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\socialNetworks.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\quote.png" />
     <Content Include="Scripts\accomplishments.js" />
     <Content Include="Scripts\assets\css\offcanvas.css" />
     <Content Include="Scripts\assets\css\prism.css" />
@@ -205,6 +208,32 @@
     <Content Include="libman.json" />
     <Content Include="Downloads\DatabaseDiagram.doc" />
     <Content Include="Downloads\Resume_of_RandyClark.doc" />
+    <Content Include="Fonts\Raleway\Raleway-Black.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-BlackItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-Bold.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-BoldItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-ExtraBold.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-ExtraBoldItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-ExtraLight.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-ExtraLightItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-Italic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-Light.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-LightItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-Medium.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-MediumItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-Regular.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-SemiBold.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-SemiBoldItalic.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-Thin.woff2" />
+    <Content Include="Fonts\Raleway\Raleway-ThinItalic.woff2" />
+    <Content Include="Fonts\Quicksand\Quicksand-Bold.otf" />
+    <Content Include="Fonts\Quicksand\Quicksand-BoldItalic.otf" />
+    <Content Include="Fonts\Quicksand\Quicksand-Italic.otf" />
+    <Content Include="Fonts\Quicksand\Quicksand-Light.otf" />
+    <Content Include="Fonts\Quicksand\Quicksand-LightItalic.otf" />
+    <Content Include="Fonts\Quicksand\Quicksand-Regular.otf" />
+    <Content Include="Fonts\Quicksand\Quicksand_Dash.otf" />
+    <Content Include="Downloads\software_portfolio.doc" />
     <None Include="Properties\PublishProfiles\darthclark - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -324,6 +353,7 @@
     <Content Include="Views\Shared\_HeaderCareerHistoryCompanies.cshtml" />
     <Content Include="Views\Shared\_HeaderDownloads.cshtml" />
     <Content Include="Views\Downloads\Index.cshtml" />
+    <Content Include="Views\Shared\_HeaderSocialNetworks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
