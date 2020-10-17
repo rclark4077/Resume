@@ -17,5 +17,5 @@
             td.appendChild(icon)
         });
     };
-})(panel2.querySelector(".body .projects-list .embedded-thead tr th")
-    , panel2.querySelectorAll(".body .projects-list table tbody table tr"));
+})(document.querySelector("#section-2 .body .projects-list .embedded-thead tr th")
+    , document.querySelectorAll("#section-2 .body .projects-list table tbody table tr"));

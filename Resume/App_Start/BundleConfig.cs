@@ -29,7 +29,7 @@ namespace Resume
                       "~/Scripts/dist/bootstrap-native.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                        "~/Scripts/site.js",
+                        "~/Scripts/ResumeAPI.js",
                         "~/Scripts/projects.js",
                         "~/Scripts/htmlEntities.js",
                         "~/Scripts/accomplishments.js",
