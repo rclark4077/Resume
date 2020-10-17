@@ -1,10 +1,13 @@
 ﻿(function (window) {
-    window.terminal = {
+    window.TERMINAL = {
         /**
-		 * Emulate blinking terminal cursor
-         * typing welcome string
-        **/
-        hello: function (welcome, welcomeString, controller) {
+         * @description - Emulate blinking terminal cursor
+         * @param {HTMLParagraphElement} welcome
+         * @param {string} welcomeString
+         * @param {any} controller
+         * @returns {null}
+         */
+        hello: function (welcome, welcomeString) {
             let letters = welcomeString.split("");
             if (letters.length > 0) {
                 let intervalId = setInterval(function () {
@@ -41,20 +44,23 @@
             };
         },
         /**
-         * Removes the final '|' char
-         * from string
-         **/
+         * @description - Removes the final '|' char in html string row
+         * @param {HTMLSpanElement} lastSpan
+         * @returns {null}
+         */
         removepipe: function (lastSpan) {
             lastSpan ? lastSpan.remove() : null;
         },
         /**
-         * Sets addEventListeners for any dom element children as function parameter
-         **/
+         * @description - Sets addEventListeners for any dom element children as function parameter
+         * @param {CSSRule} paragraphTitles
+         * @returns {null}
+         */
         zoomsections: function (paragraphTitles) {
             for (let p = 0; p < paragraphTitles.length; p++) {
                 if (!paragraphTitles[p].classList.contains("noevent")) {
                     paragraphTitles[p].addEventListener("click", function (e) {
-                        let title = getTarget(e);//<span>
+                        let title = TARGET.getTarget(e);//<span>
                         let grandParent = title.parentNode.parentNode;// represents grandparnet <td> container of previous <span>
 
 
@@ -70,9 +76,11 @@
             };
         },
         /**
-         * Sets event listeners on tables to be displayed
-         **/
-        displaytables: function (spantags) {
+         * @description - Sets event listeners on tables to be displayed
+         * @param {HTMLSpanElement} spantags
+         * @returns {null}
+         */
+        displayTables: function (spantags) {
             for (s = 0; s < spantags.length; s++) {
                 let span = spantags[s];
                 span.addEventListener("click", () => {
@@ -84,14 +92,3 @@
         }
     }
 })(window);
-document.onreadystatechange = function () {
-    switch (document.readyState) {
-        case "complete":
-            terminal.hello(document.getElementById("welcomeString"), "randy.clark\\resume` :) ", controller);
-            terminal.removepipe(document.querySelector("div.socialnetworks table:nth-child(2) tbody td span.bullet:last-child"));
-            terminal.zoomsections(document.querySelectorAll(".paragraph-title"));
-            terminal.displaytables(document.querySelectorAll(".home-render-action table.tableRow:nth-child(3) td table th span"));
-            break;
-    }
-};
-

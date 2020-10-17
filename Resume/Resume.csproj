@@ -253,7 +253,7 @@
     <Content Include="Scripts\dist\polyfill.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\projects.js" />
-    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\ResumeAPI.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
