@@ -1,7 +1,12 @@
 ﻿if (controller === "Projects" || controller === "CareerHistory") {
-    ((window) => {
-        ACCOMPLISHMENTS = {
-            show: function () {
+    (function(window) {
+        window.ACCOMPLISHMENTS = {
+            /**
+            * @description - Dispalys Bootstrap Modal popup object
+            * @param {none}
+            * @returns {null}
+            */
+            show: () => {
                 const accHeader = document.getElementById("accomplishmentHeader");
                 const accContent = document.getElementById("accomplishments");
 

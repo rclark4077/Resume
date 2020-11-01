@@ -10,8 +10,8 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
     window.TARGET = {
         /**
          * @description - Returns target object in usable dom reference
-         * @param e - any dom element
-         * @returns {element}
+         * @param {any} e
+         * @returns {Node}
          */
         getTarget: function (e) {
             ev = e || window.event;             // ie8 legacy object
@@ -27,13 +27,18 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
         */
         toggler: (controllerName, toggle) => {
             //  [show/hide content panel minification button]
-            if (controllerName === 'home') {
-                toggle.remove();
-                return true;
-            } else {// all other controllers get a toggle button
-                card.insertBefore(toggle, card.children[0]);
-                return false;
+            let removed = false;
+
+            switch (controllerName) {
+                case 'home':
+                    toggle.remove();
+                    removed = true;
+                    break;
+                default:
+                    card.insertBefore(toggle, card.children[0]);
+                    break;
             }
+            return removed;
         },
         /**
         * @description - Adds event listener if !toggleRemove()
@@ -58,16 +63,16 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
         * @param {HTMLTableRowElement}
         * @return {null}
         */
-        zoomify: (tr) => {
-            for (let r = 0; r < tr.length; r++) {
-                let zoomIcon = tr[r].querySelectorAll(".paragraph-title");
-                for (let z = 0; z < zoomIcon.length; z++) {
-                    if (zoomIcon[z]) {
-                        zoomIcon[z].addEventListener("click", function () {
+        zoomify: tr => {
+            [...tr].map(function (row) {
+                let zoomIcon = row.querySelectorAll("span.paragraph-title");
+                [...zoomIcon].map(function (zoom) {
+                    if (zoom) {
+                        zoom.addEventListener("click", function () {
                             //  when zoom button is clicked, zoom in entire <td> textContent
-                            if (zoomIcon[z].textContent == "zoom" || zoomIcon[z].textContent == "normalize") {
+                            if (zoom.textContent == "zoom" || zoom.textContent == "normalize") {
                                 try {
-                                    let zoomTd = zoomIcon[z].parentNode.parentNode;
+                                    let zoomTd = zoom.parentNode.parentNode;
                                     zoomTd.classList.toggle("zoom-text");
                                     zoomTd.nextElementSibling.classList.toggle("zoom-text");
                                 } catch (e) {
@@ -76,20 +81,20 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
                                 let buttonTextValue = (el => {
                                     return el.textContent == "zoom" ? "normalize" : "zoom";
                                 });
-                                zoomIcon[z].textContent = buttonTextValue(this);
+                                zoom.textContent = buttonTextValue(this);
                             };
-                            zoomIcon[z].classList.toggle("paragraph-title-click");
+                            zoom.classList.toggle("paragraph-title-click");
                         });
                     };
-                };
-            };
+                });
+            });
         },
         /**
         * @description - Strips and returns hyperlink embedded in element's data-link attrib
-        * @param {any} el
+        * @param {any}
         * @returns {null}
         */
-        getHyperLink: function (el = null) {
+        getHyperLink: el => {
             if (el.dataset.link) {
                 let controllerAction = el.dataset.link.split("/").filter(tag => {
                     return tag != null && tag != '';
@@ -101,7 +106,7 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
         },
         /**
         * @description - Submits or hyperlinks based on asp.net controller source
-        * @param {any} el
+        * @param {any}
         * @returns {null}
         */
         submit: function (el) {
@@ -135,7 +140,7 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
         * @param {HTMLUListElement} - Navigation top-level <ul> container
         * @returns {null}
         */
-        cloneNavText: (ul) => {
+        cloneNavText: ul => {
             for (let i = 0; i < ul.children.length; i++) {
                 navTextContent.push(ul.children[i].querySelector("li > span").textContent);
                 ul.children[i].title = ul.children[i].querySelector("li > span").textContent;
@@ -146,12 +151,12 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
         * @param {HTMLUListElement} - Navigation top-level <ul> container
         * @returns {null}
         */  
-        removeModuleLevelDataLink: (ul) => {          
+        removeModuleLevelDataLink: ul => {
             [].slice.call(ul.children).forEach(li => {
                 const span = li.querySelectorAll("div span[data-link]");
-                for (let i = 0; i < span.length; i++) {
-                    span[i].parentNode.parentNode.removeAttribute("data-link");
-                };
+                [...span].map(s => {
+                    s.parentNode.parentNode.removeAttribute("data-link");
+                });
             });
         },
         /**
@@ -195,13 +200,13 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
                         panel1.classList.add("nav-panel-expanded");
                     };
                     //  hide nav icons' texts
-                    for (let i = 0; i < spanTextContent.length; i++) {
+                    [...spanTextContent].map(s => {
                         if (panel1.classList.contains("nav-panel-expanded")) {
-                            spanTextContent[i].textContent = navTextContent[i];
+                            s.textContent = navTextContent[i];
                         } else {
-                            spanTextContent[i].textContent = null;
+                            s.textContent = null;
                         };
-                    };
+                    });
                 };
                 const clearAllActive = function (el) {
                     // remove any .active class from all <li> items' table rows' table cells
@@ -209,9 +214,10 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
                         let l = el.children[i];
                         l.classList.remove("active");
                         let childDivs = l.querySelectorAll("div");
-                        for (let i = 0; i < childDivs.length; i++) {
-                            childDivs[i].classList.add("display-block");
-                        };
+
+                        [...childDivs].map(c => {
+                            c.classList.add("display-block");
+                        });
                     };
                 };
                 const bgColor = function (el, direction) {
@@ -291,17 +297,17 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
                         li.classList.add("active");
 
                         //  setup <div data-link="..."> click event listener to trip submodule_display_none flags
-                        let div = li.querySelectorAll("div");
-                        for (let i = 0; i < div.length; i++) {
-                            with (div[i].style) {
-                                div[i].classList.remove("display-block");
+                        //let div = li.querySelectorAll("div");
+                        [...li.querySelectorAll("div")].map(div => {
+                            with (div.style) {
+                                div.classList.remove("display-block");
                             };
-                            let span = div[i].querySelector("span");
+                            let span = div.querySelector("span");
                             span.addEventListener("click", e => {
                                 //  submit form selection --> this form will remember which menu/submenu was selected past a post() event
                                 PAGE.submit(span);
                             });
-                        };
+                        });
                     };
                     //  submit form selection --> this form will remember which menu/submenu was selected past a post() event
                     if (li.dataset.link) {
@@ -311,29 +317,29 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
             });// foreach ul
         },
     },
-    window.HISTORY = {
+    window.COMPANYHISTORY = {
         /**
         * @description - Company selection click events
         * @param {HTMLSpanElement}
         * @returns {null}
         */
-        companyHistoryListen: (tableSpan) => {
-            for (let i = 0; i < tableSpan.length; i++) {
-                tableSpan[i].addEventListener("click", e => {
-                    let span = TARGET.getTarget(e);
-                    PAGE.submit(span);
+        companyHistoryListen: tableSpan => {
+            [...tableSpan].map(span => {
+                span.addEventListener("click", e => {
+                    let s = TARGET.getTarget(e);
+                    PAGE.submit(s);
                 });
-            };
+            });
         },
     }
 })(window);
 document.onreadystatechange = function () {
     switch (document.readyState) {
         case 'complete':
-            // HISTORY [company history objects]
-            HISTORY.companyHistoryListen(panel2.querySelectorAll("div#contentPanel .body .company-list table td span"));
+            // COMPANYHISTORY [company history objects]
+            COMPANYHISTORY.companyHistoryListen(panel2.querySelectorAll("div#contentPanel .body .company-list table td span"));
 
-            // NAV [menu objects]
+            // NAV [navigation | menu objects]
             NAV.cloneNavText(document.querySelector("section#section-1 ul"));
             NAV.removeModuleLevelDataLink(document.querySelector("section#section-1 ul"));
             NAV.navListen(document.querySelector("section#section-1 ul"));
@@ -343,11 +349,16 @@ document.onreadystatechange = function () {
             PAGE.togglerListen(toggleRemoved, panel2.querySelector("#flexIcon"));
             PAGE.zoomify(tr);
 
+            // PROJECTS [these objects are set in /Scripts/projects.js]
+            PROJECTS.focusArrow(document.querySelector("#section-2 .body .projects-list .embedded-thead tr th")
+                                , document.querySelectorAll("#section-2 .body .projects-list table tbody table tr"));
+
             // TERMINAL [these objects are set in /Scripts/homeProfile.js]
-            TERMINAL.hello(document.getElementById("welcomeString"), "randy.clark\\resume` :) ");
-            TERMINAL.removepipe(document.querySelector("div.home-render-action table:nth-child(1) tbody td span.bullet:last-child"));
+            TERMINAL.typeMessage(document.getElementById("welcomeString"), "randy.clark\\resume` :) ");
+            TERMINAL.removeLastPipe(document.querySelector("div.home-render-action table:nth-child(1) tbody td span.bullet:last-child"));
             TERMINAL.zoomsections(document.querySelectorAll(".paragraph-title"));
-            TERMINAL.displayTables(document.querySelectorAll(".home-render-action table.tableRow:nth-child(3) td table th span"));
+            //TERMINAL.displayTables(document.querySelectorAll(".home-render-action table.tableRow:nth-child(3) td:nth-child(2).architecture table th p"));
+            TERMINAL.displayTables(document.querySelectorAll(".home-render-action table.tableRow:nth-child(3) td table th p"));
 
             // ACCOMPLISHMENTS [these objects are set in /Scripts/accomplishments.js]
             if (controller === "Projects" || controller === "CareerHistory") {

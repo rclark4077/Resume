@@ -30,19 +30,9 @@
     padding: 20px;
 }
 .home-render-action table.tableRow:nth-child(3) td table {
-    width: 100%;
-    /*background-color: #4a5257;*/
-}
-.home-render-action table.tableRow:nth-child(3) td table thead {
-    height: 65px;
-}
-.home-render-action table.tableRow:nth-child(3) td table td,
-.home-render-action table.tableRow:nth-child(3) td table th {
-    width: 50%;
-    text-align: left;
-    padding: 10px;
-    margin: 0;
+    min-width: 100%;
 }
 .display-table {
-    display: none;
+    display: block;
+    transition: all .25s linear;
 }
