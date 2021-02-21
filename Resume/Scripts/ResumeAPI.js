@@ -176,6 +176,7 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
                     const panel1 = document.getElementById("section-1");
                     const ul = document.querySelector("section#section-1 ul");
                     const spanTextContent = ul.querySelectorAll("li > span");
+                    let i = 0;// iterator
                     //  establish initial panel2 (aka content panel) size
                     with (panel2.style) {
                         if (width == '') {
@@ -206,6 +207,7 @@ const tr = cardBody.querySelectorAll("table table tbody tr");
                         } else {
                             s.textContent = null;
                         };
+                        i += 1;
                     });
                 };
                 const clearAllActive = function (el) {
